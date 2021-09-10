@@ -40,15 +40,25 @@ interface ReduxProps {
 type Props = ReduxProps & RouteProps & IntlProps;
 
 class Landing extends React.Component<Props> {
+    state = {
+        navBackground: null
+    };
+
     public componentDidMount() {
-        if (this.props.colorTheme === 'light') {
-            toggleColorTheme('dark');
+        // change navbar background while scrolling
+        document.addEventListener("scroll", () => {
+            const backgroundcolor = window.scrollY < 100 ? "none" : "white";
+            console.log("scroll")
+            this.setState({ navBackground: backgroundcolor });
+        });
+        if (this.props.colorTheme === 'dark') {
+            toggleColorTheme('light');
         }
     }
 
     public componentWillReceiveProps(next: Props) {
-        if (next.colorTheme === 'light') {
-            toggleColorTheme('dark');
+        if (next.colorTheme === 'dark') {
+            toggleColorTheme('light');
         }
     }
 
@@ -59,9 +69,11 @@ class Landing extends React.Component<Props> {
     }
 
     public render() {
+
         return (
             <div className="pg-landing-screen">
-                <div className="pg-landing-screen__header">
+                {/* NAVBAR */}
+                <div className="pg-landing-screen__header" style={{ background: this.state.navBackground }}>
                     <div className="pg-landing-screen__header__wrap">
                         <div className="pg-landing-screen__header__wrap__left" onClick={(e) => this.handleScrollTop()}>
                             <Logo />
@@ -84,6 +96,17 @@ class Landing extends React.Component<Props> {
                         </div>
                     </div>
                 </div>
+                <LandingBlock
+                    className="pg-landing-screen__register"
+                    contentClassName="pg-landing-screen__register-content">
+                    <div className="pg-landing-screen__register__item">
+                        <h1>{this.translate('page.body.landing.register.item.title')}</h1>
+                        <h2>{this.translate('page.body.landing.register.item.text')}</h2>
+                        <Link to="/signup" className="landing-button">
+                            {this.translate('page.body.landing.register.item.button')}
+                        </Link>
+                    </div>
+                </LandingBlock>
                 <LandingBlock className="pg-landing-screen__top" contentClassName="pg-landing-screen__top-content">
                     <div className="pg-landing-screen__market-info">
                         <div className="pg-landing-screen__market-info__wrap">
