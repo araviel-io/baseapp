@@ -129,8 +129,9 @@ export const en = {
     'page.body.landing.platformInfo.item.third.value': '101',
     'page.body.landing.platformInfo.item.third.title': 'Countries supported',
 
-    'page.body.landing.register.item.title': 'No matter your experience level',
-    'page.body.landing.register.item.text': 'Baseapp offers an intuitive interface with real time orderbooks, charting tools, trade history, and a simple order process so you can trade from day one.',
+    'page.body.landing.register.item.title': 'Welcome to Safe.Trade',
+    'page.body.landing.register.item.subtitle': 'More Security. Better Privacy. Less Stress',
+    'page.body.landing.register.item.text': 'Stay Safe with the Safetrade ecosystem featuring SafePay, SafeNodes and Safecoin.',
     'page.body.landing.register.item.button': 'register',
 
     'page.body.landing.features.title': 'Baseapp platform features',
