@@ -118,8 +118,8 @@ export const en = {
     'page.body.landing.header.button2': 'log in',
     'page.body.landing.header.button3': 'register',
 
-    'page.body.landing.marketInfo.title.text1': 'Welcome to Baseapp.',
-    'page.body.landing.marketInfo.title.text2': 'Buy, sell and trade digital currency.',
+    'page.body.landing.marketInfo.title.text1': 'Trade with us today -',
+    'page.body.landing.marketInfo.title.text2': 'More Security. Better Privacy. Less Stress.',
     'page.body.landing.marketInfo.title.button': 'start trading',
 
     'page.body.landing.platformInfo.item.first.value': '30M+',

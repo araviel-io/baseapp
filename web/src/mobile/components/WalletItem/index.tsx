@@ -18,7 +18,6 @@ const WalletItemComponent = (props: Props) => {
             fixed = DEFAULT_CCY_PRECISION,
         },
     } = props;
-
     return (
         <div className="cr-mobile-wallet-item" onClick={() => props.onClick(currency)}>
             <div>

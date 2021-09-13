@@ -8,6 +8,9 @@ import { compose } from 'redux';
 import { IntlProps } from '../../';
 import { Logo } from '../../components';
 import { MarketsTable } from '../../containers';
+// Ara customized market table for landing page only
+import { MarketsTableLanding } from 'src/containers/MarketsTableLanding';
+
 import { toggleColorTheme } from '../../helpers';
 import {
     RootState,
@@ -30,6 +33,7 @@ import RedditIcon from 'src/assets/images/landing/social/Reddit.svg';
 import FacebookIcon from 'src/assets/images/landing/social/Facebook.svg';
 import MediumIcon from 'src/assets/images/landing/social/Medium.svg';
 import CoinMarketIcon from 'src/assets/images/landing/social/CoinMarket.svg';
+
 
 interface ReduxProps {
     isLoggedIn: boolean;
@@ -95,29 +99,17 @@ class Landing extends React.Component<Props> {
                         </div>
                     </div>
                 </div>
-                <LandingBlock
-                    className="pg-landing-screen__register"
-                    contentClassName="pg-landing-screen__register-content">
-                    <div className="pg-landing-screen__register__item">
-                        <h1>{this.translate('page.body.landing.register.item.title')}</h1>
-                        <h2>{this.translate('page.body.landing.register.item.subtitle')}</h2>
-                        <p>{this.translate('page.body.landing.register.item.text')}</p>
-                        <Link to="/signup" className="landing-button">
-                            {this.translate('page.body.landing.register.item.button')}
-                        </Link>
-                    </div>
-                </LandingBlock>
                 <LandingBlock className="pg-landing-screen__top" contentClassName="pg-landing-screen__top-content">
                     <div className="pg-landing-screen__market-info">
                         <div className="pg-landing-screen__market-info__wrap">
                             <div className="pg-landing-screen__market-info__wrap__title">
                                 <h1>{this.translate('page.body.landing.marketInfo.title.text1')}</h1>
-                                <h1>{this.translate('page.body.landing.marketInfo.title.text2')}</h1>
+                                <h2>{this.translate('page.body.landing.marketInfo.title.text2')}</h2>
                                 <Link to="/trading" className="landing-button">
                                     {this.translate('page.body.landing.marketInfo.title.button')}
                                 </Link>
                             </div>
-                            <MarketsTable />
+                            <MarketsTableLanding />
                         </div>
                     </div>
                     <div className="pg-landing-screen__platform-info">
@@ -135,6 +127,18 @@ class Landing extends React.Component<Props> {
                                 <span>{this.translate('page.body.landing.platformInfo.item.third.title')}</span>
                             </div>
                         </div>
+                    </div>
+                </LandingBlock>
+                <LandingBlock
+                    className="pg-landing-screen__register"
+                    contentClassName="pg-landing-screen__register-content">
+                    <div className="pg-landing-screen__register__item">
+                        <h1>{this.translate('page.body.landing.register.item.title')}</h1>
+                        <h2>{this.translate('page.body.landing.register.item.subtitle')}</h2>
+                        <p>{this.translate('page.body.landing.register.item.text')}</p>
+                        <Link to="/signup" className="landing-button">
+                            {this.translate('page.body.landing.register.item.button')}
+                        </Link>
                     </div>
                 </LandingBlock>
                 <LandingBlock
