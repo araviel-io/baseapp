@@ -1,0 +1,2 @@
+web/src/containers/MarketsTableLanding
+web/src/components/TickerTableLanding

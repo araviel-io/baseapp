@@ -5,12 +5,15 @@ import { connect } from 'react-redux';
 import { Link, RouteProps, withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 
+// Ara implementation of language switcher directly from home
+import classnames from 'classnames';
+import { Dropdown } from 'react-bootstrap';
+// End of LANG implementation
 import { IntlProps } from '../../';
 import { Logo } from '../../components';
-import { MarketsTable } from '../../containers';
-// Ara customized market table for landing page only
+// Ara implementation of customized market table for landing page only
 import { MarketsTableLanding } from 'src/containers/MarketsTableLanding';
-
+// End of MarketsTableLanding implementation
 import { toggleColorTheme } from '../../helpers';
 import {
     RootState,
@@ -34,7 +37,10 @@ import FacebookIcon from 'src/assets/images/landing/social/Facebook.svg';
 import MediumIcon from 'src/assets/images/landing/social/Medium.svg';
 import CoinMarketIcon from 'src/assets/images/landing/social/CoinMarket.svg';
 
-
+/* NOTE :
+use <LandingBlock> for "fullscren" wrapper
+use standart <div> for regular 
+*/
 interface ReduxProps {
     isLoggedIn: boolean;
     colorTheme: string;
@@ -72,7 +78,15 @@ class Landing extends React.Component<Props> {
     }
 
     public render() {
-
+        /*   const { isLoggedIn, isActive, lang } = this.props;
+           const { isOpenLanguage } = this.state;
+   
+           const languageName = lang.toUpperCase();
+   
+           const languageClassName = classnames('dropdown-menu-language-field', {
+               'dropdown-menu-language-field-active': isOpenLanguage,
+           });
+           */
         return (
             <div className="pg-landing-screen">
                 {/* NAVBAR */}
@@ -96,6 +110,15 @@ class Landing extends React.Component<Props> {
                                     </Link>
                                 </>
                             )}
+                            {/*
+                            <Dropdown>
+                                <Dropdown.Toggle variant="primary" id={languageClassName}>
+                                    <img src={this.getLanguageIcon(lang)} alt={lang} />
+                                    <span className="dropdown-menu-language-selected">{languageName}</span>
+                                </Dropdown.Toggle>
+                                <Dropdown.Menu>{this.getLanguageDropdownItems()}</Dropdown.Menu>
+                            </Dropdown>
+                            */}
                         </div>
                     </div>
                 </div>
@@ -112,45 +135,25 @@ class Landing extends React.Component<Props> {
                             <MarketsTableLanding />
                         </div>
                     </div>
-                    <div className="pg-landing-screen__platform-info">
-                        <div className="pg-landing-screen__platform-info__wrap">
-                            <div className="pg-landing-screen__platform-info__wrap__item">
-                                <span>{this.translate('page.body.landing.platformInfo.item.first.value')}</span>
-                                <span>{this.translate('page.body.landing.platformInfo.item.first.title')}</span>
-                            </div>
-                            <div className="pg-landing-screen__platform-info__wrap__item">
-                                <span>{this.translate('page.body.landing.platformInfo.item.second.value')}</span>
-                                <span>{this.translate('page.body.landing.platformInfo.item.second.title')}</span>
-                            </div>
-                            <div className="pg-landing-screen__platform-info__wrap__item">
-                                <span>{this.translate('page.body.landing.platformInfo.item.third.value')}</span>
-                                <span>{this.translate('page.body.landing.platformInfo.item.third.title')}</span>
+                    {/* CONTRASTED HORIZONTAL CTA
+                        <div className="pg-landing-screen__platform-info">
+                            <div className="pg-landing-screen__platform-info__wrap">
+                                <div className="pg-landing-screen__platform-info__wrap__item">
+                                    <span>{this.translate('page.body.landing.platformInfo.item.first.value')}</span>
+                                    <span>{this.translate('page.body.landing.platformInfo.item.first.title')}</span>
+                                </div>
+                                <div className="pg-landing-screen__platform-info__wrap__item">
+                                    <span>{this.translate('page.body.landing.platformInfo.item.second.value')}</span>
+                                    <span>{this.translate('page.body.landing.platformInfo.item.second.title')}</span>
+                                </div>
+                                <div className="pg-landing-screen__platform-info__wrap__item">
+                                    <span>{this.translate('page.body.landing.platformInfo.item.third.value')}</span>
+                                    <span>{this.translate('page.body.landing.platformInfo.item.third.title')}</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </LandingBlock>
-                <LandingBlock
-                    className="pg-landing-screen__register"
-                    contentClassName="pg-landing-screen__register-content">
-                    <div className="pg-landing-screen__register__item">
-                        <h1>{this.translate('page.body.landing.register.item.title')}</h1>
-                        <h2>{this.translate('page.body.landing.register.item.subtitle')}</h2>
-                        <p>{this.translate('page.body.landing.register.item.text')}</p>
-                        <Link to="/signup" className="landing-button">
-                            {this.translate('page.body.landing.register.item.button')}
-                        </Link>
-                    </div>
-                </LandingBlock>
-                <LandingBlock
-                    className="pg-landing-screen__register"
-                    contentClassName="pg-landing-screen__register-content">
-                    <div className="pg-landing-screen__register__item">
-                        <h1>{this.translate('page.body.landing.register.item.title')}</h1>
-                        <h2>{this.translate('page.body.landing.register.item.text')}</h2>
-                        <Link to="/signup" className="landing-button">
-                            {this.translate('page.body.landing.register.item.button')}
-                        </Link>
-                    </div>
+                    */}
+
                 </LandingBlock>
                 <LandingBlock className="pg-landing-screen__features">
                     <div className="pg-landing-screen__features__wrap">
@@ -227,6 +230,18 @@ class Landing extends React.Component<Props> {
                                 {this.translate('page.body.landing.tradeOnTheGo.item.button')}
                             </Link>
                         </div>
+                    </div>
+                </LandingBlock>
+                <LandingBlock
+                    className="pg-landing-screen__register"
+                    contentClassName="pg-landing-screen__register-content">
+                    <div className="pg-landing-screen__register__item">
+                        <h1>{this.translate('page.body.landing.register.item.title')}</h1>
+                        <h2>{this.translate('page.body.landing.register.item.subtitle')}</h2>
+                        <p>{this.translate('page.body.landing.register.item.text')}</p>
+                        <Link to="/signup" className="landing-button">
+                            {this.translate('page.body.landing.register.item.button')}
+                        </Link>
                     </div>
                 </LandingBlock>
                 <div className="pg-landing-screen__start-trading">

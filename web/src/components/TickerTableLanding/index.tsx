@@ -34,7 +34,7 @@ export const TickerTableLanding: React.FC<Props> = ({
             return (
                 <tr key={index} onClick={() => redirectToTrading(market.id)}>
                     <td>
-                        <div><CryptoIcon  code={GetCurrencyName(market.name)} /> {market && market.name}</div>
+                        <div><CryptoIcon code={GetCurrencyName(market.name)} /> {market && market.name}</div>
                     </td>
                     <td>
                         <span>

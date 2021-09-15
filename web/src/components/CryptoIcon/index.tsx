@@ -22,7 +22,7 @@ export const CryptoIcon: React.FunctionComponent<CryptoIconProps> = (props) => {
 
     return (
         <span className={cx('cr-crypto-icon', className)}>
-            <img src={icon} alt={code} /> {children}
+            <img className="pg-ticker-table__icon" src={icon} alt={code} /> {children}
         </span>
     );
 };

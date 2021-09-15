@@ -118,7 +118,7 @@ export const en = {
     'page.body.landing.header.button2': 'log in',
     'page.body.landing.header.button3': 'register',
 
-    'page.body.landing.marketInfo.title.text1': 'Trade with us today -',
+    'page.body.landing.marketInfo.title.text1': 'Trade with us today',
     'page.body.landing.marketInfo.title.text2': 'More Security. Better Privacy. Less Stress.',
     'page.body.landing.marketInfo.title.button': 'start trading',
 
@@ -134,7 +134,7 @@ export const en = {
     'page.body.landing.register.item.text': 'Stay Safe with the Safetrade ecosystem featuring SafePay, SafeNodes and Safecoin.',
     'page.body.landing.register.item.button': 'register',
 
-    'page.body.landing.features.title': 'Baseapp platform features',
+    'page.body.landing.features.title': 'SafeTrade features',
     'page.body.landing.features.features.item1.title': 'Exchange',
     'page.body.landing.features.features.item2.title': 'Order Types',
     'page.body.landing.features.features.item3.title': 'Customizable Interface',
