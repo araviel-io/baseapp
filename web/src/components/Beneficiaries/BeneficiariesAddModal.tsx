@@ -1,18 +1,18 @@
 import classnames from 'classnames';
+import * as WAValidator from 'multicoin-address-validator';
 import * as React from 'react';
 import { Button } from 'react-bootstrap';
 import { useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
-import { validateBeneficiaryAddress, validateBeneficiaryTestnetAddress } from '../../helpers';
-import { Modal } from '../../mobile/components/Modal';
+import { CustomInput } from 'src/components/CustomInput';
+import { Modal } from 'src/mobile/components/Modal';
 import {
     alertPush,
     beneficiariesCreate,
     BeneficiaryBank,
     selectBeneficiariesCreateError,
     selectMobileDeviceState,
-} from '../../modules';
-import { CustomInput } from '../CustomInput';
+} from 'src/modules';
 
 interface Props {
     currency: string;
@@ -53,7 +53,8 @@ const BeneficiariesAddModalComponent: React.FC<Props> = (props: Props) => {
 
     const beneficiariesAddError = useSelector(selectBeneficiariesCreateError);
     const isMobileDevice = useSelector(selectMobileDeviceState);
-    const isRipple = React.useMemo(() => currency === 'xrp', [currency]);
+    const isDestinationTagExists = React.useMemo(() => currency === 'xrp', [currency]);
+    const isMemoTagExists = React.useMemo(() => currency === 'xlm' || currency === 'eos', [currency]);
 
     const handleClearModalsInputs = React.useCallback(() => {
         setCoinAddress('');
@@ -118,12 +119,26 @@ const BeneficiariesAddModalComponent: React.FC<Props> = (props: Props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [formatMessage]);
 
+    const currencyPayloadAddress = React.useMemo(() => {
+        if (coinDestinationTag) {
+            if (isDestinationTagExists) {
+                return `${coinAddress}?dt=${coinDestinationTag}`;
+            }
+
+            if (isMemoTagExists) {
+                return `${coinAddress}?memo=${coinDestinationTag}`;
+            }
+        } else {
+            return coinAddress;
+        }
+    }, [coinDestinationTag, isDestinationTagExists, isMemoTagExists, coinAddress]);
+
     const handleSubmitAddAddressCoinModal = React.useCallback(() => {
         const payload = {
             currency: currency || '',
             name: coinBeneficiaryName,
             data: JSON.stringify({
-                address: (isRipple && coinDestinationTag ? `${coinAddress}?dt=${coinDestinationTag}` : coinAddress),
+                address: currencyPayloadAddress,
             }),
             ...(coinDescription && { description: coinDescription }),
         };
@@ -131,7 +146,7 @@ const BeneficiariesAddModalComponent: React.FC<Props> = (props: Props) => {
         dispatch(beneficiariesCreate(payload));
         handleClearModalsInputs();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [coinAddress, coinBeneficiaryName, coinDescription, currency, coinDestinationTag, isRipple]);
+    }, [coinBeneficiaryName, coinDescription, currency, currencyPayloadAddress]);
 
     const getState = React.useCallback(key => {
         switch (key) {
@@ -208,18 +223,40 @@ const BeneficiariesAddModalComponent: React.FC<Props> = (props: Props) => {
     ]);
 
     const validateCoinAddressFormat = React.useCallback((value: string) => {
-        const coinAddressValidator = validateBeneficiaryAddress.cryptocurrency(currency, true);
-        const coinAddressTestnetValidator = validateBeneficiaryTestnetAddress.cryptocurrency(currency, true);
+        const doesCurrencyExistsInPackage = WAValidator.findCurrency(currency);
 
-        setCoinAddressValid(coinAddressValidator.test(value.trim()));
-        setCoinTestnetAddressValid(coinAddressTestnetValidator.test(value.trim()));
+        if (doesCurrencyExistsInPackage) {
+            const addressToCheck = value.trim();
+
+            setCoinAddressValid(WAValidator.validate(addressToCheck, currency));
+            setCoinTestnetAddressValid(WAValidator.validate(addressToCheck, currency, 'testnet'));
+        } else {
+            setCoinAddressValid(true);
+            setCoinTestnetAddressValid(true);
+        }
     }, [currency]);
 
     const handleChangeFieldValue = React.useCallback((key: string, value: string) => {
         switch (key) {
             case 'coinAddress':
-                setCoinAddress(value);
-                validateCoinAddressFormat(value);
+                if ((isDestinationTagExists || isMemoTagExists) && value.includes('?')) {
+                    const [address, memoTag] = value.split('?');
+                    setCoinAddress(address);
+                    validateCoinAddressFormat(address);
+
+                    if (memoTag.includes('dt=')) {
+                        const destinationTag = memoTag.split('dt=');
+                        setCoinDestinationTag(destinationTag[1]);
+                    } else {
+                        if (memoTag.includes('memo=')) {
+                            const destinationMemo = memoTag.split('memo=');
+                            setCoinDestinationTag(destinationMemo[1]);
+                        }
+                    }
+                } else {
+                    setCoinAddress(value);
+                    validateCoinAddressFormat(value);
+                }
                 break;
             case 'coinBeneficiaryName':
                 setCoinBeneficiaryName(value);
@@ -255,7 +292,7 @@ const BeneficiariesAddModalComponent: React.FC<Props> = (props: Props) => {
                 break;
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [isDestinationTagExists, isMemoTagExists]);
 
     const handleChangeFieldFocus = React.useCallback((key: string) => {
         switch (key) {
@@ -353,7 +390,7 @@ const BeneficiariesAddModalComponent: React.FC<Props> = (props: Props) => {
                 {!coinAddressValid && coinTestnetAddressValid && coinAddress && renderTestnetAddressMessage}
                 {renderAddAddressModalBodyItem('coinBeneficiaryName')}
                 {renderAddAddressModalBodyItem('coinDescription', true)}
-                {isRipple && renderAddAddressModalBodyItem('coinDestinationTag', true)}
+                {(isDestinationTagExists || isMemoTagExists)  && renderAddAddressModalBodyItem('coinDestinationTag', true)}
                 <div className="cr-email-form__button-wrapper">
                     <Button
                         disabled={isDisabled}
@@ -366,8 +403,16 @@ const BeneficiariesAddModalComponent: React.FC<Props> = (props: Props) => {
                 </div>
             </div>
         );
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [coinAddress, coinBeneficiaryName, coinDescription, coinDestinationTag]);
+    }, [
+        coinAddress,
+        coinBeneficiaryName,
+        coinAddressValid,
+        coinTestnetAddressValid,
+        coinDescription,
+        coinDestinationTag,
+        isDestinationTagExists,
+        isMemoTagExists,
+    ]);
 
     const handleSubmitAddAddressFiatModal = React.useCallback(() => {
         const data: BeneficiaryBank = {
