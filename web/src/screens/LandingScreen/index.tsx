@@ -177,6 +177,32 @@ class Landing extends React.Component<Props> {
                                     <span>{this.translate('page.body.landing.features.features.item2.text')}</span>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </LandingBlock>
+                {/*
+                <LandingBlock className="pg-landing-screen__features">
+                    <div className="pg-landing-screen__features__wrap">
+                        <h1>{this.translate('page.body.landing.features.title')}</h1>
+                        <div className="pg-landing-screen__features__content">
+                            <div className="pg-landing-screen__features__content__row">
+                                <div className="pg-landing-screen__features__content__row__item">
+                                    <img
+                                        src={FeaturesExchangeIcon}
+                                        alt={this.translate('page.body.landing.features.features.item1.title')}
+                                    />
+                                    <h2>{this.translate('page.body.landing.features.features.item1.title')}</h2>
+                                    <span>{this.translate('page.body.landing.features.features.item1.text')}</span>
+                                </div>
+                                <div className="pg-landing-screen__features__content__row__item">
+                                    <img
+                                        src={FeaturesTypesIcon}
+                                        alt={this.translate('page.body.landing.features.features.item2.title')}
+                                    />
+                                    <h2>{this.translate('page.body.landing.features.features.item2.title')}</h2>
+                                    <span>{this.translate('page.body.landing.features.features.item2.text')}</span>
+                                </div>
+                            </div>
                             <div className="pg-landing-screen__features__content__row">
                                 <div className="pg-landing-screen__features__content__row__item">
                                     <img
@@ -216,6 +242,7 @@ class Landing extends React.Component<Props> {
                         </div>
                     </div>
                 </LandingBlock>
+                */}
                 <LandingBlock
                     className="pg-landing-screen__trade-on-the-go"
                     contentClassName="pg-landing-screen__trade-on-the-go-content">
@@ -223,9 +250,8 @@ class Landing extends React.Component<Props> {
                         <div className="pg-landing-screen__trade-on-the-go__wrap__image" />
                         <div className="pg-landing-screen__trade-on-the-go__wrap__content">
                             <h1>{this.translate('page.body.landing.tradeOnTheGo.item.title')}</h1>
-                            <h2>{this.translate('page.body.landing.tradeOnTheGo.item.text1')}</h2>
-                            <h2>{this.translate('page.body.landing.tradeOnTheGo.item.text2')}</h2>
-                            <h2>{this.translate('page.body.landing.tradeOnTheGo.item.text3')}</h2>
+
+                            <p>{this.translate('page.body.landing.tradeOnTheGo.item.text1')}</p>
                             <Link to="/trading/" className="landing-button">
                                 {this.translate('page.body.landing.tradeOnTheGo.item.button')}
                             </Link>
@@ -257,6 +283,22 @@ class Landing extends React.Component<Props> {
                         </div>
                     </div>
                 </div>
+                <LandingBlock
+                    className="pg-landing-screen__trade-on-the-go"
+                    contentClassName="pg-landing-screen__trade-on-the-go-content">
+                    <div className="pg-landing-screen__trade-on-the-go__wrap">
+                        
+                        <div className="pg-landing-screen__trade-on-the-go__wrap__content">
+                            <h1>{this.translate('page.body.landing.native.item.title')}</h1>
+
+                            <p>{this.translate('page.body.landing.native.item.text1')}</p>
+                            <Link to="/trading/" className="landing-button">
+                                {this.translate('page.body.landing.native.item.button')}
+                            </Link>
+                        </div>
+                        <div className="pg-landing-screen__trade-on-the-go__wrap__image" />
+                    </div>
+                </LandingBlock>
                 <div className="pg-landing-screen__footer">
                     <div className="pg-landing-screen__footer__wrap">
                         <div className="pg-landing-screen__footer__wrap__left" onClick={(e) => this.handleScrollTop()}>

@@ -22,3 +22,4 @@ web/.env
 web/mocks/api/v2/finex/public/markets/GET.mock
 web/mocks/api/v2/peatio/public/markets/zeubtr/depth/script.js
 web/mocks/markets.js
+web/mocks/markets.js

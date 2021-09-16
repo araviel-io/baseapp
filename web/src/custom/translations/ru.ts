@@ -153,6 +153,10 @@ export const ru: LangType = {
     'page.body.landing.tradeOnTheGo.item.text3': 'All the power of Baseapp cryptocurrency exchange, in the palm of your hand.',
     'page.body.landing.tradeOnTheGo.item.button': 'let’s try',
 
+    'page.body.landing.native.item.title': 'Native asset',
+    'page.body.landing.native.item.text1': 'Discover SafeCoin, the native cryptocurrency and main pair of a growing community and ecosystem.',
+    'page.body.landing.native.item.button': 'let’s try',
+    
     'page.body.landing.startTrading.title': 'Start trading now',
     'page.body.landing.startTrading.button1': 'register',
     'page.body.landing.startTrading.button2': 'Start trading',
