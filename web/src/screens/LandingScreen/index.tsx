@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Link, RouteProps, withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 // Ara implementation of view observer
-//import { useInView } from 'react-intersection-observer'
+import ReactVisibilitySensor from 'react-visibility-sensor';
 // Ara implementation of language switcher directly from home
 import classnames from 'classnames';
 import { Dropdown } from 'react-bootstrap';
@@ -51,6 +51,7 @@ import MediumIcon from 'src/assets/images/landing/social/Medium.svg';
 import CoinMarketIcon from 'src/assets/images/landing/social/CoinMarket.svg';
 import { useEffect, useState } from 'react';
 
+
 /* NOTE :
 use <LandingBlock> for "fullscren" wrapper
 use standart <div> for regular 
@@ -72,7 +73,7 @@ class Landing extends React.Component<Props> {
         // change navbar background while scrolling
         document.addEventListener("scroll", () => {
             const backgroundcolor = window.scrollY < 100 ? "none" : "white";
-            console.log("scroll")
+            //console.log("scroll")
             this.setState({ navBackground: backgroundcolor });
         });
         if (this.props.colorTheme === 'dark') {
@@ -356,26 +357,41 @@ class Landing extends React.Component<Props> {
                     </div>
                 </div>
                 */}
-                <LandingBlock
-                    className="pg-landing-screen__native-safecoin"
-                    contentClassName="pg-landing-screen__native-safecoin-content">
-                    <div className="pg-landing-screen__native-safecoin__wrap">
+                <ReactVisibilitySensor >
+                    {({ isVisible }) => {
+                        if (isVisible) {
+                            console.log("true")
+                        }
+                        return (
+                            <LandingBlock
+                                style={{
 
-                        <div className="pg-landing-screen__native-safecoin__wrap__content">
-                            <h1>{this.translate('page.body.landing.native.item.title')}</h1>
+                                    backgroundColor: isVisible ? "#593" : "#F33"
 
-                            <p>{this.translate('page.body.landing.native.item.text1')}</p>
-                            <Link to="/trading/" className="landing-button">
-                                {this.translate('page.body.landing.native.item.button')}
-                            </Link>
-                        </div>
-                        <div className="pg-landing-screen__native-safecoin__wrap__image"
-                        style={{
-                          /*  transform: `translateY(${offset * 0.5}px)`,*/
-                          }}
-                        />
-                    </div>
-                </LandingBlock>
+                                }}
+                                className="pg-landing-screen__native-safecoin"
+                                contentClassName="pg-landing-screen__native-safecoin-content">
+                                <div className="pg-landing-screen__native-safecoin__wrap">
+
+                                    <div className="pg-landing-screen__native-safecoin__wrap__content">
+                                        <h1>{this.translate('page.body.landing.native.item.title')}</h1>
+
+                                        <p>{this.translate('page.body.landing.native.item.text1')}</p>
+                                        <Link to="/trading/" className="landing-button">
+                                            {this.translate('page.body.landing.native.item.button')}
+                                        </Link>
+                                    </div>
+                                    <div className="pg-landing-screen__native-safecoin__wrap__image"
+                                        style={{
+                                            /*  transform: `translateY(${offset * 0.5}px)`,*/
+                                        }}
+                                    />
+                                </div>
+
+                            </LandingBlock>
+                        );
+                    }}
+                </ReactVisibilitySensor >
                 <div className="pg-landing-screen__footer">
                     <div className="pg-landing-screen__footer__wrap">
                         <div className="pg-landing-screen__footer__wrap__left" onClick={(e) => this.handleScrollTop()}>
