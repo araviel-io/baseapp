@@ -4,7 +4,8 @@ import { injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
 import { Link, RouteProps, withRouter } from 'react-router-dom';
 import { compose } from 'redux';
-
+// Ara implementation of view observer
+//import { useInView } from 'react-intersection-observer'
 // Ara implementation of language switcher directly from home
 import classnames from 'classnames';
 import { Dropdown } from 'react-bootstrap';
@@ -23,6 +24,18 @@ import {
 import { CustomizationSettingsInterface, LogoInterface } from '../../themes';
 import FeaturesExchangeIcon from 'src/assets/images/landing/features/Exchange.svg';
 import FeaturesTypesIcon from 'src/assets/images/landing/features/Types.svg';
+
+import SafeSupportIcon from 'src/assets/images/landing/features/SafeSupport.svg';
+import SafeSecurityIcon from 'src/assets/images/landing/features/SafeSecurity.svg';
+import SafeVaultIcon from 'src/assets/images/landing/features/SafeVault.svg';
+
+import PartnerCMC from 'src/assets/images/landing/PartnerCMC.svg';
+import PartnerCoinGecko from 'src/assets/images/landing/PartnerCoinGecko.svg';
+import PartnerDelta from 'src/assets/images/landing/PartnerDelta.svg';
+import PartnerCoinPaprika from 'src/assets/images/landing/PartnerCoinPaprika.svg';
+import PartnerBlockfolio from 'src/assets/images/landing/PartnerBlockfolio.svg';
+import PartnerCryptoCompare from 'src/assets/images/landing/PartnerCryptoCompare.svg';
+
 import FeaturesCustomizeIcon from 'src/assets/images/landing/features/Customize.svg';
 import FeaturesSecurityIcon from 'src/assets/images/landing/features/Security.svg';
 import FeaturesCommunityIcon from 'src/assets/images/landing/features/Community.svg';
@@ -36,6 +49,7 @@ import RedditIcon from 'src/assets/images/landing/social/Reddit.svg';
 import FacebookIcon from 'src/assets/images/landing/social/Facebook.svg';
 import MediumIcon from 'src/assets/images/landing/social/Medium.svg';
 import CoinMarketIcon from 'src/assets/images/landing/social/CoinMarket.svg';
+import { useEffect, useState } from 'react';
 
 /* NOTE :
 use <LandingBlock> for "fullscren" wrapper
@@ -50,7 +64,8 @@ type Props = ReduxProps & RouteProps & IntlProps;
 
 class Landing extends React.Component<Props> {
     state = {
-        navBackground: null
+        navBackground: null,
+        offSet: null
     };
 
     public componentDidMount() {
@@ -78,6 +93,8 @@ class Landing extends React.Component<Props> {
     }
 
     public render() {
+
+
         /*   const { isLoggedIn, isActive, lang } = this.props;
            const { isOpenLanguage } = this.state;
    
@@ -156,25 +173,45 @@ class Landing extends React.Component<Props> {
 
                 </LandingBlock>
                 <LandingBlock className="pg-landing-screen__features">
-                    <div className="pg-landing-screen__features__wrap">
-                        <h1>{this.translate('page.body.landing.features.title')}</h1>
-                        <div className="pg-landing-screen__features__content">
-                            <div className="pg-landing-screen__features__content__row">
-                                <div className="pg-landing-screen__features__content__row__item">
-                                    <img
-                                        src={FeaturesExchangeIcon}
-                                        alt={this.translate('page.body.landing.features.features.item1.title')}
-                                    />
-                                    <h2>{this.translate('page.body.landing.features.features.item1.title')}</h2>
-                                    <span>{this.translate('page.body.landing.features.features.item1.text')}</span>
+                    <div className="pg-landing-screen__features__parawrap">
+                        <div className="pg-landing-screen__features__wrap">
+                            <h1>{this.translate('page.body.landing.features.title')}</h1>
+                            <div className="pg-landing-screen__features__content">
+                                <div className="pg-landing-screen__features__content__row">
+                                    <div className="pg-landing-screen__features__content__row__item">
+                                        <img
+                                            src={SafeVaultIcon}
+                                            alt={this.translate('page.body.landing.features.features.item1.title')}
+                                        />
+                                        <h2>{this.translate('page.body.landing.features.features.item1.title')}</h2>
+                                        <span>{this.translate('page.body.landing.features.features.item1.text')}</span>
+                                    </div>
+                                    <div className="pg-landing-screen__features__content__row__item">
+                                        <img
+                                            src={SafeSecurityIcon}
+                                            alt={this.translate('page.body.landing.features.features.item2.title')}
+                                        />
+                                        <h2>{this.translate('page.body.landing.features.features.item2.title')}</h2>
+                                        <span>{this.translate('page.body.landing.features.features.item2.text')}</span>
+                                    </div>
+                                    <div className="pg-landing-screen__features__content__row__item">
+                                        <img
+                                            src={SafeSupportIcon}
+                                            alt={this.translate('page.body.landing.features.features.item3.title')}
+                                        />
+                                        <h2>{this.translate('page.body.landing.features.features.item3.title')}</h2>
+                                        <span>{this.translate('page.body.landing.features.features.item3.text')}</span>
+                                    </div>
                                 </div>
-                                <div className="pg-landing-screen__features__content__row__item">
-                                    <img
-                                        src={FeaturesTypesIcon}
-                                        alt={this.translate('page.body.landing.features.features.item2.title')}
-                                    />
-                                    <h2>{this.translate('page.body.landing.features.features.item2.title')}</h2>
-                                    <span>{this.translate('page.body.landing.features.features.item2.text')}</span>
+                                <div className="pg-landing-screen__features__content__row">
+                                    <div className="pg-landing-screen__features__content__row__item">
+                                        <img
+                                            src={SafeSupportIcon}
+                                            alt={this.translate('page.body.landing.features.features.item4.title')}
+                                        />
+                                        <h2>{this.translate('page.body.landing.features.features.item4.title')}</h2>
+                                        <span>{this.translate('page.body.landing.features.features.item4.text')}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -258,18 +295,53 @@ class Landing extends React.Component<Props> {
                         </div>
                     </div>
                 </LandingBlock>
-                <LandingBlock
-                    className="pg-landing-screen__register"
-                    contentClassName="pg-landing-screen__register-content">
-                    <div className="pg-landing-screen__register__item">
-                        <h1>{this.translate('page.body.landing.register.item.title')}</h1>
-                        <h2>{this.translate('page.body.landing.register.item.subtitle')}</h2>
-                        <p>{this.translate('page.body.landing.register.item.text')}</p>
-                        <Link to="/signup" className="landing-button">
-                            {this.translate('page.body.landing.register.item.button')}
-                        </Link>
+                <div className="pg-landing-screen__partners">
+                    <div className="pg-landing-screen__partners__content">
+                        <div className="pg-landing-screen__partners__content__row">
+                            <div className="pg-landing-screen__partners__content__row__item">
+                                <img
+                                    src={PartnerCMC}
+                                    alt="CoinMarketCap"
+                                />
+                            </div>
+
+                            <div className="pg-landing-screen__partners__content__row__item">
+                                <img
+                                    src={PartnerCoinGecko}
+                                    alt="CoinGecko"
+                                />
+                            </div>
+                            <div className="pg-landing-screen__partners__content__row__item">
+                                <img
+                                    src={PartnerCryptoCompare}
+                                    alt="CoinPaprika"
+                                />
+                            </div>
+                            <div className="pg-landing-screen__partners__content__row__item">
+                                <img
+                                    src={PartnerCoinPaprika}
+                                    alt="CoinPaprika"
+                                />
+                            </div>
+                            <div className="pg-landing-screen__partners__content__row__item">
+                                <img
+                                    src={PartnerDelta}
+                                    alt="PartnerDelta"
+                                />
+                            </div>
+                            <div className="pg-landing-screen__partners__content__row__item">
+                                <img
+                                    src={PartnerBlockfolio}
+                                    alt="CoinPaprika"
+                                />
+                            </div>
+                        </div>
+                        <div className="pg-landing-screen__partners__content__row">
+
+                        </div>
                     </div>
-                </LandingBlock>
+                </div>
+                {/*
                 <div className="pg-landing-screen__start-trading">
                     <div className="pg-landing-screen__start-trading__wrap">
                         <h1>{this.translate('page.body.landing.startTrading.title')}</h1>
@@ -283,12 +355,13 @@ class Landing extends React.Component<Props> {
                         </div>
                     </div>
                 </div>
+                */}
                 <LandingBlock
-                    className="pg-landing-screen__trade-on-the-go"
-                    contentClassName="pg-landing-screen__trade-on-the-go-content">
-                    <div className="pg-landing-screen__trade-on-the-go__wrap">
-                        
-                        <div className="pg-landing-screen__trade-on-the-go__wrap__content">
+                    className="pg-landing-screen__native-safecoin"
+                    contentClassName="pg-landing-screen__native-safecoin-content">
+                    <div className="pg-landing-screen__native-safecoin__wrap">
+
+                        <div className="pg-landing-screen__native-safecoin__wrap__content">
                             <h1>{this.translate('page.body.landing.native.item.title')}</h1>
 
                             <p>{this.translate('page.body.landing.native.item.text1')}</p>
@@ -296,7 +369,11 @@ class Landing extends React.Component<Props> {
                                 {this.translate('page.body.landing.native.item.button')}
                             </Link>
                         </div>
-                        <div className="pg-landing-screen__trade-on-the-go__wrap__image" />
+                        <div className="pg-landing-screen__native-safecoin__wrap__image"
+                        style={{
+                          /*  transform: `translateY(${offset * 0.5}px)`,*/
+                          }}
+                        />
                     </div>
                 </LandingBlock>
                 <div className="pg-landing-screen__footer">
