@@ -141,21 +141,21 @@ export const en = {
     'page.body.landing.features.features.item4.title': 'Community',
     'page.body.landing.features.features.item5.title': 'Community',
     'page.body.landing.features.features.item6.title': 'Industry leading API',
-    'page.body.landing.features.features.item1.text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ornare nisl eu suscipit sodales. Pellentesque placerat arcu sit amet iaculis feugiat. Nulla facilisis lectus in urna bibendum sodales.',
-    'page.body.landing.features.features.item2.text': 'Etiam vulputate facilisis orci, vel euismod felis tempus id. Nulla facilisi. Morbi molestie gravida ligula, id mollis massa bibendum ac. Nullam elementum velit nisl. Nunc commodo sem purus, id aliquam neque consequat ac.',
-    'page.body.landing.features.features.item3.text': 'Duis vel faucibus purus, eu hendrerit enim. Donec faucibus ac nulla nec mattis. Nam eget lacus eu nunc euismod tincidunt ultricies eu justo. Aliquam dignissim sapien quis arcu condimentum, et tempor mi lobortis.',
-    'page.body.landing.features.features.item4.text': 'Security of user information and funds is our first priority. Contact us to learn more about our security features and integrations.',
+    'page.body.landing.features.features.item1.text': 'Your assets are in safe hands with our bank-grade quality equipment and software. Maecenas ornare nisl eu suscipit sodales. Pellentesque placerat arcu sit amet iaculis feugiat.',
+    'page.body.landing.features.features.item2.text': 'Security of user information and funds is our first priority. Contact us to learn more about our security features and integrations. Nunc commodo sem purus, id aliquam neque consequat ac.',
+    'page.body.landing.features.features.item3.text': 'You need help ? Join us on many networks to solve your issue. Our team is avaiable 24/7 on Discord, Telegram on via our helpdesk. Aliquam dignissim sapien quis arcu condimentum, et tempor mi lobortis.',
+    'page.body.landing.features.features.item4.text': 'Our exchange is featuring innovative projects.',
     'page.body.landing.features.features.item5.text': 'Join a global community that believes in the power of crypto.',
     'page.body.landing.features.features.item6.text': 'Our Websocket feed lets you easily gain access to real-time market data, while our trading API lets you develop secure, programmatic trading bots.',
 
     'page.body.landing.tradeOnTheGo.item.title': 'Trade on the go',
-    'page.body.landing.tradeOnTheGo.item.text1': 'Our platform is optimized for trading on any device. And you don’t need to download any additional applications. All the power of Baseapp cryptocurrency exchange, in the palm of your hand.',
+    'page.body.landing.tradeOnTheGo.item.text1': 'Our platform is optimized for trading on any device. And you don’t need to download any additional applications. All the power of SafeTrade cryptocurrency exchange, in the palm of your hand.',
     'page.body.landing.tradeOnTheGo.item.text2': 'And you don’t need to download any additional applications.',
     'page.body.landing.tradeOnTheGo.item.text3': 'All the power of Baseapp cryptocurrency exchange, in the palm of your hand.',
     'page.body.landing.tradeOnTheGo.item.button': 'let’s try',
 
     'page.body.landing.native.item.title': 'Native asset',
-    'page.body.landing.native.item.text1': 'Discover SafeCoin, the native cryptocurrency and base pair of a growing community and ecosystem.',
+    'page.body.landing.native.item.text1': 'Discover SafeCoin, the native cryptocurrency who can go up to 60k transaction per second and base pair of a growing community and ecosystem.',
     'page.body.landing.native.item.button': 'let’s try',
 
     'page.body.landing.startTrading.title': 'Start trading now',
@@ -171,7 +171,7 @@ export const en = {
     'page.body.landing.footer.about': 'About us',
     'page.body.landing.footer.community': 'Community',
     'page.body.landing.footer.info': 'Info',
-    'page.body.landing.footer.rights': 'Baseapp © All rights reserved.',
+    'page.body.landing.footer.rights': 'SafeTrade © All rights reserved.',
 
     'pagy.body.footer.powered_by': 'Powered by',
 

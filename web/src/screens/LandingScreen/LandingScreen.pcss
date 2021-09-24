@@ -68,7 +68,7 @@
   .landing-button {
     align-items: center;
     background: var(--button-primary-cta-background-color);
-    border-radius: 4px;
+    border-radius: 50px;
     color: var(--button-primary-cta-text-color);
     cursor: pointer;
     display: flex;
@@ -85,8 +85,12 @@
     text-transform: uppercase;
     user-select: none;
     width: 270px;
+    transition: all 0.2s ease 0s;
     &:hover {
-      background: red;
+      background-color: #2EE59D;
+      box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+      color: #fff;
+      transform: translateY(-5px);
     }
     &--secondary {
       background: var(--secondary-contrast-cta-color);
@@ -120,7 +124,7 @@
     position: fixed;
     top: 0;
     z-index: 99;
-
+    
     &__wrap {
       flex-direction: row;
       justify-content: space-between;
@@ -359,6 +363,7 @@
             letter-spacing: 0.25px;
             line-height: 28px;
             text-align: center;
+            align-self: center;
           }
         }
       }
@@ -429,8 +434,8 @@
       background-repeat: no-repeat;
       background-size: cover;
   */
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1002%26quot%3b)' fill='none'%3e%3cpath d='M -209.4697101346557%2c294 C -65.47%2c264.6 222.53%2c129.6 510.5302898653443%2c147 C 798.53%2c164.4 942.53%2c389.6 1230.5302898653442%2c381 C 1518.53%2c372.4 1908.64%2c113.8 1950.5302898653442%2c104 C 1992.42%2c94.2 1542.11%2c286.4 1440%2c332' stroke='rgba(231%2c 231%2c 231%2c 0.74)' stroke-width='2'%3e%3c/path%3e%3cpath d='M -615.4823805803551%2c364 C -471.48%2c313.4 -183.48%2c123 104.51761941964492%2c111 C 392.52%2c99 536.52%2c288.8 824.5176194196449%2c304 C 1112.52%2c319.2 1421.42%2c180.6 1544.517619419645%2c187 C 1667.61%2c193.4 1460.9%2c306.2 1440%2c336' stroke='rgba(231%2c 231%2c 231%2c 0.74)' stroke-width='2'%3e%3c/path%3e%3cpath d='M -691.0821592354829%2c381 C -547.08%2c349.4 -259.08%2c240 28.91784076451712%2c223 C 316.92%2c206 460.92%2c301.8 748.9178407645171%2c296 C 1036.92%2c290.2 1330.7%2c168.6 1468.9178407645172%2c194 C 1607.13%2c219.4 1445.78%2c377.2 1440%2c423' stroke='rgba(231%2c 231%2c 231%2c 0.74)' stroke-width='2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1002'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
-      background-color: var(--landing-background-color);
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1036%26quot%3b)' fill='none'%3e%3cpath d='M -207.25430777157646%2c457 C -63.25%2c374.6 224.75%2c38.6 512.7456922284235%2c45 C 800.75%2c51.4 944.75%2c449.4 1232.7456922284236%2c489 C 1520.75%2c528.6 1911.29%2c239.6 1952.7456922284236%2c243 C 1994.2%2c246.4 1542.55%2c453.4 1440%2c506' stroke='rgba(255%2c 255%2c 255%2c 0.75)' stroke-width='2'%3e%3c/path%3e%3cpath d='M -867.6747849870609%2c139 C -723.67%2c177.4 -435.67%2c336.4 -147.67478498706086%2c331 C 140.33%2c325.6 284.33%2c78.8 572.3252150129391%2c112 C 860.33%2c145.2 1118.79%2c465.6 1292.3252150129392%2c497 C 1465.86%2c528.4 1410.47%2c314.6 1440%2c269' stroke='rgba(255%2c 255%2c 255%2c 0.75)' stroke-width='2'%3e%3c/path%3e%3cpath d='M -282.08842599583096%2c90 C -138.09%2c162.8 149.91%2c448.8 437.91157400416904%2c454 C 725.91%2c459.2 869.91%2c145.4 1157.911574004169%2c116 C 1445.91%2c86.6 1821.49%2c318.8 1877.911574004169%2c307 C 1934.33%2c295.2 1527.58%2c107 1440%2c57' stroke='rgba(255%2c 255%2c 255%2c 0.75)' stroke-width='2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1036'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+      //background-color: var(--landing-background-color);
       background-size: cover;
       background-position: 50% 0;    
       transition: 0s linear;
@@ -572,7 +577,7 @@
   }
 
   &__partners {
-    //background-color:red;
+    background-color: var(--landing-background-color);
 
     &__content {
       align-items: flex-start;

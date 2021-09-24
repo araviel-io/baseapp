@@ -4,8 +4,11 @@ import { injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
 import { Link, RouteProps, withRouter } from 'react-router-dom';
 import { compose } from 'redux';
-// Ara implementation of view observer
 import ReactVisibilitySensor from 'react-visibility-sensor';
+// Ara implementation of view observer
+/* import OnVisible from 'react-on-visible';
+
+import ViewportBlock from 'react-in-viewport' */
 // Ara implementation of language switcher directly from home
 import classnames from 'classnames';
 import { Dropdown } from 'react-bootstrap';
@@ -66,15 +69,20 @@ type Props = ReduxProps & RouteProps & IntlProps;
 class Landing extends React.Component<Props> {
     state = {
         navBackground: null,
-        offSet: null
+        offSet: null,
+        getElement: null,
+        isnavbarTop: null,
     };
 
     public componentDidMount() {
+
         // change navbar background while scrolling
         document.addEventListener("scroll", () => {
             const backgroundcolor = window.scrollY < 100 ? "none" : "white";
+            const isNavbarTop = window.scrollY < 100 ? true : false;
             //console.log("scroll")
             this.setState({ navBackground: backgroundcolor });
+            this.setState({ isnavbarTop: isNavbarTop });
         });
         if (this.props.colorTheme === 'dark') {
             toggleColorTheme('light');
@@ -108,7 +116,7 @@ class Landing extends React.Component<Props> {
         return (
             <div className="pg-landing-screen">
                 {/* NAVBAR */}
-                <div className="pg-landing-screen__header" style={{ background: this.state.navBackground }}>
+                <div className={`pg-landing-screen__header ${this.state.isnavbarTop ? "" : "shadow-lg"}`} style={{ background: this.state.navBackground }}>
                     <div className="pg-landing-screen__header__wrap">
                         <div className="pg-landing-screen__header__wrap__left" onClick={(e) => this.handleScrollTop()}>
                             <Logo />
@@ -299,43 +307,54 @@ class Landing extends React.Component<Props> {
                 <div className="pg-landing-screen__partners">
                     <div className="pg-landing-screen__partners__content">
                         <div className="pg-landing-screen__partners__content__row">
-                            <div className="pg-landing-screen__partners__content__row__item">
-                                <img
-                                    src={PartnerCMC}
-                                    alt="CoinMarketCap"
-                                />
-                            </div>
-
-                            <div className="pg-landing-screen__partners__content__row__item">
-                                <img
-                                    src={PartnerCoinGecko}
-                                    alt="CoinGecko"
-                                />
-                            </div>
-                            <div className="pg-landing-screen__partners__content__row__item">
-                                <img
-                                    src={PartnerCryptoCompare}
-                                    alt="CoinPaprika"
-                                />
-                            </div>
-                            <div className="pg-landing-screen__partners__content__row__item">
-                                <img
-                                    src={PartnerCoinPaprika}
-                                    alt="CoinPaprika"
-                                />
-                            </div>
-                            <div className="pg-landing-screen__partners__content__row__item">
-                                <img
-                                    src={PartnerDelta}
-                                    alt="PartnerDelta"
-                                />
-                            </div>
-                            <div className="pg-landing-screen__partners__content__row__item">
-                                <img
-                                    src={PartnerBlockfolio}
-                                    alt="CoinPaprika"
-                                />
-                            </div>
+                            <a href="https://coinmarketcap.com/exchanges/safetrade">
+                                <div className="pg-landing-screen__partners__content__row__item">
+                                    <img
+                                        src={PartnerCMC}
+                                        alt="CoinMarketCap"
+                                    />
+                                </div>
+                            </a>
+                            <a href="https://www.coingecko.com/en/exchanges/safe_trade">
+                                <div className="pg-landing-screen__partners__content__row__item">
+                                    <img
+                                        src={PartnerCoinGecko}
+                                        alt="CoinGecko"
+                                    />
+                                </div>
+                            </a>
+                            <a href="https://www.cryptocompare.com/exchanges/safetrade/overview">
+                                <div className="pg-landing-screen__partners__content__row__item">
+                                    <img
+                                        src={PartnerCryptoCompare}
+                                        alt="CoinPaprika"
+                                    />
+                                </div>
+                            </a>
+                            <a href="https://coinpaprika.com/exchanges/safetrade/">
+                                <div className="pg-landing-screen__partners__content__row__item">
+                                    <img
+                                        src={PartnerCoinPaprika}
+                                        alt="CoinPaprika"
+                                    />
+                                </div>
+                            </a>
+                            <a href="https://delta.app/">
+                                <div className="pg-landing-screen__partners__content__row__item">
+                                    <img
+                                        src={PartnerDelta}
+                                        alt="PartnerDelta"
+                                    />
+                                </div>
+                            </a>
+                            <a href="https://blockfolio.com/">
+                                <div className="pg-landing-screen__partners__content__row__item">
+                                    <img
+                                        src={PartnerBlockfolio}
+                                        alt="CoinPaprika"
+                                    />
+                                </div>
+                            </a>
                         </div>
                         <div className="pg-landing-screen__partners__content__row">
 
@@ -357,41 +376,29 @@ class Landing extends React.Component<Props> {
                     </div>
                 </div>
                 */}
-                <ReactVisibilitySensor >
-                    {({ isVisible }) => {
-                        if (isVisible) {
-                            console.log("true")
-                        }
-                        return (
-                            <LandingBlock
-                                style={{
 
-                                    backgroundColor: isVisible ? "#593" : "#F33"
 
-                                }}
-                                className="pg-landing-screen__native-safecoin"
-                                contentClassName="pg-landing-screen__native-safecoin-content">
-                                <div className="pg-landing-screen__native-safecoin__wrap">
+                <LandingBlock
+                    className="pg-landing-screen__native-safecoin"
+                    contentClassName="pg-landing-screen__native-safecoin-content">
+                    <div className="pg-landing-screen__native-safecoin__wrap">
 
-                                    <div className="pg-landing-screen__native-safecoin__wrap__content">
-                                        <h1>{this.translate('page.body.landing.native.item.title')}</h1>
+                        <div className="pg-landing-screen__native-safecoin__wrap__content">
+                            <h1>{this.translate('page.body.landing.native.item.title')}</h1>
 
-                                        <p>{this.translate('page.body.landing.native.item.text1')}</p>
-                                        <Link to="/trading/" className="landing-button">
-                                            {this.translate('page.body.landing.native.item.button')}
-                                        </Link>
-                                    </div>
-                                    <div className="pg-landing-screen__native-safecoin__wrap__image"
-                                        style={{
-                                            /*  transform: `translateY(${offset * 0.5}px)`,*/
-                                        }}
-                                    />
-                                </div>
+                            <p>{this.translate('page.body.landing.native.item.text1')}</p>
+                            <Link to="/trading/" className="landing-button">
+                                {this.translate('page.body.landing.native.item.button')}
+                            </Link>
+                        </div>
+                        <div className="pg-landing-screen__native-safecoin__wrap__image"
+                            style={{
+                                /*  transform: `translateY(${offset * 0.5}px)`,*/
+                            }}
+                        />
+                    </div>
+                </LandingBlock>
 
-                            </LandingBlock>
-                        );
-                    }}
-                </ReactVisibilitySensor >
                 <div className="pg-landing-screen__footer">
                     <div className="pg-landing-screen__footer__wrap">
                         <div className="pg-landing-screen__footer__wrap__left" onClick={(e) => this.handleScrollTop()}>
@@ -416,41 +423,40 @@ class Landing extends React.Component<Props> {
                         </div>
                         <div className="pg-landing-screen__footer__wrap__social">
                             <div className="pg-landing-screen__footer__wrap__social__row">
-                                <img src={TelegramIcon} alt="Telegram" />
-                                <img src={LinkedInIcon} alt="LinkedIn" />
-                                <img src={TwitterIcon} alt="Twitter" />
-                                <img src={YouTubeIcon} alt="YouTube" />
-                            </div>
-                            <div className="pg-landing-screen__footer__wrap__social__row">
-                                <img src={RedditIcon} alt="Reddit" />
-                                <img src={FacebookIcon} alt="Facebook" />
-                                <img src={MediumIcon} alt="MediumIcon" />
-                                <img src={CoinMarketIcon} alt="CoinMarket" />
+                                <a href="https://t.me/SafeTradeEx"><img src={TelegramIcon} alt="Telegram" /></a>
+
+                                <a href="https://t.me/SafeTradeEx"><img src={TwitterIcon} alt="Twitter" /></a>
+                                <a href="https://t.me/SafeTradeEx"><img src={YouTubeIcon} alt="YouTube" /></a>
+                                </div>
+                                <div className="pg-landing-screen__footer__wrap__social__row">
+                                <a href="https://t.me/SafeTradeEx"><img src={RedditIcon} alt="Reddit" /></a>
+                                <a href="https://t.me/SafeTradeEx"><img src={MediumIcon} alt="MediumIcon" /></a>
+                                <a href="https://t.me/SafeTradeEx"><img src={CoinMarketIcon} alt="CoinMarket" /></a>
+                                </div>
                             </div>
                         </div>
+                        <span className="pg-landing-screen__footer__rights">
+                            {this.translate('page.body.landing.footer.rights')}
+                        </span>
                     </div>
-                    <span className="pg-landing-screen__footer__rights">
-                        {this.translate('page.body.landing.footer.rights')}
-                    </span>
                 </div>
-            </div>
-        );
+                );
     }
 
     private handleScrollTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    private translate = (key: string) => this.props.intl.formatMessage({ id: key });
+    private translate = (key: string) => this.props.intl.formatMessage({id: key });
 }
 
 const mapStateToProps = (state: RootState): ReduxProps => ({
-    isLoggedIn: selectUserLoggedIn(state),
-    colorTheme: selectCurrentColorTheme(state),
+                    isLoggedIn: selectUserLoggedIn(state),
+                colorTheme: selectCurrentColorTheme(state),
 });
 
-export const LandingScreen = compose(
-    injectIntl,
-    withRouter,
-    connect(mapStateToProps, null)
-)(Landing) as React.ComponentClass;
+                export const LandingScreen = compose(
+                injectIntl,
+                withRouter,
+                connect(mapStateToProps, null)
+                )(Landing) as React.ComponentClass;
