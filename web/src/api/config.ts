@@ -30,7 +30,7 @@ export const defaultConfig: Config = {
         defaultStorageLimit: '50',
         orderBookSideLimit: '25'
     },
-    languages: ['en', 'ru'],
+    languages: ['en' , 'ru', 'fr'],
     kycSteps: [
         'email',
         'phone',

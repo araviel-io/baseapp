@@ -32,7 +32,7 @@ import { CanCan } from '../';
 
 import enIcon from 'src/assets/images/sidebar/en.svg';
 import ruIcon from 'src/assets/images/sidebar/ru.svg';
-
+import frIcon from 'src/assets/images/sidebar/ru.svg';
 interface State {
     isOpenLanguage: boolean;
 }
@@ -195,6 +195,8 @@ class SidebarContainer extends React.Component<Props, State> {
     private getLanguageIcon = (name: string): string => {
         if (name === 'ru') {
             return ruIcon;
+        }  else if (name === 'fr') {
+            return frIcon;
         } else {
             return enIcon;
         }

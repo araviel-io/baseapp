@@ -45,19 +45,20 @@ import FeaturesCommunityIcon from 'src/assets/images/landing/features/Community.
 import FeaturesAPIIcon from 'src/assets/images/landing/features/API.svg';
 
 import TelegramIcon from 'src/assets/images/landing/social/Telegram.svg';
-import LinkedInIcon from 'src/assets/images/landing/social/LinkedIn.svg';
 import TwitterIcon from 'src/assets/images/landing/social/Twitter.svg';
 import YouTubeIcon from 'src/assets/images/landing/social/YouTube.svg';
 import RedditIcon from 'src/assets/images/landing/social/Reddit.svg';
-import FacebookIcon from 'src/assets/images/landing/social/Facebook.svg';
 import MediumIcon from 'src/assets/images/landing/social/Medium.svg';
 import CoinMarketIcon from 'src/assets/images/landing/social/CoinMarket.svg';
-import { useEffect, useState } from 'react';
+
 
 
 /* NOTE :
 use <LandingBlock> for "fullscren" wrapper
 use standart <div> for regular 
+
+Todo : API features
+no kyc feature
 */
 interface ReduxProps {
     isLoggedIn: boolean;

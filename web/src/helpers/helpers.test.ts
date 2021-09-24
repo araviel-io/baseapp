@@ -275,6 +275,7 @@ describe('Helpers', () => {
     it('should return correct language name', () => {
         expect(helpers.getLanguageName('en')).toEqual('English');
         expect(helpers.getLanguageName('ru')).toEqual('Русский');
+        expect(helpers.getLanguageName('fr')).toEqual('Français');
         expect(helpers.getLanguageName('asd')).toEqual('English');
     });
 
