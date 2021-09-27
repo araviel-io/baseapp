@@ -49,8 +49,8 @@ interface LocationProps extends RouterProps {
         pathname: string;
     };
 }
-
-const noHeaderRoutes = ['/confirm', '/restriction', '/maintenance', '/setup'];
+// Ara : removed navbar for login / register
+const noHeaderRoutes = ['/confirm', '/restriction', '/maintenance', '/setup', '/signin', '/signup'];
 
 type Props = ReduxProps & DispatchProps & IntlProps & LocationProps;
 

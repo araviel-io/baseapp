@@ -4,27 +4,27 @@ import { nationalitiesNames } from '../../translations/nationalities';
 
 export const fr: LangType = {
     'page.header.navbar.signIn': 'Se connecter',
-    'page.header.navbar.quick.exchange': 'Quick exchange',
+    'page.header.navbar.quick.exchange': 'Echange rapide',
     'page.header.navbar.trade': 'Trade',
     'page.header.navbar.wallets': 'Wallets',
-    'page.header.navbar.openOrders': 'Orders',
-    'page.header.navbar.history': 'History',
-    'page.header.navbar.api': 'API Documentation',
-    'page.header.navbar.internal.transfer': 'Internal transfer',
+    'page.header.navbar.openOrders': 'Ordres',
+    'page.header.navbar.history': 'Historique',
+    'page.header.navbar.api': 'Documentation API',
+    'page.header.navbar.internal.transfer': 'Transfert interne',
 
-    'page.header.navbar.profile': 'Profile',
-    'page.header.navbar.logout': 'Logout',
+    'page.header.navbar.profile': 'Profil',
+    'page.header.navbar.logout': 'Deconnection',
 
     'page.sidebar.group.text': 'Fee Group:',
     'page.sidebar.group.value': 'Base',
 
-    'page.body.trade.header.market': 'Market',
+    'page.body.trade.header.market': 'Marchés',
     'page.body.trade.header.yours': 'Yours',
 
-    'page.body.trade.header.markets': 'Markets',
-    'page.body.trade.header.markets.content.market': 'Market',
+    'page.body.trade.header.markets': 'Marchés',
+    'page.body.trade.header.markets.content.market': 'Marché',
     'page.body.trade.header.markets.content.pair': 'Pair',
-    'page.body.trade.header.markets.content.price': 'Price',
+    'page.body.trade.header.markets.content.price': 'Prix',
     'page.body.trade.header.markets.content.last_price': 'Last Price',
     'page.body.trade.header.markets.content.change': 'Change',
     'page.body.trade.header.markets.content.search': 'Search',
