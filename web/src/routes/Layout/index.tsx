@@ -264,8 +264,8 @@ class LayoutComponent extends React.Component<LayoutProps, LayoutState> {
         const desktopCls = classnames('container-fluid pg-layout', {
             'trading-layout': location.pathname.includes('/trading'),
             // Ara added specific classes for login / register
-            'c-signin-layout': location.pathname.includes('/signin'),
-            'c-signup-layout': location.pathname.includes('/signup'),
+            /*'c-signin-layout': location.pathname.includes('/signin'),
+            'c-signup-layout': location.pathname.includes('/signup'),*/
         });
         const mobileCls = classnames('container-fluid pg-layout pg-layout--mobile', {
             'pg-layout--mobile-setup': location.pathname.includes('/setup'),

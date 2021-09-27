@@ -1,15 +1,21 @@
 .pg-sign-in-screen {
-  background: url(assets/images/background.svg);
+ // background: url(assets/images/background.svg);
   background-size: cover;
   display: flex;
-  height: calc(100vh - calc(var(--gap) * 9.84));
+  height: calc(100vh);
   justify-content: center;
   margin: 0 auto;
 
   .pg-sign-in-screen__container {
+    align-self: center;
     background: transparent;
-    margin-top: calc(var(--gap) * 3.33);
+    //height: inherit;
+    //margin-top: calc(var(--gap) * 3.33);
     width: calc(var(--gap) * 70.66);
+    flex: 1;
+    form {
+
+    }
   }
 
   .pg-2fa___form {

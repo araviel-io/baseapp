@@ -227,6 +227,9 @@ class SignUp extends React.Component<Props> {
                         footer={this.renderModalFooter()}
                     />
                 </div>
+                
+                <div className={cx('pg-sign-up-screen__container', { loading })}>test</div>
+            
             </div>
         );
     }
