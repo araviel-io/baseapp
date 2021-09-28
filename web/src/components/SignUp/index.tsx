@@ -4,7 +4,7 @@ import { Button, Form } from 'react-bootstrap';
 import { useIntl } from 'react-intl';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
-import { CustomInput, PasswordStrengthMeter } from '../';
+import { CustomInputSign, PasswordStrengthMeter } from '../';
 import { isUsernameEnabled } from '../../api';
 import { captchaType, passwordMinEntropy } from '../../api/config';
 import {
@@ -161,7 +161,7 @@ const SignUpFormComponent: React.FC<SignUpFormProps> = ({
 
         return (
             <div className={passwordGroupClass}>
-                <CustomInput
+                <CustomInputSign
                     type="password"
                     label={passwordLabel || 'Password'}
                     placeholder={passwordFocused ? '' : passwordLabel || 'Password'}
@@ -287,7 +287,7 @@ const SignUpFormComponent: React.FC<SignUpFormProps> = ({
                                 'cr-sign-up-form__group--errored':
                                     username.length && !usernameFocused && !username.match(USERNAME_REGEX),
                             })}>
-                            <CustomInput
+                            <CustomInputSign
                                 type="text"
                                 label={usernameLabel || 'Username'}
                                 placeholder={usernameFocused ? '' : usernameLabel || 'Username'}
@@ -309,7 +309,7 @@ const SignUpFormComponent: React.FC<SignUpFormProps> = ({
                         className={cr('cr-sign-up-form__group', {
                             'cr-sign-up-form__group--focused': emailFocused,
                         })}>
-                        <CustomInput
+                        <CustomInputSign
                             type="email"
                             label={emailLabel || 'Email'}
                             placeholder={emailFocused ? '' :emailLabel || 'Email'}
@@ -329,7 +329,7 @@ const SignUpFormComponent: React.FC<SignUpFormProps> = ({
                         className={cr('cr-sign-up-form__group', {
                             'cr-sign-up-form__group--focused': confirmPasswordFocused,
                         })}>
-                        <CustomInput
+                        <CustomInputSign
                             type="password"
                             label={confirmPasswordLabel || 'Confirm Password'}
                             placeholder={confirmPasswordFocused ? '' :confirmPasswordLabel || 'Confirm Password'}
@@ -348,7 +348,7 @@ const SignUpFormComponent: React.FC<SignUpFormProps> = ({
                         className={cr('cr-sign-up-form__group', {
                             'cr-sign-up-form__group--focused': refIdFocused,
                         })}>
-                        <CustomInput
+                        <CustomInputSign
                             type="text"
                             label={referalCodeLabel || 'Referral code'}
                             placeholder={refIdFocused ? '' : referalCodeLabel || 'Referral code'}

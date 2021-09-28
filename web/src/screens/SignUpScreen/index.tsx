@@ -228,7 +228,7 @@ class SignUp extends React.Component<Props> {
                     />
                 </div>
                 
-                <div className={cx('pg-sign-up-screen__container', { loading })}>test</div>
+                <div className={cx('pg-sign-up-screen__container-right', { loading })}>test</div>
             
             </div>
         );

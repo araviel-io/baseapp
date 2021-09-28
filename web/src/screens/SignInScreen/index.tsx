@@ -166,7 +166,7 @@ export const SignInScreen: React.FC = () => {
         <div className="pg-sign-in-screen">
 
 
-            < div className={cx('pg-sign-in-screen__container', { loading })}>
+            <div className={cx('pg-sign-in-screen__container', { loading })}>
                 {require2FA ? (
                     <TwoFactorAuth
                         isMobile={isMobileDevice}
@@ -214,7 +214,7 @@ export const SignInScreen: React.FC = () => {
                 )}
             </div>
             {isMobileDevice ? (null) : (
-                <div className={cx('pg-sign-in-screen__container', { loading })}>test</div>
+                <div className={cx('pg-sign-in-screen__container-right', { loading })}>test</div>
             )}
         </div >
     );

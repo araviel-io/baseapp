@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 import { useIntl } from 'react-intl';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
-import { CustomInput } from '../';
+import { CustomInputSign } from '../';
 import { captchaLogin } from '../../api';
 import { EMAIL_REGEX } from '../../helpers';
 import { GeetestCaptchaResponse } from '../../modules';
@@ -197,7 +197,7 @@ const SignIn: React.FC<SignInProps> = ({
                         className={cr('cr-sign-in-form__group', {
                             'cr-sign-in-form__group--focused': emailFocused,
                         })}>
-                        <CustomInput
+                        <CustomInputSign
                             type="email"
                             label={emailLabel || 'Email'}
                             placeholder={emailFocused ? '' : emailPlaceholder}
@@ -215,7 +215,7 @@ const SignIn: React.FC<SignInProps> = ({
                         className={cr('cr-sign-in-form__group', {
                             'cr-sign-in-form__group--focused': passwordFocused,
                         })}>
-                        <CustomInput
+                        <CustomInputSign
                             type="password"
                             label={passwordLabel || 'Password'}
                             placeholder={passwordFocused ? '' : passwordPlaceholder}
