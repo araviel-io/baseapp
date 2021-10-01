@@ -599,6 +599,7 @@ export const en = {
     'page.header.signIn.resetPassword.button': 'Change',
     'page.header.signIn.resetPassword.error': 'Fields are empty or don`t matches',
 
+    'page.header.signUpFromSignin': 'or create an account',
     'page.header.signUp': 'Sign Up',
     'page.header.signUp.username.minLength.error': 'Please, enter more characters. Min number of characters is 4',
     'page.header.signUp.username.maxLength.error': 'Please, enter fewer characters. Maximum number of characters is 12',

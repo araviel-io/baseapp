@@ -214,7 +214,9 @@ export const SignInScreen: React.FC = () => {
             </div>
             {isMobileDevice ? (null) : (
                 <div className={cx('pg-sign-in-screen__container-right', { loading })}>
-                    <LightLogo />
+                    <div className="pg-sign-in-screen__container-right__logo-container">
+                        <LightLogo />
+                    </div>
                 </div>
             )}
         </div >

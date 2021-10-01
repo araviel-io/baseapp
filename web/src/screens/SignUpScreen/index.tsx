@@ -14,7 +14,7 @@ import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import { isUsernameEnabled } from '../../api';
 import { captchaType } from '../../api/config';
-import { Captcha, Modal, SignUpForm } from '../../components';
+import { Captcha, LightLogo, Modal, SignUpForm } from '../../components';
 import {
     EMAIL_REGEX,
     ERROR_INVALID_EMAIL,
@@ -228,7 +228,12 @@ class SignUp extends React.Component<Props> {
                     />
                 </div>
                 
-                <div className={cx('pg-sign-up-screen__container-right', { loading })}>test</div>
+                { /* TODO : insert mobile condition*/}
+                <div className={cx('pg-sign-up-screen__container-right', { loading })}>
+                    <div className="pg-sign-up-screen__container-right__logo-container">
+                        <LightLogo />
+                    </div>
+                </div>
             
             </div>
         );
