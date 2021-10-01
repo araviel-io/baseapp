@@ -1,12 +1,15 @@
+
 .custom-input-sign {
   margin-bottom: 8px;
-
+  
   input {
     //background: var(--body-background-color) !important;
-    border-color: var(--input-border-color);
+   // border-color: var(--input-border-color);
+    
   }
 
   label {
+    
     //background: var(--body-background-color) !important;
     font-size: calc(var(--gap) * 2);
     //left: 12px !important;
@@ -21,13 +24,16 @@
   input:focus {
     box-shadow: none;
     color: var(--input-text-color);
+    
   }
 
   input:focus {
     /*background: var(--input-background-color-active) !important;*/
+    
   }
 
   input:focus-within {
+    
     border-color: var(--input-border-color-active);
 
     label {
@@ -38,9 +44,7 @@
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus {
-    border: 2px solid var(--input-border-color);
-    -webkit-box-shadow: 0 0 0 1000px var(--input-background-color) inset;
-    -webkit-text-fill-color: var(--input-text-color);
+    
     transition: background-color 5000s ease-in-out 0s;
   }
 }

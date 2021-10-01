@@ -262,15 +262,16 @@ const SignUpFormComponent: React.FC<SignUpFormProps> = ({
             <div className="cr-sign-up-form" onKeyPress={handleEnterPress}>
                 {!isMobileDevice && (
                     <div className="cr-sign-up-form__options-group">
+
+                        <div className="cr-sign-up-form__option">
+                            <div className="cr-sign-up-form__option-inner __selected">{labelSignUp || 'Sign Up'}</div>
+                        </div>
                         <div className="cr-sign-up-form__option">
                             <div
                                 className="cr-sign-up-form__option-inner cr-sign-in-form__tab-signin"
                                 onClick={onSignIn}>
                                 {labelSignIn || 'Sign In'}
                             </div>
-                        </div>
-                        <div className="cr-sign-up-form__option">
-                            <div className="cr-sign-up-form__option-inner __selected">{labelSignUp || 'Sign Up'}</div>
                         </div>
                     </div>
                 )}

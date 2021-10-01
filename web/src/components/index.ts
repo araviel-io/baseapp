@@ -21,6 +21,7 @@ export * from './GridItem';
 export * from './History';
 export * from './InternalTransfer';
 export * from './Logo';
+export * from './LightLogo';
 export * from './MarketDepths';
 export * from './Markets';
 export * from './MetaMaskButton';

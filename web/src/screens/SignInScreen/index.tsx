@@ -4,6 +4,7 @@ import { useIntl } from 'react-intl';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { captchaType, captchaLogin } from '../../api';
+import { LightLogo } from '../../components';
 import { Captcha, SignInComponent, TwoFactorAuth } from '../../components';
 import { EMAIL_REGEX, ERROR_EMPTY_PASSWORD, ERROR_INVALID_EMAIL, setDocumentTitle } from '../../helpers';
 import { useReduxSelector } from '../../hooks';
@@ -164,8 +165,6 @@ export const SignInScreen: React.FC = () => {
     console.log("testmobile", isMobileDevice)
     return (
         <div className="pg-sign-in-screen">
-
-
             <div className={cx('pg-sign-in-screen__container', { loading })}>
                 {require2FA ? (
                     <TwoFactorAuth
@@ -214,7 +213,9 @@ export const SignInScreen: React.FC = () => {
                 )}
             </div>
             {isMobileDevice ? (null) : (
-                <div className={cx('pg-sign-in-screen__container-right', { loading })}>test</div>
+                <div className={cx('pg-sign-in-screen__container-right', { loading })}>
+                    <LightLogo />
+                </div>
             )}
         </div >
     );

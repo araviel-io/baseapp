@@ -27,9 +27,11 @@ background-size: cover;
     min-height: max-content;
 
     &__options-group {
-      border-bottom: 2px solid var(--divider-color-level-2);
-      height: calc(var(--big-gap) * 0.97);
+      //border-bottom: 2px solid var(--divider-color-level-2);
+      //height: calc(var(--big-gap) * 0.97);
+      display: grid;
       width: 100%;
+      justify-items: center;
     }
 
     &__group {
@@ -57,11 +59,12 @@ background-size: cover;
     }
 
     &__option {
-      background: var(--subheader-background-color);
+      //background: var(--subheader-background-color);
 
       .__selected {
-        border-bottom: 2px solid var(--primary-cta-color);
-        color: var(--primary-text-color);
+        color: var(--secondary-contrast-cta-color);
+        //border-bottom: 2px solid var(--primary-cta-color);
+        
       }
     }
 
@@ -72,13 +75,12 @@ background-size: cover;
     }
 
     &__label {
-      background: white;
-      //border:2px solid white;
+      //background: white; 
       color: var(--inout-legend-color);
       font-size: calc(var(--gap) * 2);
       position: absolute;
-      top: calc(var(--gap) * (-2.8));
-      z-index:10;
+      top: calc(var(--gap) * (-3.5));
+      z-index: 10;
     }
 
     .cr-checkbox {

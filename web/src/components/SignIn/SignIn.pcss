@@ -1,24 +1,31 @@
 .cr-sign-in-form {
+  
   border-radius: 3px;
   //box-shadow: 0 10px 15px var(--shadow-color-level-2);
   height: 500px;
   max-width: 424px;
   position: relative;
 
+  &__label {
+    margin-bottom: inherit;
+  }
   &__options-group {
-    border-bottom: 2px solid var(--divider-color-level-2);
-    height: 58px;
+    //border-bottom: 2px solid var(--divider-color-level-2);
+    //height: 58px;
     width: 100%;
+    display: grid;
   }
 
   &__option {
-    background: var(--subheader-background-color);
+    background: none;
+    color:red;
     display: inline-block;
     height: 58px;
     width: 50%;
 
     .__selected {
-      border-bottom: 2px solid var(--primary-cta-color);
+      font-size: 26px;
+      //border-bottom: 2px solid var(--primary-cta-color);
       color: var(--primary-text-color);
     }
   }
@@ -34,7 +41,7 @@
     line-height: 58px;
     margin: 0 auto;
     text-align: center;
-    text-transform: uppercase;
+    //text-transform: uppercase;
     width: 75%;
   }
 
@@ -72,7 +79,11 @@
 
   &__group--focused {
     .cr-sign-in-form__label {
+      
       color: var(--input-legend-color-active);
+    }
+    input {
+     // border: 5px solid red !important;
     }
   }
 
