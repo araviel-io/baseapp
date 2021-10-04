@@ -5,6 +5,17 @@
   min-height: 620px;
   position: relative;
 
+  input {
+    border-width: 0 0 2px 0;
+    border-radius: 0px!important;
+    &:focus {
+      color: #495057;
+      background-color: #fff;
+      border-color: rgba(0, 115, 158, 0.84);
+      outline: 0;
+      box-shadow: 0 0 0 0 rgba(0, 115, 158, 0.25);
+    }
+  }
   &__separator {
     font-size: x-large;
     align-self: center;
@@ -84,7 +95,7 @@
         width: 83%;
 
         &::before {
-          background-color: var(--input-background-color);
+          //background-color: var(--input-background-color);
           border-color: var(--input-border-color);
           height: 18px;
           margin-right: calc(var(--gap) * 3);

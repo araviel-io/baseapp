@@ -41,7 +41,15 @@
       width: 100%;
       justify-items: center;
     }
-
+    &__button-wrapper {
+      bottom: calc(var(--gap) * 3.8);
+      min-height: calc(var(--gap));
+      padding-top: 15px;
+      padding-bottom: 15px;
+      button {
+        border-radius:50px;
+      }
+    }
     &__group {
       margin-bottom: calc(var(--gap) * 3.1);
 
@@ -51,7 +59,7 @@
         }
 
         input {
-          border-color: var(--input-border-color-active) !important;
+          //border-color: var(--input-border-color-active) !important;
         }
       }
 
@@ -88,7 +96,7 @@
       font-size: calc(var(--gap) * 2);
       position: absolute;
       top: calc(var(--gap) * (-3.5));
-      z-index: 10;
+      //z-index: 10;
     }
 
     .cr-checkbox {
@@ -156,6 +164,10 @@
     .pg-sign-up-screen__container {
       margin: calc(var(--gap) * 3.33) calc(var(--gap) * 1.66) 0;
       width: 100%;
+    }
+  
+    .pg-sign-up-screen__container-right {
+      display:none;
     }
 
     .cr-sign-up-form {

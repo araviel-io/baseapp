@@ -381,7 +381,7 @@ const SignUpFormComponent: React.FC<SignUpFormProps> = ({
                             disabled={disableButton}
                             onClick={(e) => handleClick(e as any)}
                             size="lg"
-                            variant="primary">
+                            variant="primary-log">
                             {isLoading ? 'Loading...' : labelSignUp ? labelSignUp : 'Sign up'}
                         </Button>
                     </div>
