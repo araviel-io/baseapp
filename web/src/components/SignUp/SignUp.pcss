@@ -5,30 +5,42 @@
   min-height: 620px;
   position: relative;
 
+  &__separator {
+    font-size: x-large;
+    align-self: center;
+    line-height: 58px;
+    margin-left: 15px;
+    margin-right: 15px;
+    color: rgb(81, 89, 109);
+    opacity:0.5;
+
+  }
+
   &__options-group {
     //border-bottom: 2px solid var(--divider-color-level-2);
     //height: 58px;
     width: 100%;
+    display: flex;
   }
 
   &__option {
     background: none;
-    color:red;
-    display: inline-block;
+   // color:red;
+   // display: inline-block;
     height: 58px;
-    width: 50%;
+    //width: 50%;
 
     .__selected {
+      opacity: 1;
       font-size: 26px;
-      //border-bottom: 2px solid var(--primary-cta-color);
-      color: var(--primary-text-color);
+      color: rgba(0, 115, 158, 0.84);
     }
   }
 
   &__option-inner {
     background: transparent;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 500;
     height: 58px;
@@ -36,13 +48,15 @@
     line-height: 58px;
     margin: 0 auto;
     text-align: center;
+    color: rgb(81, 89, 109);
+    opacity: 0.5;
     //text-transform: uppercase;
-    width: 75%;
+   // width: 75%;
   }
 
   &__form-content {
     box-sizing: border-box;
-    padding: var(--email-form-padding);
+    padding-top: 15px;
 
     .custom-control {
       &-input {
@@ -179,4 +193,37 @@
     top: 10px;
     z-index: 2;
   }
+}
+.fade-in-signup {
+
+  animation: fadeIn linear 400ms;
+  -webkit-animation: fadeIn linear 400ms;
+  -moz-animation: fadeIn linear 400ms;
+  -o-animation: fadeIn linear 400ms;
+  -ms-animation: fadeIn linear 400ms;
+}
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
 }

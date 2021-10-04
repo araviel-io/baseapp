@@ -266,6 +266,7 @@ const SignUpFormComponent: React.FC<SignUpFormProps> = ({
                         <div className="cr-sign-up-form__option">
                             <div className="cr-sign-up-form__option-inner __selected">{labelSignUp || 'Sign Up'}</div>
                         </div>
+                        <div className="cr-sign-up-form__separator"> / </div>
                         <div className="cr-sign-up-form__option">
                             <div
                                 className="cr-sign-up-form__option-inner cr-sign-in-form__tab-signin"
@@ -275,7 +276,7 @@ const SignUpFormComponent: React.FC<SignUpFormProps> = ({
                         </div>
                     </div>
                 )}
-                <div className="cr-sign-up-form__form-content">
+                <div className="cr-sign-up-form__form-content fade-in-signup">
                     {image ? (
                         <h1 className="cr-sign-up-form__title">
                             <img className="cr-sign-up-form__image" src={image} alt="logo" />

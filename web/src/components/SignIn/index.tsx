@@ -177,7 +177,9 @@ const SignIn: React.FC<SignInProps> = ({
                             <div className="cr-sign-in-form__option-inner __selected">
                                 {labelSignIn ? labelSignIn : 'Sign In'}
                             </div>
-                        </div>
+                        </div> {/*font-size: xx-large;
+    align-self: center;*/}
+                        <div className="cr-sign-in-form__separator"> / </div>
                         <div className="cr-sign-in-form__option">
                             <div
                                 className="cr-sign-in-form__option-inner cr-sign-in-form__tab-signup"
@@ -187,7 +189,7 @@ const SignIn: React.FC<SignInProps> = ({
                         </div>
                     </div>
                 )}
-                <div className="cr-sign-in-form__form-content">
+                <div className="cr-sign-in-form__form-content fade-in-signin">
                     {image ? (
                         <h1 className="cr-sign-in-form__title">
                             <img className="cr-sign-in-form__image" src={image} alt="logo" />
@@ -238,7 +240,7 @@ const SignIn: React.FC<SignInProps> = ({
                             disabled={isLoading || !email.match(EMAIL_REGEX) || !password || isButtonDisabled}
                             onClick={handleClick as any}
                             size="lg"
-                            variant="primary">
+                            variant="primary-log">
                             {isLoading ? 'Loading...' : labelSignIn ? labelSignIn : 'Sign in'}
                         </Button>
                     </div>

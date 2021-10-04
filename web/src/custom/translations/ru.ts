@@ -596,6 +596,7 @@ export const ru: LangType = {
     'page.footer.legalDocuments': 'Документы',
     'page.footer.faq': 'Помощь',
 
+    'page.header.signUpFromSignin': 'or create an account',
     'page.header.signIn': 'Войти',
     'page.header.signIn.email': 'Почта',
     'page.header.signIn.password': 'Пароль',

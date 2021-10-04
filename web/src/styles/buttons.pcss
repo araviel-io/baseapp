@@ -33,6 +33,41 @@
   color: var(--button-primary-cta-text-color-active);
 }
 
+.btn-primary-log {
+  background: rgba(0, 115, 158, 0.84);
+  border: none;
+  color: var(--button-primary-cta-text-color);
+  font-weight: var(--button-font-weight);
+  transition: all 0.2s ease 0s;
+  &:hover {
+    background-color: #2EE59D;
+    box-shadow: 0px 10px 15px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-3px);
+  }
+
+  &:active,
+  &:focus {
+    background: var(--button-primary-cta-background-color-active);
+    border: none;
+    box-shadow: none;
+    color: var(--button-primary-cta-text-color-active);
+  }
+
+  &:disabled {
+    background: var(--button-primary-cta-background-color-disabled);
+    border: none;
+    color: var(--button-primary-cta-text-color-disabled);
+    cursor: not-allowed;
+  }
+}
+
+.btn-primary-log:not(:disabled):not(.disabled):active:focus {
+  background: var(--button-primary-cta-background-color-active);
+  box-shadow: none;
+  color: var(--button-primary-cta-text-color-active);
+}
+
 .btn-success {
   background: var(--button-bids-background-color);
   border: none;
