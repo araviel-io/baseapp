@@ -52,7 +52,7 @@ import MediumIcon from 'src/assets/images/landing/social/Medium.svg';
 import CoinMarketIcon from 'src/assets/images/landing/social/CoinMarket.svg';
 
 
-
+const LanguageSwitcherContainer = React.lazy(() => import('../../containers/LanguageSwitcher').then(({ Languageswitcher }) => ({ default: Languageswitcher })));
 /* NOTE :
 use <LandingBlock> for "fullscren" wrapper
 use standart <div> for regular 
@@ -72,7 +72,7 @@ class Landing extends React.Component<Props> {
         navBackground: null,
         offSet: null,
         getElement: null,
-        isnavbarTop: null,
+        isnavbarTop: true,
     };
 
     public componentDidMount() {
@@ -120,8 +120,14 @@ class Landing extends React.Component<Props> {
                 <div className={`pg-landing-screen__header ${this.state.isnavbarTop ? "" : "shadow-lg"}`} style={{ background: this.state.navBackground }}>
                     <div className="pg-landing-screen__header__wrap">
                         <div className="pg-landing-screen__header__wrap__left" onClick={(e) => this.handleScrollTop()}>
-                            <Logo />
+                            <a href="/">
+                                <Logo />
+                            </a>
+
                         </div>
+                        <>
+                            <LanguageSwitcherContainer />
+                        </>
                         <div className="pg-landing-screen__header__wrap__right">
                             {this.props.isLoggedIn ? (
                                 <Link to="/profile" className="landing-button">
@@ -147,8 +153,10 @@ class Landing extends React.Component<Props> {
                             </Dropdown>
                             */}
                         </div>
+
                     </div>
                 </div>
+
                 <LandingBlock className="pg-landing-screen__top" contentClassName="pg-landing-screen__top-content">
                     <div className="pg-landing-screen__market-info">
                         <div className="pg-landing-screen__market-info__wrap">
@@ -409,17 +417,17 @@ class Landing extends React.Component<Props> {
                             <div className="pg-landing-screen__footer__wrap__navigation__col">
                                 <Link to="/trading/">{this.translate('page.body.landing.footer.exchange')}</Link>
                                 <Link to="/wallets">{this.translate('page.body.landing.footer.wallets')}</Link>
-                                <Link to="/">{this.translate('page.body.landing.footer.fees')}</Link>
+                                <Link to="https://safe.trade/fees.html">{this.translate('page.body.landing.footer.fees')}</Link>
                             </div>
                             <div className="pg-landing-screen__footer__wrap__navigation__col">
                                 <Link to="/">{this.translate('page.body.landing.footer.faq')}</Link>
-                                <Link to="/">{this.translate('page.body.landing.footer.support')}</Link>
+                                <Link to="https://support.safe.trade/">{this.translate('page.body.landing.footer.support')}</Link>
                                 <Link to="/">{this.translate('page.body.landing.footer.privacy')}</Link>
                             </div>
                             <div className="pg-landing-screen__footer__wrap__navigation__col">
-                                <Link to="/">{this.translate('page.body.landing.footer.about')}</Link>
-                                <Link to="/">{this.translate('page.body.landing.footer.community')}</Link>
-                                <Link to="/">{this.translate('page.body.landing.footer.info')}</Link>
+                                <Link to="https://bitcointalk.org/index.php?topic=3240246.0">{this.translate('page.body.landing.footer.about')}</Link>
+                                <Link to="https://discord.gg/4szJzdR">{this.translate('page.body.landing.footer.community')}</Link>
+                                <Link to="https://safe.trade/terms.html">{this.translate('page.body.landing.footer.info')}</Link>
                             </div>
                         </div>
                         <div className="pg-landing-screen__footer__wrap__social">
@@ -428,36 +436,36 @@ class Landing extends React.Component<Props> {
 
                                 <a href="https://t.me/SafeTradeEx"><img src={TwitterIcon} alt="Twitter" /></a>
                                 <a href="https://t.me/SafeTradeEx"><img src={YouTubeIcon} alt="YouTube" /></a>
-                                </div>
-                                <div className="pg-landing-screen__footer__wrap__social__row">
+                            </div>
+                            <div className="pg-landing-screen__footer__wrap__social__row">
                                 <a href="https://t.me/SafeTradeEx"><img src={RedditIcon} alt="Reddit" /></a>
                                 <a href="https://t.me/SafeTradeEx"><img src={MediumIcon} alt="MediumIcon" /></a>
                                 <a href="https://t.me/SafeTradeEx"><img src={CoinMarketIcon} alt="CoinMarket" /></a>
-                                </div>
                             </div>
                         </div>
-                        <span className="pg-landing-screen__footer__rights">
-                            {this.translate('page.body.landing.footer.rights')}
-                        </span>
                     </div>
+                    <span className="pg-landing-screen__footer__rights">
+                        {this.translate('page.body.landing.footer.rights')}
+                    </span>
                 </div>
-                );
+            </div>
+        );
     }
 
     private handleScrollTop = () => {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    private translate = (key: string) => this.props.intl.formatMessage({id: key });
+    private translate = (key: string) => this.props.intl.formatMessage({ id: key });
 }
 
 const mapStateToProps = (state: RootState): ReduxProps => ({
-                    isLoggedIn: selectUserLoggedIn(state),
-                colorTheme: selectCurrentColorTheme(state),
+    isLoggedIn: selectUserLoggedIn(state),
+    colorTheme: selectCurrentColorTheme(state),
 });
 
-                export const LandingScreen = compose(
-                injectIntl,
-                withRouter,
-                connect(mapStateToProps, null)
-                )(Landing) as React.ComponentClass;
+export const LandingScreen = compose(
+    injectIntl,
+    withRouter,
+    connect(mapStateToProps, null)
+)(Landing) as React.ComponentClass;

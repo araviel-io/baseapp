@@ -42,6 +42,8 @@ import {
     signUp,
 } from '../../modules';
 
+const LanguageSwitcherContainer = React.lazy(() => import('../../containers/LanguageSwitcher').then(({ Languageswitcher }) => ({ default: Languageswitcher })));
+
 interface ReduxProps {
     requireVerification?: boolean;
     loading?: boolean;
@@ -119,7 +121,7 @@ class SignUp extends React.Component<Props> {
         const { email } = this.state;
 
         if (!prev.requireVerification && this.props.requireVerification) {
-            this.props.history.push('/email-verification', {email: email});
+            this.props.history.push('/email-verification', { email: email });
         }
     }
 
@@ -169,15 +171,18 @@ class SignUp extends React.Component<Props> {
 
         return (
             <div className="pg-sign-up-screen">
+                <>
+                    <LanguageSwitcherContainer />
+                </>
                 <div className={className}>
                     <SignUpForm
-                        labelSignIn={this.props.intl.formatMessage({ id: 'page.header.signIn'})}
-                        labelSignUp={this.props.intl.formatMessage({ id: 'page.header.signUp'})}
-                        emailLabel={this.props.intl.formatMessage({ id: 'page.header.signUp.email'})}
-                        passwordLabel={this.props.intl.formatMessage({ id: 'page.header.signUp.password'})}
-                        confirmPasswordLabel={this.props.intl.formatMessage({ id: 'page.header.signUp.confirmPassword'})}
-                        referalCodeLabel={this.props.intl.formatMessage({ id: 'page.header.signUp.referalCode'})}
-                        termsMessage={this.props.intl.formatMessage({ id: 'page.header.signUp.terms'})}
+                        labelSignIn={this.props.intl.formatMessage({ id: 'page.header.signIn' })}
+                        labelSignUp={this.props.intl.formatMessage({ id: 'page.header.signUp' })}
+                        emailLabel={this.props.intl.formatMessage({ id: 'page.header.signUp.email' })}
+                        passwordLabel={this.props.intl.formatMessage({ id: 'page.header.signUp.password' })}
+                        confirmPasswordLabel={this.props.intl.formatMessage({ id: 'page.header.signUp.confirmPassword' })}
+                        referalCodeLabel={this.props.intl.formatMessage({ id: 'page.header.signUp.referalCode' })}
+                        termsMessage={this.props.intl.formatMessage({ id: 'page.header.signUp.terms' })}
                         refId={refId}
                         handleChangeRefId={this.handleChangeRefId}
                         isLoading={loading}
@@ -227,19 +232,21 @@ class SignUp extends React.Component<Props> {
                         footer={this.renderModalFooter()}
                     />
                 </div>
-                
+
                 { /* TODO : insert mobile condition*/}
                 <div className={cx('pg-sign-up-screen__container-right', { loading })}>
                     <div className="pg-sign-up-screen__container-right__logo-container">
-                        <LightLogo />
+                        <a href="/">
+                            <LightLogo />
+                        </a>
                     </div>
                 </div>
-            
+
             </div>
         );
     }
 
-    private translate = (key: string) => this.props.intl.formatMessage({id: key});
+    private translate = (key: string) => this.props.intl.formatMessage({ id: key });
 
     private handleOutsideClick = event => {
         const wrapperElement = this.passwordWrapper.current;
@@ -308,7 +315,7 @@ class SignUp extends React.Component<Props> {
 
         if (this.state.typingTimeout) {
             clearTimeout(this.state.typingTimeout);
-         }
+        }
 
         this.setState({
             password: value,
@@ -391,7 +398,7 @@ class SignUp extends React.Component<Props> {
     private renderModalHeader = () => {
         return (
             <div className="pg-exchange-modal-submit-header">
-                {this.props.intl.formatMessage({id: 'page.header.signUp.modal.header'})}
+                {this.props.intl.formatMessage({ id: 'page.header.signUp.modal.header' })}
             </div>
         );
     };
@@ -400,7 +407,7 @@ class SignUp extends React.Component<Props> {
         return (
             <div className="pg-exchange-modal-submit-body">
                 <h2>
-                    {this.props.intl.formatMessage({id: 'page.header.signUp.modal.body'})}
+                    {this.props.intl.formatMessage({ id: 'page.header.signUp.modal.body' })}
                 </h2>
             </div>
         );
@@ -415,21 +422,21 @@ class SignUp extends React.Component<Props> {
                     size="lg"
                     variant="primary"
                 >
-                    {this.props.intl.formatMessage({id: 'page.header.signUp.modal.footer'})}
+                    {this.props.intl.formatMessage({ id: 'page.header.signUp.modal.footer' })}
                 </Button>
             </div>
         );
     };
 
     private closeModal = () => {
-        this.setState({showModal: false});
+        this.setState({ showModal: false });
         this.props.history.push('/signin');
     };
 
     private extractRefID = (url: string) => new URLSearchParams(url).get('refid');
 
     private handleValidateForm = () => {
-        const {email, password, confirmPassword} = this.state;
+        const { email, password, confirmPassword } = this.state;
         const isEmailValid = email.match(EMAIL_REGEX);
         const isPasswordValid = password.match(PASSWORD_REGEX);
         const isConfirmPasswordValid = password === confirmPassword;

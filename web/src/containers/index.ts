@@ -26,6 +26,7 @@ export * from './ProfileVerification';
 export * from './RecentTrades';
 export * from './ReferralProgram';
 export * from './Sidebar';
+export * from './LanguageSwitcher';
 export * from './ToolBar';
 export * from './TradingChart';
 export * from './WalletsFetch';

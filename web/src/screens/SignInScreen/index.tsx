@@ -24,6 +24,8 @@ import {
     resetCaptchaState,
 } from '../../modules';
 
+const LanguageSwitcherContainer = React.lazy(() => import('../../containers/LanguageSwitcher').then(({ Languageswitcher }) => ({ default: Languageswitcher })));
+
 export const SignInScreen: React.FC = () => {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -165,6 +167,9 @@ export const SignInScreen: React.FC = () => {
     console.log("testmobile", isMobileDevice)
     return (
         <div className="pg-sign-in-screen">
+            <>
+                <LanguageSwitcherContainer />
+            </>
             <div className={cx('pg-sign-in-screen__container', { loading })}>
                 {require2FA ? (
                     <TwoFactorAuth
@@ -215,7 +220,9 @@ export const SignInScreen: React.FC = () => {
             {isMobileDevice ? (null) : (
                 <div className={cx('pg-sign-in-screen__container-right', { loading })}>
                     <div className="pg-sign-in-screen__container-right__logo-container">
-                        <LightLogo />
+                        <a href="/">
+                            <LightLogo />
+                        </a>
                     </div>
                 </div>
             )}
