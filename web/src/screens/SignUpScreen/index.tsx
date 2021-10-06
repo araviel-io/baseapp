@@ -171,10 +171,13 @@ class SignUp extends React.Component<Props> {
 
         return (
             <div className="pg-sign-up-screen">
-                <>
-                    <LanguageSwitcherContainer />
-                </>
+
                 <div className={className}>
+                <div className="pg-sign-in-screen__nav">
+                    <LanguageSwitcherContainer />
+                    <a href="/trade">trade</a>
+                    <a href="/docs">docs</a>
+                </div>
                     <SignUpForm
                         labelSignIn={this.props.intl.formatMessage({ id: 'page.header.signIn' })}
                         labelSignUp={this.props.intl.formatMessage({ id: 'page.header.signUp' })}

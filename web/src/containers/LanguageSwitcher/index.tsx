@@ -98,7 +98,7 @@ class LanguageSwitcherContainer extends React.Component<Props, State> {
                 
                     <div className="btn-group pg-navbar__header-settings__account-dropdown dropdown-menu-language-container">
                         <Dropdown>
-                            <Dropdown.Toggle variant="primary" id={languageClassName}>
+                            <Dropdown.Toggle variant="test" id={languageClassName}>
                                 <img src={this.getLanguageIcon(lang)} alt={lang} />
                                 <span className="dropdown-menu-language-selected">{languageName}</span>
                             </Dropdown.Toggle>

@@ -167,10 +167,13 @@ export const SignInScreen: React.FC = () => {
     console.log("testmobile", isMobileDevice)
     return (
         <div className="pg-sign-in-screen">
-            <>
-                <LanguageSwitcherContainer />
-            </>
+
             <div className={cx('pg-sign-in-screen__container', { loading })}>
+                <div className="pg-sign-in-screen__nav">
+                    <LanguageSwitcherContainer />
+                    <a href="/trade">trade</a>
+                    <a href="/docs">docs</a>
+                </div>
                 {require2FA ? (
                     <TwoFactorAuth
                         isMobile={isMobileDevice}

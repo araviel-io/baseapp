@@ -129,8 +129,8 @@ export const fr: LangType = {
     'page.body.landing.platformInfo.item.third.value': '101',
     'page.body.landing.platformInfo.item.third.title': 'Countries supported',
 
-    'page.body.landing.register.item.title': 'Welcome to Safe.Trade',
-    'page.body.landing.register.item.subtitle': 'More Security. Better Privacy. Less Stress',
+    'page.body.landing.register.item.title': 'Bienvenue sur Safe.Trade',
+    'page.body.landing.register.item.subtitle': 'Plus de securité. Meilleure vie privée. Moins de stress',
     'page.body.landing.register.item.text': 'Stay Safe with the Safetrade ecosystem featuring SafePay, SafeNodes and Safecoin.',
     'page.body.landing.register.item.button': 'register',
 
@@ -148,7 +148,7 @@ export const fr: LangType = {
     'page.body.landing.features.features.item5.text': 'Join a global community that believes in the power of crypto.',
     'page.body.landing.features.features.item6.text': 'Our Websocket feed lets you easily gain access to real-time market data, while our trading API lets you develop secure, programmatic trading bots.',
 
-    'page.body.landing.tradeOnTheGo.item.title': 'Trade on the go',
+    'page.body.landing.tradeOnTheGo.item.title': 'Tradez n importe où',
     'page.body.landing.tradeOnTheGo.item.text1': 'Our platform is optimized for trading on any device. And you don’t need to download any additional applications. All the power of SafeTrade cryptocurrency exchange, in the palm of your hand.',
     'page.body.landing.tradeOnTheGo.item.text2': 'And you don’t need to download any additional applications.',
     'page.body.landing.tradeOnTheGo.item.text3': 'All the power of Baseapp cryptocurrency exchange, in the palm of your hand.',
