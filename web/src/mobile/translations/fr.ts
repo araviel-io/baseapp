@@ -1,10 +1,10 @@
 export const fr = {
-    'page.mobile.header.signIn': 'Log In',
-    'page.mobile.footer.home': 'Home',
-    'page.mobile.footer.orders': 'Orders',
+    'page.mobile.header.signIn': 'Se connecter',
+    'page.mobile.footer.home': 'Accueil',
+    'page.mobile.footer.orders': 'Ordres',
     'page.mobile.footer.trading': 'Trade',
-    'page.mobile.footer.wallets': 'Wallets',
-    'page.mobile.footer.profile': 'Profile',
+    'page.mobile.footer.wallets': 'Portefeuilles',
+    'page.mobile.footer.profile': 'Profil',
 
     'page.mobile.tradingTabs.label.createOrder': 'Create Order',
     'page.mobile.tradingTabs.label.charts': 'Charts',
@@ -46,20 +46,20 @@ export const fr = {
     'page.mobile.currentMarketInfo.high': 'High',
     'page.mobile.currentMarketInfo.low': 'Low',
 
-    'page.header.signIn.forgotPassword': 'Forgot password?',
-    'page.header.signIN.noAccountYet': 'No account yet?',
-    'page.header.signUp.terms': 'I  agree all statements in terms of service',
-    'page.header.signUp.alreadyRegistered': 'Already registered?',
+    'page.header.signIn.forgotPassword': 'Mot de passe oublié ?',
+    'page.header.signIN.noAccountYet': 'Pas encore de compte ?',
+    'page.header.signUp.terms': 'J\'accepte toutes les conditions d\'utilisation',
+    'page.header.signUp.alreadyRegistered': 'Déjà enregistré',
 
-    'page.mobile.reset.header': 'Resend confirmation',
-    'page.mobile.signin.kyc.header': '2FA Verification',
+    'page.mobile.reset.header': 'Renvoyer la confirmation',
+    'page.mobile.signin.kyc.header': 'Verification 2FA',
 
     'page.mobile.wallets.deposit.history': 'Deposit history',
     'page.mobile.wallets.withdraw.history': 'Withdraw history',
     'page.mobile.wallets.banner.total': 'Total',
     'page.mobile.wallets.banner.available': 'Available',
 
-    'page.mobile.copy.text': 'Copy Address',
+    'page.mobile.copy.text': 'Copier l\'addresse',
     'page.mobile.wallet.deposit.generate': 'Generate deposit address',
     'page.mobile.wallet.deposit.generating': 'Generating address...',
 
