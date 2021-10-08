@@ -54,8 +54,8 @@ export const fr = {
     'page.mobile.reset.header': 'Renvoyer la confirmation',
     'page.mobile.signin.kyc.header': 'Verification 2FA',
 
-    'page.mobile.wallets.deposit.history': 'Deposit history',
-    'page.mobile.wallets.withdraw.history': 'Withdraw history',
+    'page.mobile.wallets.deposit.history': 'Historique de dépôt',
+    'page.mobile.wallets.withdraw.history': 'Historique de retrait',
     'page.mobile.wallets.banner.total': 'Total',
     'page.mobile.wallets.banner.available': 'Available',
 

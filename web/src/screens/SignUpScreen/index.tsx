@@ -173,7 +173,7 @@ class SignUp extends React.Component<Props> {
             <div className="pg-sign-up-screen">
 
                 <div className={className}>
-                <div className="pg-sign-in-screen__nav">
+                <div className="pg-sign-up-screen__nav">
                     <LanguageSwitcherContainer />
                     <a href="/trade">trade</a>
                     <a href="/docs">docs</a>

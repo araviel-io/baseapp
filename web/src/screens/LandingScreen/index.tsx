@@ -4,7 +4,7 @@ import { injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
 import { Link, RouteProps, withRouter } from 'react-router-dom';
 import { compose } from 'redux';
-import ReactVisibilitySensor from 'react-visibility-sensor';
+//import ReactVisibilitySensor from 'react-visibility-sensor';
 // Ara implementation of view observer
 /* import OnVisible from 'react-on-visible';
 
@@ -50,6 +50,7 @@ import YouTubeIcon from 'src/assets/images/landing/social/YouTube.svg';
 import RedditIcon from 'src/assets/images/landing/social/Reddit.svg';
 import MediumIcon from 'src/assets/images/landing/social/Medium.svg';
 import CoinMarketIcon from 'src/assets/images/landing/social/CoinMarket.svg';
+import { MarketsHighlightLanding } from 'src/containers/MarketsHighlightLanding';
 
 
 const LanguageSwitcherContainer = React.lazy(() => import('../../containers/LanguageSwitcher').then(({ Languageswitcher }) => ({ default: Languageswitcher })));
@@ -104,16 +105,6 @@ class Landing extends React.Component<Props> {
 
     public render() {
 
-
-        /*   const { isLoggedIn, isActive, lang } = this.props;
-           const { isOpenLanguage } = this.state;
-   
-           const languageName = lang.toUpperCase();
-   
-           const languageClassName = classnames('dropdown-menu-language-field', {
-               'dropdown-menu-language-field-active': isOpenLanguage,
-           });
-           */
         return (
             <div className="pg-landing-screen">
                 {/* NAVBAR */}
@@ -167,6 +158,7 @@ class Landing extends React.Component<Props> {
                                     {this.translate('page.body.landing.marketInfo.title.button')}
                                 </Link>
                             </div>
+                            <MarketsHighlightLanding />
                             <MarketsTableLanding />
                         </div>
                     </div>

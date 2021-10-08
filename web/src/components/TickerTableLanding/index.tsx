@@ -12,9 +12,10 @@ interface Props {
     redirectToTrading: (key: string) => void;
     setCurrentBidUnit: (key: string) => void;
 }
+// Ara : find currency name
 function GetCurrencyName(marketname : string) {
     let marknameParsed= marketname.substr(0, marketname.indexOf('/'));
-    console.log(marknameParsed);
+    //console.log(marknameParsed);
     return marknameParsed;
     
 }

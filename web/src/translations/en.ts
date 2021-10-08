@@ -156,11 +156,15 @@ export const en = {
 
     'page.body.landing.native.item.title': 'Native asset',
     'page.body.landing.native.item.text1': 'Discover SafeCoin, the native cryptocurrency who can go up to 60k transaction per second and base pair of a growing community and ecosystem.',
-    'page.body.landing.native.item.button': 'let’s try',
+    'page.body.landing.native.item.button': 'Learn more',
 
     'page.body.landing.startTrading.title': 'Start trading now',
     'page.body.landing.startTrading.button1': 'register',
     'page.body.landing.startTrading.button2': 'Start trading',
+
+    'page.body.landing.highight.topgainer': 'Top Gainer',
+    'page.body.landing.highight.toploser': 'Top Loser',
+    'page.body.landing.highight.topvolume': 'Top Volume',
 
     'page.body.landing.footer.exchange': 'Exchange',
     'page.body.landing.footer.wallets': 'Wallets',

@@ -11,12 +11,13 @@ interface Props {
     markets: Market[];
     redirectToTrading: (key: string) => void;
     setCurrentBidUnit: (key: string) => void;
+    test;
 }
-function GetCurrencyName(marketname : string) {
-    let marknameParsed= marketname.substr(0, marketname.indexOf('/'));
-    console.log(marknameParsed);
+function GetCurrencyName(marketname: string) {
+    let marknameParsed = marketname.substr(0, marketname.indexOf('/'));
+    //console.log(marknameParsed);
     return marknameParsed;
-    
+
 }
 export const TickerHighlightLanding: React.FC<Props> = ({
     currentBidUnit,
@@ -24,13 +25,17 @@ export const TickerHighlightLanding: React.FC<Props> = ({
     setCurrentBidUnit,
     currentBidUnitsList,
     redirectToTrading,
+    test,
 }) => {
     const { formatMessage } = useIntl();
 
     const renderItem = React.useCallback(
         (market, index: number) => {
             const marketChangeColor = +(market.change || 0) < 0 ? 'negative' : 'positive';
-
+            //console.log("MARKET VOLUME : ", market.volume)
+            //var zebi = market.reduce((acc, market) => acc = acc > market.amount ? acc : market.amount, 0);
+            //const maxValueOfY = Math.max(...market.map(o => o.volume), 0);
+            //console.log("REduced : ", maxValueOfY)
             return (
                 <tr key={index} onClick={() => redirectToTrading(market.id)}>
                     <td>
@@ -72,6 +77,60 @@ export const TickerHighlightLanding: React.FC<Props> = ({
         },
         [redirectToTrading]
     );
+    console.log("BIZARRE HEIN", markets)
+
+    function displayTopVolumes() {
+        //console.log("GetCurrencyName issue:", GetCurrencyName(test.name))
+        //var bordel = markets;
+        if (test.id === undefined) {
+
+            return (
+                <tr>{test.last}</tr>
+            )
+        } else {
+            const marketChangeColor = +(test.change || 0) < 0 ? 'negative' : 'positive';
+            return (
+
+                <tr onClick={() => redirectToTrading(test.id)}>
+                    <td>
+                        <div><CryptoIcon code={GetCurrencyName(test.name)} /> {test && test.name}</div>
+                    </td>
+                    <td>
+                        <span>
+                            <Decimal fixed={test.price_precision} thousSep=",">
+                                {test.last}
+                            </Decimal>
+                        </span>
+                    </td>
+                    <td>
+                        <span className={marketChangeColor}>{test.price_change_percent}</span>
+                    </td>
+                    <td>
+                        <span>
+                            <Decimal fixed={test.price_precision} thousSep=",">
+                                {test.high}
+                            </Decimal>
+                        </span>
+                    </td>
+                    <td>
+                        <span>
+                            <Decimal fixed={test.price_precision} thousSep=",">
+                                {test.low}
+                            </Decimal>
+                        </span>
+                    </td>
+                    <td>
+                        <span>
+                            <Decimal fixed={FIXED_VOL_PRECISION} thousSep=",">
+                                {test.volume}
+                            </Decimal>
+                        </span>
+                    </td>
+                </tr>
+            )
+        }
+
+    }
 
     return (
         <div className="pg-ticker-table">
@@ -102,15 +161,17 @@ export const TickerHighlightLanding: React.FC<Props> = ({
                         </tr>
                     </thead>
                     <tbody>
-                        {markets[0] ? (
+                        {displayTopVolumes()}
+                        {/*markets ? (
                             markets.map(renderItem)
                         ) : (
                             <tr>
                                 <td>
+                                    
                                     <span className="no-data">{formatMessage({ id: 'page.noDataToShow' })}</span>
                                 </td>
                             </tr>
-                        )}
+                        )*/}
                     </tbody>
                 </table>
             </div>

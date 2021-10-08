@@ -161,6 +161,10 @@ export const ru: LangType = {
     'page.body.landing.startTrading.button1': 'register',
     'page.body.landing.startTrading.button2': 'Start trading',
 
+    'page.body.landing.highight.topgainer': 'Top Gainer',
+    'page.body.landing.highight.toploser': 'Top Loser',
+    'page.body.landing.highight.topvolume': 'Top Volume',
+
     'page.body.landing.footer.exchange': 'Exchange',
     'page.body.landing.footer.wallets': 'Wallets',
     'page.body.landing.footer.fees': 'Fees',

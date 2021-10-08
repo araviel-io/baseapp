@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { TickerTableLanding } from 'src/components/TickerTableLanding';
+import { TickerHighlightLanding } from 'src/components/TickerHighlightLanding';
 import { DEFAULT_PERCENTAGE_PRECISION } from 'src/constants';
 import { Decimal } from '../../components';
 import {
@@ -107,12 +107,37 @@ const MarketsTableComponent = props => {
 
         return market;
     }).filter(item => item[0] !== null);
+    console.log("filtered currentBidUnit : ", currentBidUnit)
+    console.log("filtered : ", filteredMarkets)
 
+    function winnerVolume() {
+
+        var pairsNumber = filteredMarkets.length;
+        let tempArry = [];
+        let highestVmarketArray = [];
+        // Ara : loop to find the highest volume through markets
+        for (let i = 0; i < pairsNumber; ++i) {
+            tempArry.push(filteredMarkets[i].volume);
+        }
+        let highVscope = Math.max(...tempArry)
+        // Ara : loop to scope the highest to matching array to select
+        for (let i = 0; i < pairsNumber; ++i) {
+           if (filteredMarkets[i].volume == highVscope  ) {
+            highestVmarketArray = filteredMarkets[i]
+           }
+        }
+        //console.log("ARRAY : ", tempArry, " highest volume", highVscope)
+        //console.log("HIGHEST ARRAY : ", highestVmarketArray)
+        return highestVmarketArray;
+    }
+    const test = winnerVolume();
+    console.log("HIGHEST ARRAY : ", test)
     return (
-        <TickerTableLanding
+        <TickerHighlightLanding
             currentBidUnit={currentBidUnit}
             currentBidUnitsList={currentBidUnitsList}
-            markets={filteredMarkets}
+            markets={test}
+            test={test}
             redirectToTrading={handleRedirectToTrading}
             setCurrentBidUnit={setCurrentBidUnit}
         />
