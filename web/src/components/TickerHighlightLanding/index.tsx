@@ -8,10 +8,10 @@ import { CryptoIcon } from '../CryptoIcon';
 interface Props {
     currentBidUnit: string;
     currentBidUnitsList: string[];
-    markets: Market[];
     redirectToTrading: (key: string) => void;
     setCurrentBidUnit: (key: string) => void;
-    test;
+    topVolume;
+    topWinLose;
 }
 function GetCurrencyName(marketname: string) {
     let marknameParsed = marketname.substr(0, marketname.indexOf('/'));
@@ -21,14 +21,14 @@ function GetCurrencyName(marketname: string) {
 }
 export const TickerHighlightLanding: React.FC<Props> = ({
     currentBidUnit,
-    markets,
     setCurrentBidUnit,
     currentBidUnitsList,
     redirectToTrading,
-    test,
+    topVolume,
+    topWinLose,
 }) => {
     const { formatMessage } = useIntl();
-
+/*
     const renderItem = React.useCallback(
         (market, index: number) => {
             const marketChangeColor = +(market.change || 0) < 0 ? 'negative' : 'positive';
@@ -76,55 +76,101 @@ export const TickerHighlightLanding: React.FC<Props> = ({
             );
         },
         [redirectToTrading]
-    );
-    console.log("BIZARRE HEIN", markets)
+    );*/
+    //console.log("BIZARRE HEIN", markets)
+    function displayTopGainer() {
+        //console.log("GetCurrencyName issue:", GetCurrencyName(test.name))
+        //var bordel = markets;
+        const test = "no top"
+        if (topWinLose.finalGainer.length === 0 ) {
 
+            return (
+                <tr><td>{test}</td></tr>
+            )
+        } else {
+            console.log("wesh")
+            const marketChangeColor = +(topWinLose.finalGainer.change || 0) < 0 ? 'negative' : 'positive';
+            return (
+
+                <tr onClick={() => redirectToTrading(topWinLose.finalGainer.id)}>
+                    <td>
+                        <div><CryptoIcon code={GetCurrencyName(topWinLose.finalGainer.name)} /> {topWinLose.finalGainer && topWinLose.finalGainer.name}</div>
+                    </td>
+                    <td>
+                        <span>
+                            <Decimal fixed={topWinLose.finalGainer.price_precision} thousSep=",">
+                                {topWinLose.finalGainer.last}
+                            </Decimal>
+                        </span>
+                    </td>
+                
+                    <td>
+                        <span className={marketChangeColor}>{topWinLose.finalGainer.price_change_percent}</span>
+                    </td>
+                </tr>
+            )
+        }
+
+    }
+    function displayTopLoser() {
+        //console.log("GetCurrencyName issue:", GetCurrencyName(test.name))
+        //var bordel = markets;
+        const test = "no top"
+        if (topWinLose.finalLoser.length === 0 ) {
+
+            return (
+                <tr><td>{test}</td></tr>
+            )
+        } else {
+            console.log("wesh")
+            const marketChangeColor = +(topWinLose.finalLoser.change || 0) < 0 ? 'negative' : 'positive';
+            return (
+
+                <tr onClick={() => redirectToTrading(topWinLose.finalLoser.id)}>
+                    <td>
+                        <div><CryptoIcon code={GetCurrencyName(topWinLose.finalLoser.name)} /> {topWinLose.finalLoser && topWinLose.finalLoser.name}</div>
+                    </td>
+                    <td>
+                        <span>
+                            <Decimal fixed={topWinLose.finalLoser.price_precision} thousSep=",">
+                                {topWinLose.finalLoser.last}
+                            </Decimal>
+                        </span>
+                    </td>
+                
+                    <td>
+                        <span className={marketChangeColor}>{topWinLose.finalLoser.price_change_percent}</span>
+                    </td>
+                </tr>
+            )
+        }
+
+    }
     function displayTopVolumes() {
         //console.log("GetCurrencyName issue:", GetCurrencyName(test.name))
         //var bordel = markets;
-        if (test.id === undefined) {
+        if (topVolume.id === undefined) {
 
             return (
-                <tr>{test.last}</tr>
+                <tr>{topVolume.last}</tr>
             )
         } else {
-            const marketChangeColor = +(test.change || 0) < 0 ? 'negative' : 'positive';
+            const marketChangeColor = +(topVolume.change || 0) < 0 ? 'negative' : 'positive';
             return (
 
-                <tr onClick={() => redirectToTrading(test.id)}>
+                <tr onClick={() => redirectToTrading(topVolume.id)}>
                     <td>
-                        <div><CryptoIcon code={GetCurrencyName(test.name)} /> {test && test.name}</div>
-                    </td>
-                    <td>
-                        <span>
-                            <Decimal fixed={test.price_precision} thousSep=",">
-                                {test.last}
-                            </Decimal>
-                        </span>
-                    </td>
-                    <td>
-                        <span className={marketChangeColor}>{test.price_change_percent}</span>
-                    </td>
-                    <td>
-                        <span>
-                            <Decimal fixed={test.price_precision} thousSep=",">
-                                {test.high}
-                            </Decimal>
-                        </span>
-                    </td>
-                    <td>
-                        <span>
-                            <Decimal fixed={test.price_precision} thousSep=",">
-                                {test.low}
-                            </Decimal>
-                        </span>
+                        <div><CryptoIcon code={GetCurrencyName(topVolume.name)} /> {topVolume && topVolume.name}</div>
                     </td>
                     <td>
                         <span>
                             <Decimal fixed={FIXED_VOL_PRECISION} thousSep=",">
-                                {test.volume}
+                                {topVolume.volume}
                             </Decimal>
                         </span>
+                    </td>
+                    <td>
+                        <span className={marketChangeColor}>{topVolume.price_change_percent}</span>
                     </td>
                 </tr>
             )
@@ -133,47 +179,45 @@ export const TickerHighlightLanding: React.FC<Props> = ({
     }
 
     return (
-        <div className="pg-ticker-table">
-            <div className="pg-ticker-table__filter">
-                <ul className="navigation" role="tablist">
-                    {currentBidUnitsList.map((item, i) => (
-                        <li
-                            key={i}
-                            className={`navigation__item ${item === currentBidUnit && 'navigation__item--active'}`}
-                            onClick={() => setCurrentBidUnit(item)}>
-                            <span className="navigation__item__link">
-                                {item ? item.toUpperCase() : formatMessage({ id: 'page.body.marketsTable.filter.all' })}
-                            </span>
-                        </li>
-                    ))}
-                </ul>
+        <div className="pg-highlight-table">
+
+            <div className="pg-highlight-table__element">
+                <div className="pg-highlight-table__filter">
+                    Top Gainer
+                </div>
+                <div className="pg-highlight-table__table-wrap">
+                    <table className="pg-highlight-table__table">
+                        <tbody>
+                            {displayTopGainer()}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div className="pg-ticker-table__table-wrap">
-                <table className="pg-ticker-table__table">
-                    <thead>
-                        <tr>
-                            <th scope="col">{formatMessage({ id: 'page.body.marketsTable.header.pair' })}</th>
-                            <th scope="col">{formatMessage({ id: 'page.body.marketsTable.header.lastPrice' })}</th>
-                            <th scope="col">{formatMessage({ id: 'page.body.marketsTable.header.change' })}</th>
-                            <th scope="col">{formatMessage({ id: 'page.body.marketsTable.header.high' })}</th>
-                            <th scope="col">{formatMessage({ id: 'page.body.marketsTable.header.low' })}</th>
-                            <th scope="col">{formatMessage({ id: 'page.body.marketsTable.header.volume' })}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {displayTopVolumes()}
-                        {/*markets ? (
-                            markets.map(renderItem)
-                        ) : (
-                            <tr>
-                                <td>
-                                    
-                                    <span className="no-data">{formatMessage({ id: 'page.noDataToShow' })}</span>
-                                </td>
-                            </tr>
-                        )*/}
-                    </tbody>
-                </table>
+            <div className="pg-highlight-table__spacer"></div>
+            <div className="pg-highlight-table__element">
+                <div className="pg-highlight-table__filter">
+                    Top Loser
+                </div>
+                <div className="pg-highlight-table__table-wrap">
+                    <table className="pg-highlight-table__table">
+                        <tbody>
+                            {displayTopLoser()}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div className="pg-highlight-table__spacer"></div>
+            <div className="pg-highlight-table__element">
+                <div className="pg-highlight-table__filter">
+                    Top volume
+                </div>
+                <div className="pg-highlight-table__table-wrap">
+                    <table className="pg-highlight-table__table">
+                        <tbody>
+                            {displayTopVolumes()}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );

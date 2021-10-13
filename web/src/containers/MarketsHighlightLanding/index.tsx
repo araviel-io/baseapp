@@ -83,21 +83,21 @@ const MarketsTableComponent = props => {
     ), []);
 
     const formattedMarkets = currentBidUnitMarkets.length ? currentBidUnitMarkets.map(market =>
-        ({
-            ...market,
-            last: Decimal.format(Number((marketTickers[market.id] || defaultTicker).last), market.amount_precision),
-            open: Decimal.format(Number((marketTickers[market.id] || defaultTicker).open), market.price_precision),
-            price_change_percent: formatPercentageValue((marketTickers[market.id] || defaultTicker).price_change_percent),
-            high: Decimal.format(Number((marketTickers[market.id] || defaultTicker).high), market.amount_precision),
-            low: Decimal.format(Number((marketTickers[market.id] || defaultTicker).low), market.amount_precision),
-            volume: Decimal.format(Number((marketTickers[market.id] || defaultTicker).volume), market.amount_precision),
-        }),
+    ({
+        ...market,
+        last: Decimal.format(Number((marketTickers[market.id] || defaultTicker).last), market.amount_precision),
+        open: Decimal.format(Number((marketTickers[market.id] || defaultTicker).open), market.price_precision),
+        price_change_percent: formatPercentageValue((marketTickers[market.id] || defaultTicker).price_change_percent),
+        high: Decimal.format(Number((marketTickers[market.id] || defaultTicker).high), market.amount_precision),
+        low: Decimal.format(Number((marketTickers[market.id] || defaultTicker).low), market.amount_precision),
+        volume: Decimal.format(Number((marketTickers[market.id] || defaultTicker).volume), market.amount_precision),
+    }),
     ).map(market =>
-        ({
-            ...market,
-            change: Decimal.format((+market.last - +market.open)
-                .toFixed(market.price_precision), market.price_precision),
-        }),
+    ({
+        ...market,
+        change: Decimal.format((+market.last - +market.open)
+            .toFixed(market.price_precision), market.price_precision),
+    }),
     ) : [];
 
     const filteredMarkets = formattedMarkets.map(market => {
@@ -107,10 +107,52 @@ const MarketsTableComponent = props => {
 
         return market;
     }).filter(item => item[0] !== null);
-    console.log("filtered currentBidUnit : ", currentBidUnit)
-    console.log("filtered : ", filteredMarkets)
+    //console.log("filtered currentBidUnit : ", currentBidUnit)
+    //console.log("filtered : ", filteredMarkets)
 
-    function winnerVolume() {
+    function topGainerLoser() {
+
+        var pairsNumber = filteredMarkets.length;
+
+        let positiveChangeArrScope = []; // digits array
+        let positiveChangeArrFull = [];
+        let negativeChangeArrScope = [];
+        let negativeChangeArrFull = [];
+
+        let finalGainer = []
+        let finalLoser = []
+        // split the main array into two parts : negative array and positive.
+
+        for (let i = 0; i < pairsNumber; ++i) {
+            if (filteredMarkets[i].price_change_percent.props.children[0] === "+") {
+                //push filtered to positive array
+                positiveChangeArrScope.push(filteredMarkets[i].price_change_percent.props.children[1].props.children);
+                positiveChangeArrFull.push(filteredMarkets[i]);
+                //positiveChangeArr = filteredMarkets[i].price_change_percent.props.children[1].props.children;
+            } else {
+                // negative
+                negativeChangeArrScope.push(filteredMarkets[i].price_change_percent.props.children[1].props.children);
+                negativeChangeArrFull.push(filteredMarkets[i]);
+            }
+        }
+        let highGscope = Math.max(...positiveChangeArrScope)
+        let lowGscope = Math.max(...negativeChangeArrScope)
+
+
+
+        for (let i = 0; i < positiveChangeArrFull.length; ++i) {
+            if (positiveChangeArrFull[i].price_change_percent.props.children[1].props.children == highGscope) {
+                finalGainer = positiveChangeArrFull[i]
+            }
+        }
+        for (let i = 0; i < negativeChangeArrFull.length; ++i) {
+            if (negativeChangeArrFull[i].price_change_percent.props.children[1].props.children == lowGscope) {
+                finalLoser = negativeChangeArrFull[i]
+            }
+        }
+        return {finalGainer,finalLoser}
+    }
+    function topVolume() {
 
         var pairsNumber = filteredMarkets.length;
         let tempArry = [];
@@ -122,22 +164,23 @@ const MarketsTableComponent = props => {
         let highVscope = Math.max(...tempArry)
         // Ara : loop to scope the highest to matching array to select
         for (let i = 0; i < pairsNumber; ++i) {
-           if (filteredMarkets[i].volume == highVscope  ) {
-            highestVmarketArray = filteredMarkets[i]
-           }
+            if (filteredMarkets[i].volume == highVscope) {
+                highestVmarketArray = filteredMarkets[i]
+            }
         }
         //console.log("ARRAY : ", tempArry, " highest volume", highVscope)
         //console.log("HIGHEST ARRAY : ", highestVmarketArray)
         return highestVmarketArray;
     }
-    const test = winnerVolume();
-    console.log("HIGHEST ARRAY : ", test)
+    const vol = topVolume();
+    const winlose = topGainerLoser();
+    console.log("HIGHEST ARRAY : ", winlose)
     return (
         <TickerHighlightLanding
             currentBidUnit={currentBidUnit}
             currentBidUnitsList={currentBidUnitsList}
-            markets={test}
-            test={test}
+            topVolume={vol}
+            topWinLose={winlose}
             redirectToTrading={handleRedirectToTrading}
             setCurrentBidUnit={setCurrentBidUnit}
         />
