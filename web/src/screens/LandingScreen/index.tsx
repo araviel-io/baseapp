@@ -400,6 +400,12 @@ class Landing extends React.Component<Props> {
                     </div>
                 </LandingBlock>
 
+                <div className="pg-landing-screen__starttrade">
+                    <div className="pg-landing-screen__starttrade__wrap">
+                        <div>test</div>
+                    </div>
+                </div>
+
                 <div className="pg-landing-screen__footer">
                     <div className="pg-landing-screen__footer__wrap">
                         <div className="pg-landing-screen__footer__wrap__left" onClick={(e) => this.handleScrollTop()}>
@@ -440,6 +446,7 @@ class Landing extends React.Component<Props> {
                         {this.translate('page.body.landing.footer.rights')}
                     </span>
                 </div>
+
             </div>
         );
     }
