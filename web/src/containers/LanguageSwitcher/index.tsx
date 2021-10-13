@@ -32,7 +32,7 @@ import { CanCan } from '../';
 
 import enIcon from 'src/assets/images/sidebar/en.svg';
 import ruIcon from 'src/assets/images/sidebar/ru.svg';
-import frIcon from 'src/assets/images/sidebar/ru.svg';
+import frIcon from 'src/assets/images/sidebar/fr.svg';
 interface State {
     isOpenLanguage: boolean;
 }
@@ -96,7 +96,7 @@ class LanguageSwitcherContainer extends React.Component<Props, State> {
             <div>
                 {/*<div className="pg-sidebar-wrapper-nav">{pgRoutes(isLoggedIn, CanCan.checkAbilityByAction('read', 'QuickExchange', this.props.abilities)).map(this.renderNavItems(address))}</div>*/}
                 
-                    <div className="btn-group pg-navbar__header-settings__account-dropdown dropdown-menu-language-container">
+                    <div>
                         <Dropdown>
                             <Dropdown.Toggle variant="test" id={languageClassName}>
                                 <img src={this.getLanguageIcon(lang)} alt={lang} />
@@ -137,7 +137,7 @@ class LanguageSwitcherContainer extends React.Component<Props, State> {
         );
     };*/
 
-    public renderProfileLink = () => {
+   /* public renderProfileLink = () => {
         const { isLoggedIn, location } = this.props;
         const handleLinkChange = () => this.props.toggleSidebar(false);
         const address = location ? location.pathname : '';
@@ -161,9 +161,9 @@ class LanguageSwitcherContainer extends React.Component<Props, State> {
                 </div>
             )
         );
-    };
+    };*/
 
-    public renderLogout = () => {
+  /*  public renderLogout = () => {
         const { isLoggedIn } = this.props;
         if (!isLoggedIn) {
             return null;
@@ -179,12 +179,12 @@ class LanguageSwitcherContainer extends React.Component<Props, State> {
                 </div>
             </div>
         );
-    };
+    };*/
 
     public getLanguageDropdownItems = () => {
         return languages.map((l: string, index: number) => (
             <Dropdown.Item key={index} onClick={(e) => this.handleChangeLanguage(l)}>
-                <div className="dropdown-row">
+                <div className="dropdown-row-custom">
                     <img src={this.getLanguageIcon(l)} alt={l} />
                     <span>{l.toUpperCase()}</span>
                 </div>

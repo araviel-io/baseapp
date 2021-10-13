@@ -388,9 +388,9 @@ class Landing extends React.Component<Props> {
                             <h1>{this.translate('page.body.landing.native.item.title')}</h1>
 
                             <p>{this.translate('page.body.landing.native.item.text1')}</p>
-                            <Link to="/trading/" className="landing-button">
+                            <a href="https://safecoin.org/" className="landing-button">
                                 {this.translate('page.body.landing.native.item.button')}
-                            </Link>
+                            </a>
                         </div>
                         <div className="pg-landing-screen__native-safecoin__wrap__image"
                             style={{

@@ -334,7 +334,7 @@
               justify-content: space-evenly;
               padding: 0 24px;
               width: 100%;
-      
+              background: #f7f7f7;
               th,
               td {
                 align-items: center;
@@ -346,7 +346,7 @@
                 justify-content: flex-end;
                 min-width: 110px;
                 width: 100%;
-      
+                font-weight: 700;
                 &:first-child {
                   color: var(--bright);
                   justify-content: flex-start;
@@ -406,6 +406,96 @@
         &__icon {
           width:24px;
           margin-right:6px;
+        }
+        &__table {
+          align-items: center;
+          display: inline-block;
+          flex-direction: column;
+          height: 100%;
+          justify-content: flex-start;
+          min-width: 900px;
+          overflow: auto;
+          width: 100%;
+      
+          thead,
+          tbody {
+            align-items: flex-start;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: flex-start;
+            width: 100%;
+      
+            tr {
+              align-items: center;
+              display: flex;
+              flex-direction: row;
+              height: 38px;
+              justify-content: space-evenly;
+              padding: 0 24px;
+              width: 100%;
+      
+              th,
+              td {
+                align-items: center;
+                color: var(--table-text-color);
+                display: flex;
+                flex-direction: row;
+                font-weight: normal;
+                height: 38px;
+                justify-content: flex-end;
+                min-width: 110px;
+                width: 100%;
+                font-weight:700;
+                
+                &:first-child {
+                  color: var(--bright);
+                  justify-content: flex-start;
+                }
+              }
+      
+              th {
+                font-size: 12px;
+                line-height: 12px;
+              }
+      
+              td {
+                font-size: 14px;
+                line-height: 24px;
+              }
+            }
+          }
+      
+          thead {
+            height: 38px;
+          }
+      
+          tbody {
+            overflow-y: auto;
+      
+            tr {
+              &:hover {
+                background: var(--table-row-selector-color);
+                cursor: pointer;
+      
+                td {
+                  color: var(--primary-text-color);
+                }
+              }
+            }
+      
+            .no-data {
+              align-items: flex-start;
+              color: var(--table-text-color);
+              display: flex;
+              flex-direction: row;
+              font-size: 14px;
+              justify-content: center;
+              line-height: 24px;
+              padding: 10px 0;
+              width: 100%;
+            }
+          }
         }
       }
     }

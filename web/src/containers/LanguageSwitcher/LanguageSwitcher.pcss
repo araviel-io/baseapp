@@ -1,21 +1,17 @@
-.pg-sidebar__toggler {
-  cursor: pointer;
-  display: block;
-  height: 16px;
-  margin-right: 18px;
-  width: 18px;
 
-  &-item {
-    background: var(--header-toggle-menu-icon);
-    border-radius: 5px;
-    display: block;
-    height: 2px;
-    margin-bottom: 5px;
-    transition: all 0.2s linear;
-    width: 18px;
+
+.btn-test {
+  display: flex;
+  align-items: center;
+
+  span {
+    &:hover,
+    &:focus,
+    &:active {
+      color: inherit!important;
+    }
   }
 }
-
 .light-box {
   box-shadow: 0 10px 15px var(--shadow-color-level-2);
 }
@@ -37,7 +33,7 @@
     &:hover,
     &:focus,
     &:active {
-      color: var(--cta-layer-color);
+      color: inherit;
     }
 
     &::after {
@@ -65,67 +61,6 @@
   a {
     color: var(--sidebar-text-color);
     text-decoration: none;
-  }
-
-  &-profile {
-    align-items: center;
-    border-bottom: 1px solid var(--sidebar-border-color);
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 7px;
-    padding: 7px 0;
-
-    a {
-      width: 100%;
-    }
-
-    &-link {
-      align-items: center;
-      display: flex;
-      justify-content: flex-start;
-      padding: 9px 23px;
-      width: 100%;
-
-      svg {
-        margin-right: 14px;
-      }
-
-      &:hover {
-        background-color: var(--sidebar-item-background-color-hover) !important;
-        color: var(--sidebar-item-text-color-hover);
-
-        path {
-          fill: var(--sidebar-item-text-color-hover);
-        }
-      }
-
-      &-img {
-        margin-right: 14px;
-      }
-
-      &-text {
-        font-size: calc(var(--font-size) * 1.16);
-        font-weight: 600;
-        margin: 0;
-      }
-    }
-
-    &-group {
-      align-items: center;
-      display: flex;
-
-      &-text {
-        color: var(--sidebar-text-color);
-        margin: 0 6px 0 0;
-      }
-
-      &-value {
-        color: var(--sidebar-text-color);
-        font-size: calc(var(--font-size) * 1.16);
-        font-weight: 600;
-        margin: 0 6px 0 0;
-      }
-    }
   }
 
   .route-selected {
