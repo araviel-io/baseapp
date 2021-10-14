@@ -174,7 +174,7 @@ const MarketsTableComponent = props => {
     }
     const vol = topVolume();
     const winlose = topGainerLoser();
-    console.log("HIGHEST ARRAY : ", winlose)
+    //console.log("HIGHEST ARRAY : ", winlose)
     return (
         <TickerHighlightLanding
             currentBidUnit={currentBidUnit}

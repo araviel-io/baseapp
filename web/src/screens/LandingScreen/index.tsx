@@ -358,7 +358,6 @@ class Landing extends React.Component<Props> {
                             </a>
                         </div>
                         <div className="pg-landing-screen__partners__content__row">
-
                         </div>
                     </div>
                 </div>
@@ -402,7 +401,24 @@ class Landing extends React.Component<Props> {
 
                 <div className="pg-landing-screen__starttrade">
                     <div className="pg-landing-screen__starttrade__wrap">
-                        <div>test</div>
+                        <div className="pg-landing-screen__starttrade__wrap__content">
+                            <h1>{this.translate('page.body.landing.starttrade.item.title')}</h1>
+                            <div className="pg-landing-screen__starttrade__wrap__content__stepscontainer">
+                                <div className="pg-landing-screen__starttrade__wrap__content__stepscontainer__s">
+                                    <div className="pg-landing-screen__starttrade__wrap__content__stepscontainer__s__bignumber">1.</div>
+                                    <div>{this.translate('page.body.landing.starttrade.item.step1')}</div>
+                                </div>
+                                <div className="pg-landing-screen__starttrade__wrap__content__stepscontainer__s">
+                                    <div className="pg-landing-screen__starttrade__wrap__content__stepscontainer__s__bignumber">2.</div>
+                                    <div>{this.translate('page.body.landing.starttrade.item.step2')}</div>
+                                </div>
+                                <div className="pg-landing-screen__starttrade__wrap__content__stepscontainer__s">
+                                    <div className="pg-landing-screen__starttrade__wrap__content__stepscontainer__s__bignumber">3.</div>
+                                    <div>{this.translate('page.body.landing.starttrade.item.step3')}</div>
+                                </div>
+                            </div>
+                        <a className="landing-button inverted" href="/signup">{this.translate('page.body.landing.starttrade.item.button')}</a>
+                        </div>
                     </div>
                 </div>
 
@@ -431,7 +447,6 @@ class Landing extends React.Component<Props> {
                         <div className="pg-landing-screen__footer__wrap__social">
                             <div className="pg-landing-screen__footer__wrap__social__row">
                                 <a href="https://t.me/SafeTradeEx"><img src={TelegramIcon} alt="Telegram" /></a>
-
                                 <a href="https://t.me/SafeTradeEx"><img src={TwitterIcon} alt="Twitter" /></a>
                                 <a href="https://t.me/SafeTradeEx"><img src={YouTubeIcon} alt="YouTube" /></a>
                             </div>
@@ -446,7 +461,6 @@ class Landing extends React.Component<Props> {
                         {this.translate('page.body.landing.footer.rights')}
                     </span>
                 </div>
-
             </div>
         );
     }

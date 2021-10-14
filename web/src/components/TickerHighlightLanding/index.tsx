@@ -88,7 +88,7 @@ export const TickerHighlightLanding: React.FC<Props> = ({
                 <tr><td>{test}</td></tr>
             )
         } else {
-            console.log("wesh")
+            //console.log("wesh")
             const marketChangeColor = +(topWinLose.finalGainer.change || 0) < 0 ? 'negative' : 'positive';
             return (
 
@@ -122,7 +122,7 @@ export const TickerHighlightLanding: React.FC<Props> = ({
                 <tr><td>{test}</td></tr>
             )
         } else {
-            console.log("wesh")
+            //console.log("wesh")
             const marketChangeColor = +(topWinLose.finalLoser.change || 0) < 0 ? 'negative' : 'positive';
             return (
 

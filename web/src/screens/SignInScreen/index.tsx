@@ -164,7 +164,7 @@ export const SignInScreen: React.FC = () => {
     }, [dispatch]);
 
     const renderCaptcha = React.useMemo(() => <Captcha error={errorSignIn || emailError} />, [errorSignIn, emailError]);
-    console.log("testmobile", isMobileDevice)
+   // console.log("testmobile", isMobileDevice)
     return (
         <div className="pg-sign-in-screen">
 

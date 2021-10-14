@@ -157,6 +157,12 @@ export const ru: LangType = {
     'page.body.landing.native.item.text1': 'Discover SafeCoin, the native cryptocurrency and main pair of a growing community and ecosystem.',
     'page.body.landing.native.item.button': 'let’s try',
     
+    'page.body.landing.starttrade.item.title': 'Trade with simplicity',
+    'page.body.landing.starttrade.item.step1': 'Start by creating an account on safe.trade',
+    'page.body.landing.starttrade.item.step2': 'Activate your 2FA to make deposit.',
+    'page.body.landing.starttrade.item.step3': 'You can now trade instantly without KYC.',
+    'page.body.landing.starttrade.item.button': 'Create an account',
+
     'page.body.landing.startTrading.title': 'Start trading now',
     'page.body.landing.startTrading.button1': 'register',
     'page.body.landing.startTrading.button2': 'Start trading',
