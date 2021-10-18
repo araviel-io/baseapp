@@ -22,7 +22,7 @@ export const defaultConfig: Config = {
     gaTrackerKey: '',
     minutesUntilAutoLogout: '5',
     msAlertDisplayTime: '5000',
-    msPricesUpdates: '1000',
+    msPricesUpdates: '4000',
     sessionCheckInterval: '15000',
     balancesFetchInterval: '3000',
     passwordEntropyStep: '14',
