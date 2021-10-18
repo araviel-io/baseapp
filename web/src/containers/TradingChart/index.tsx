@@ -168,6 +168,7 @@ export class TradingChartComponent extends React.PureComponent<Props> {
             ] : [
                 'header_symbol_search',
                 'use_localstorage_for_settings',
+                'hide_left_toolbar_by_default',
             ]
         };
 
