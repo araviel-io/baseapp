@@ -24,7 +24,7 @@ const handleHighlightValue = (prevValue: string, curValue: string) => {
 
     return (
         <React.Fragment>
-            <span className="cr-decimal__opacity">{val}</span>
+            <span >{val}</span>
             <span>{highlighted}</span>
         </React.Fragment>
     );
