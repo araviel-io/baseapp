@@ -9,7 +9,7 @@ const TradeTableCellComponent = props => {
         case 'date':
             return <span key={id}>{higlightedDate}</span>;
         case 'amount':
-            return <span style={{ color: setTradeColor(takerType).color }}><Decimal fixed={amountFixed} thousSep="," key={id}>{amount}</Decimal></span>;
+            return <span ><Decimal fixed={amountFixed} thousSep="," key={id}>{amount}</Decimal></span>;
         case 'price':
             return <span style={{ color: setTradeColor(takerType).color }}><Decimal fixed={priceFixed} thousSep="," prevValue={prevValue} key={id}>{price}</Decimal></span>;
         default:
