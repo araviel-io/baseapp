@@ -38,14 +38,6 @@ class HeaderToolbarContainer extends React.Component<Props> {
         return (
             <div className="pg-header__toolbar">
                 <div className="pg-header__toolbar-item">
-                    <p className="pg-header__toolbar-item-value pg-header__toolbar-item-value-positive">
-                        {currentMarket && Decimal.format(Number(this.getTickerValue('low')), currentMarket.price_precision, ',')} {bidUnit}
-                    </p>
-                    <p className="pg-header__toolbar-item-text">
-                        {this.translate('page.body.trade.toolBar.lowest')}
-                    </p>
-                </div>
-                <div className="pg-header__toolbar-item">
                     <p className="pg-header__toolbar-item-value pg-header__toolbar-item-value-negative">
                         {currentMarket && Decimal.format(Number(this.getTickerValue('last')), currentMarket.price_precision, ',')} {bidUnit}
                     </p>
@@ -54,7 +46,23 @@ class HeaderToolbarContainer extends React.Component<Props> {
                     </p>
                 </div>
                 <div className="pg-header__toolbar-item">
-                    <p className="pg-header__toolbar-item-value pg-header__toolbar-item-value-negative">
+                    <p className={`pg-header__toolbar-item-value pg-header__toolbar-item-value-${cls}`}>
+                        {currentMarket && this.formatPercentageValue((marketTickers[currentMarket.id] || defaultTicker).price_change_percent)}
+                    </p>
+                    <p className="pg-header__toolbar-item-text">
+                        {this.translate('page.body.trade.toolBar.change')}
+                    </p>
+                </div>
+                <div className="pg-header__toolbar-item">
+                    <p className="pg-header__toolbar-item-value">
+                        {currentMarket && Decimal.format(Number(this.getTickerValue('low')), currentMarket.price_precision, ',')} {bidUnit}
+                    </p>
+                    <p className="pg-header__toolbar-item-text">
+                        {this.translate('page.body.trade.toolBar.lowest')}
+                    </p>
+                </div>
+                <div className="pg-header__toolbar-item">
+                    <p className="pg-header__toolbar-item-value">
                         {currentMarket && Decimal.format(Number(this.getTickerValue('high')), currentMarket.price_precision, ',')} {bidUnit}
                     </p>
                     <p className="pg-header__toolbar-item-text">
@@ -62,19 +70,11 @@ class HeaderToolbarContainer extends React.Component<Props> {
                     </p>
                 </div>
                 <div className="pg-header__toolbar-item">
-                    <p className="pg-header__toolbar-item-value pg-header__toolbar-item-value-positive">
+                    <p className="pg-header__toolbar-item-value">
                         {currentMarket && Decimal.format(Number(this.getTickerValue('volume')), currentMarket.price_precision, ',')} {bidUnit}
                     </p>
                     <p className="pg-header__toolbar-item-text">
                         {this.translate('page.body.trade.toolBar.volume')}
-                    </p>
-                </div>
-                <div className="pg-header__toolbar-item">
-                    <p className={`pg-header__toolbar-item-value pg-header__toolbar-item-value-${cls}`}>
-                        {currentMarket && this.formatPercentageValue((marketTickers[currentMarket.id] || defaultTicker).price_change_percent)}
-                    </p>
-                    <p className="pg-header__toolbar-item-text">
-                        {this.translate('page.body.trade.toolBar.change')}
                     </p>
                 </div>
             </div>

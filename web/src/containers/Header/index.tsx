@@ -119,7 +119,7 @@ class Head extends React.Component<Props> {
         const { currentMarket, marketSelectorOpened, colorTheme } = this.props;
         const isLight = colorTheme === 'light';
         if (!this.props.location.pathname.includes('/trading/')) {
-            return null;
+            return  null;
         }
 
         return (

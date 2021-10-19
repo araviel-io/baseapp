@@ -21,7 +21,7 @@ export const widgetOptions = (colorTheme?: string) => {
         details: true,
         disabled_features: ['use_localstorage_for_settings', 'header_symbol_search'],
         enable_publishing: false,
-        enabled_features: ['show_animated_logo'],
+        enabled_features: ['show_animated_logo', 'hide_left_toolbar_by_default'],
         fullscreen: false,
         height: 610,
         hide_side_toolbar: false,
