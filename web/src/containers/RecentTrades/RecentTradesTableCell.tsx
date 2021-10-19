@@ -7,7 +7,7 @@ const TradeTableCellComponent = props => {
 
     switch (type) {
         case 'date':
-            return <span style={{ color: setTradeColor(takerType).color }} key={id}>{higlightedDate}</span>;
+            return <span key={id}>{higlightedDate}</span>;
         case 'amount':
             return <span style={{ color: setTradeColor(takerType).color }}><Decimal fixed={amountFixed} thousSep="," key={id}>{amount}</Decimal></span>;
         case 'price':
