@@ -103,6 +103,11 @@ export const en = {
     'page.body.charts.tabs.chart': 'Chart',
     'page.body.charts.tabs.depth': 'Depth',
 
+    /* CustomOrderBook */
+
+    'page.body.order.tabs.orderbook': 'Order book',
+    'page.body.order.tabs.myorders': 'My orders',
+
     /* Markets Table */
     'page.body.marketsTable.filter.all': 'All',
     'page.body.marketsTable.header.pair': 'Market',

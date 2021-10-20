@@ -46,14 +46,14 @@ export const pixelsToGridUnits = (pixels: number, rowHeight: number, margin: num
 
 const getLayouts = () => {
     const rowHeight = 14;
-    const margin = 6;
+    const margin = 4.8;
 
-    const orderHeight = 20;
-    const minOrderBookHeight = 21;
-    const minRecentTradesHeight = 10;
-    const minTradingChartHeight = 21;
+    const orderHeight = 22;
+    const minOrderBookHeight = 10;
+    const minRecentTradesHeight = 7;
+    const minTradingChartHeight = 10;
     const minOpenOrdersHeight = 7;
-    const minMarketsHeight = 9;
+    const minMarketsHeight = 1;
     const staticHeight = getStaticHeight() || 96;
     const isDraggable = isDraggableGrid();
     const isResizable = isResizableGrid();
@@ -66,7 +66,7 @@ const getLayouts = () => {
     const tradingChartHeight = gridHeight >= minGridHeight ?
         currentTradingChartHeight + margin * 0.67 : Math.floor(Math.max(currentTradingChartHeight, minTradingChartHeight));
     const openOrdersHeight = gridHeight >= minGridHeight ?
-        pixelsToGridUnits(gridHeight - gridUnitsToPixels(tradingChartHeight, rowHeight, margin), rowHeight, margin) + 2.1 :
+        pixelsToGridUnits(gridHeight - gridUnitsToPixels(tradingChartHeight, rowHeight, margin), rowHeight, margin) + 1 :
         minOpenOrdersHeight;
 
     const orderBookHeight = gridHeight >= minGridHeight ?
@@ -84,9 +84,10 @@ const getLayouts = () => {
     return {
         lg: [
             { x: 20, y: 0, w: 4, h: orderHeight, i: '1', minH: orderHeight, maxH: orderHeight, minW: 4, isDraggable: isDraggable, isResizable: isResizable },
-            { x: 4, y: 0, w: 12, h: tradingChartHeight, i: '2', minH: minTradingChartHeight, minW: 5, isDraggable: isDraggable, isResizable: isResizable },
-            { x: 16, y: 0, w: 4, h: orderBookHeight, i: '3', minH: minOrderBookHeight, minW: 4, isDraggable: isDraggable, isResizable: isResizable },
-            { x: 4, y: 60, w: 12, h: openOrdersHeight, i: '4', minH: minOpenOrdersHeight, minW: 5, isDraggable: isDraggable, isResizable: isResizable },
+            { x: 4, y: 0, w: 16, h: tradingChartHeight, i: '2', minH: minTradingChartHeight, minW: 5, isDraggable: isDraggable, isResizable: isResizable },
+            { x: 4, y: 60, w: 16, h: openOrdersHeight, i: '4', minH: minOrderBookHeight, minW: 4, isDraggable: isDraggable, isResizable: isResizable },
+            //{ x: 4, y: 60, w: 16, h: orderBookHeight, i: '3', minH: minOrderBookHeight, minW: 4, isDraggable: isDraggable, isResizable: isResizable },
+            //{ x: 4, y: 60, w: 12, h: openOrdersHeight, i: '4', minH: minOpenOrdersHeight, minW: 5, isDraggable: isDraggable, isResizable: isResizable },
             { x: 0, y: 0, w: 4, h: recentTradesHeight, i: '5', minH: minRecentTradesHeight, minW: 4, isDraggable: isDraggable, isResizable: isResizable },
             { x: 22, y: 40, w: 4, h: marketsHeight, i: '6', minH: minMarketsHeight, minW: 4, isDraggable: isDraggable, isResizable: isResizable },
         ],

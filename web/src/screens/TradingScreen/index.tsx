@@ -12,6 +12,7 @@ import {
     MarketsComponent,
     OpenOrdersComponent,
     OrderBook,
+    OrderBookAndOpen,
     OrderComponent,
     RecentTrades,
     ToolBar,
@@ -94,13 +95,13 @@ const TradingWrapper = props => {
                 i: 2,
                 render: () => <Charts />,
             },
-            {
+           /* {
                 i: 3,
                 render: () => <OrderBook size={orderBookComponentResized} />,
-            },
+            },*/
             {
                 i: 4,
-                render: () => <OpenOrdersComponent/>,
+                render: () => <OrderBookAndOpen/>,
             },
             {
                 i: 5,

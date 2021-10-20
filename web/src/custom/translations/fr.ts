@@ -103,6 +103,11 @@ export const fr: LangType = {
     'page.body.charts.tabs.chart': 'Chart',
     'page.body.charts.tabs.depth': 'Depth',
 
+    /* CustomOrderBook */
+
+    'page.body.order.tabs.orderbook': 'Livre d\'ordres',
+    'page.body.order.tabs.myorders': 'Mes ordres',
+
     /* Markets Table */
     'page.body.marketsTable.filter.all': 'All',
     'page.body.marketsTable.header.pair': 'Market',

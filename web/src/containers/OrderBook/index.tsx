@@ -136,9 +136,6 @@ class OrderBookContainer extends React.Component<Props, State> {
 
         return (
             <div className={cn} ref={this.orderRef}>
-                <div className="cr-table-header__content">
-                    {this.props.intl.formatMessage({id: 'page.body.trade.orderbook'})}
-                </div>
                 {orderBookLoading ? (
                     <div className="pg-combined-order-book-loader">
                         <Spinner animation="border" variant="primary" />

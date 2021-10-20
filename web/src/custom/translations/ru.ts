@@ -102,6 +102,11 @@ export const ru: LangType = {
     'page.body.charts.tabs.chart': 'График',
     'page.body.charts.tabs.depth': 'Глубина рынка',
 
+    /* CustomOrderBook */
+
+    'page.body.order.tabs.orderbook': 'Orderbook',
+    'page.body.order.tabs.myorders': 'My orders',
+
     /* Markets Table */
     'page.body.marketsTable.filter.all': 'All',
     'page.body.marketsTable.header.pair': 'Market',

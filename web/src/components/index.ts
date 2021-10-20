@@ -18,6 +18,7 @@ export * from './EmailForm';
 export * from './ExpiredSessionModal';
 export * from './FilterInput';
 export * from './GridItem';
+export * from './GridItemCustom';
 export * from './History';
 export * from './InternalTransfer';
 export * from './Logo';
