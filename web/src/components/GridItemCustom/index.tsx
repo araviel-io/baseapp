@@ -25,17 +25,17 @@ export interface GridCustomChildInterface {
 
 const GridItemCustom: React.FunctionComponent<GridCustomItemProps> = (props: GridCustomItemProps) => {
   const { className, children, title } = props;
-  const cx = classnames('cr-grid-item', className);
+  const cx = classnames('cr-grid-item-custom', className);
 
   return (
     <div className={cx}>
-      {title ? <div className="cr-grid-item__header">
-        <div className="cr-grid-item__title">
+      {title ? <div className="cr-grid-item-custom__header">
+        <div className="cr-grid-item-custom__title">
           {title}
         </div>
       </div>
       : null}
-      <div className="cr-grid-item__body">{children}</div>
+      <div className="cr-grid-item-custom__body">{children}</div>
     </div>
   );
 };

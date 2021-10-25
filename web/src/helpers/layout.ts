@@ -66,7 +66,7 @@ const getLayouts = () => {
     const tradingChartHeight = gridHeight >= minGridHeight ?
         currentTradingChartHeight + margin * 0.67 : Math.floor(Math.max(currentTradingChartHeight, minTradingChartHeight));
     const openOrdersHeight = gridHeight >= minGridHeight ?
-        pixelsToGridUnits(gridHeight - gridUnitsToPixels(tradingChartHeight, rowHeight, margin), rowHeight, margin) + 1 :
+        pixelsToGridUnits(gridHeight - gridUnitsToPixels(tradingChartHeight, rowHeight, margin), rowHeight, margin) + 0.99 :
         minOpenOrdersHeight;
 
     const orderBookHeight = gridHeight >= minGridHeight ?

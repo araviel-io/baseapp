@@ -7,6 +7,7 @@ import { IntlProps } from '../../';
 import { incrementalOrderBook } from '../../api';
 import { Decimal } from '../../components/Decimal';
 import { GridChildInterface, GridItem } from '../../components/GridItem';
+import { GridCustomChildInterface, GridItemCustom } from '../../components/GridItemCustom';
 import {
     Charts,
     MarketsComponent,
@@ -95,29 +96,34 @@ const TradingWrapper = props => {
                 i: 2,
                 render: () => <Charts />,
             },
-           /* {
-                i: 3,
-                render: () => <OrderBook size={orderBookComponentResized} />,
-            },*/
+            /* {
+                 i: 3,
+                 render: () => <OrderBook size={orderBookComponentResized} />,
+             },*/
             {
                 i: 4,
-                render: () => <OrderBookAndOpen/>,
+                render: () => <OrderBookAndOpen />,
             },
             {
                 i: 5,
-                render: () => <RecentTrades/>,
+                render: () => <RecentTrades />,
             },
             {
                 i: 6,
-                render: () => <MarketsComponent/>,
+                render: () => <MarketsComponent />,
             },
         ];
 
         return data.map((child: GridChildInterface) => (
             <div key={child.i}>
-                <GridItem>{child.render ? child.render() : `Child Body ${child.i}`}</GridItem>
+                
+                {child.i === 4
+                    ? <GridItemCustom>{child.render ? child.render() : `Child Body ${child.i}`}</GridItemCustom>
+                    : <GridItem>{child.render ? child.render() : `Child Body ${child.i}`}</GridItem>
+                }
             </div>
         ));
+
     }, [orderComponentResized, orderBookComponentResized]);
 
     return (
@@ -127,7 +133,7 @@ const TradingWrapper = props => {
             draggableHandle=".cr-table-header__content, .pg-trading-screen__tab-panel, .draggable-container"
             rowHeight={14}
             layouts={layouts}
-            onLayoutChange={() => {return;}}
+            onLayoutChange={() => { return; }}
             margin={[5, 5]}
             onResize={handleResize}
             onDrag={handeDrag}
@@ -193,7 +199,7 @@ class Trading extends React.Component<Props, StateProps> {
                 history.replace(`/trading/${nextProps.currentMarket.id}`);
 
                 if (!incrementalOrderBook()) {
-                  this.props.depthFetch(nextProps.currentMarket);
+                    this.props.depthFetch(nextProps.currentMarket);
                 }
             }
         }
@@ -224,7 +230,7 @@ class Trading extends React.Component<Props, StateProps> {
         return (
             <div className={'pg-trading-screen'}>
                 <div className={'pg-trading-wrap'}>
-                    <ToolBar/>
+                    <ToolBar />
                     <div data-react-toolbox="grid" className={'cr-grid'}>
                         <div className="cr-grid__grid-wrapper">
                             <TradingWrapper
