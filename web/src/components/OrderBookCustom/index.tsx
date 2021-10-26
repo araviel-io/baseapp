@@ -74,6 +74,7 @@ export class OrderBookCustom extends React.PureComponent<OrderBookPropsCustom> {
 
         return (
             <div className="cr-order-book" >
+                {/* Ara : use <Table if anything goes wrong   */}
                 <TableCustom
                     rowBackground={getRowWidth}
                     data={data}

@@ -46,6 +46,7 @@ export * from './SummaryField';
 export * from './Table';
 export * from './TableCustom';
 export * from './TabPanel';
+export * from './TabPanelCustom';
 export * from './TickerTable';
 export * from './Tooltip';
 export * from './TwoFactorAuth';

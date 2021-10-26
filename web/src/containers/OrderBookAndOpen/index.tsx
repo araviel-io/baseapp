@@ -1,8 +1,7 @@
 import React, { FC, ReactElement, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useSelector } from 'react-redux';
-
-import { TabPanel } from '../../components/TabPanel';
+import { TabPanelCustom } from 'src/components';
 //import { selectCurrentMarket } from '../../modules';
 import { OrderBook, OpenOrdersComponent } from '../index';
 
@@ -24,7 +23,7 @@ export const OrderBookAndOpen: FC = (): ReactElement => {
 
     return (
         <div className="pg-orderbookand">
-            <TabPanel
+            <TabPanelCustom
                 optionalHead={intl.formatMessage({ id: 'page.body.order.tabs.orderbook' })}
                 panels={renderTabs()}
                 currentTabIndex={currentTabIndex}
