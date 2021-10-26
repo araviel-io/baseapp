@@ -1,16 +1,16 @@
 import * as React from 'react';
-import { OrderBook } from '../';
-import { CellData } from '../Table';
+import { OrderBookCustom } from '../';
+import { CellDataCustom } from '../TableCustom';
 
 export interface CombinedOrderBookProps {
   /**
    * Data which is used to render Asks Table.
    */
-  dataAsks: CellData[][];
+  dataAsks: CellDataCustom[][];
   /**
    * Data which is used to render Bids Table.
    */
-  dataBids: CellData[][];
+  dataBids: CellDataCustom[][];
   /**
    * Max value of volume which is used to calculate width of background row
    */
@@ -121,7 +121,7 @@ export class CombinedOrderBook extends React.PureComponent<CombinedOrderBookProp
           <React.Fragment>
               <div className="cr-combined-order-book__large">
                   {noDataBids ? this.renderNoData(noDataMessage) :
-                      <OrderBook
+                      <OrderBookCustom
                           side={'right'}
                           headers={reverseHead}
                           data={dataBids}
@@ -132,7 +132,7 @@ export class CombinedOrderBook extends React.PureComponent<CombinedOrderBookProp
                       />
                   }
                   {noDataAsks ? this.renderNoData(noDataMessage) :
-                      <OrderBook
+                      <OrderBookCustom
                           side={'left'}
                           headers={headers}
                           data={dataAsks}
@@ -172,7 +172,7 @@ export class CombinedOrderBook extends React.PureComponent<CombinedOrderBookProp
           <React.Fragment>
               <div className="cr-combined-order-book__small">
                     {noDataAsks ? this.renderNoData(noDataMessage) :
-                        <OrderBook
+                        <OrderBookCustom
                             side={'left'}
                             headers={headers}
                             data={dataAsks}
@@ -186,7 +186,7 @@ export class CombinedOrderBook extends React.PureComponent<CombinedOrderBookProp
                         {lastPrice}
                     </div>
                     {noDataBids ? this.renderNoData(noDataMessage) :
-                        <OrderBook
+                        <OrderBookCustom
                             side={'left'}
                             data={dataBids}
                             rowBackgroundColor={rowBackgroundColorBids}
