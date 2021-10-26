@@ -49,9 +49,32 @@
     }
   }
 
-  &__navigation-fixeded {
+  &__navigation-normal {
+    background: var(--subheader-background-color);
+    flex-direction: row-reverse;
+    justify-content: space-between;
     display: flex;
-    margin-bottom: calc(var(--gap) * 5);
+    height: 36px;
+    //margin-bottom: calc(var(--gap) * 5);
+    position: fixed;
+    width: inherit;
+    z-index: 223;
+    &-navigation {
+      box-shadow: inset 0 -1px var(--base);
+      display: flex;
+      padding-bottom: 1px;
+      position: relative;
+
+      .cr-tab-panel--fixed & {
+        flex: 1;
+      }
+    }
+  }
+  &__navigation-fixeded {
+    
+    display: flex;
+    height: 36px;
+    //margin-bottom: calc(var(--gap) * 5);
 
     &-navigation {
       box-shadow: inset 0 -1px var(--base);

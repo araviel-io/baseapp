@@ -185,11 +185,11 @@ export const TabPanelCustom: React.FC<TabPanelPropsCustom> = ({
             className={classnames('cr-tab-panel', {
                 'cr-tab-panel__fixed': fixed,
             })}>
-            <div className="cr-tab-panel__navigation-container draggable-container">
+            <div className="cr-tab-panel__navigation-normal draggable-container">
                 {tabPanelRender()}
                 {optionalHead && <div className="cr-tab-panel__optinal-head">{optionalHead}</div>}
             </div>
-            <div className="cr-tab-panel__navigation-container draggable-container">
+            <div className="cr-tab-panel__navigation-fixeded draggable-container">
                 
             </div>
             {contents}
