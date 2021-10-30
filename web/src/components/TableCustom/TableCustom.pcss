@@ -2,7 +2,7 @@
   position: relative;
 }
 
-.cr-table {
+.cr-table-custom {
   background: var(--table-background-color);
   border-collapse: collapse;
   position: relative;
@@ -37,9 +37,27 @@
 
       td {
         color: var(--table-text-color);
-        padding: 6px 12px;
+        
+       /* 
+        padding-top: 3px;
+        padding-right: 12px;
+        padding-bottom: 3px;
+        padding-left: 12px;
         position: relative;
         z-index: 10;
+*/
+        span {
+          font-size:12px;
+        }
+      }
+      @media screen and (min-width: 768px) {
+        td {
+          color: var(--order-book-table-text-color);
+          padding:0px;
+        }
+        span {
+          font-size:12px;
+        }
       }
     }
 

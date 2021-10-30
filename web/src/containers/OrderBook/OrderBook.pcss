@@ -233,7 +233,12 @@
           td:first-child {
             text-align: left;
           }
-
+          td:nth-child(2){
+            text-align: center;
+          }
+          td:nth-child(3){
+            text-align: right;
+          }
           &::before {
             content: '';
             display: block;
@@ -254,7 +259,7 @@
         &__row {
           
           margin-right: 1px;
-          padding-bottom: calc(var(--gap) * 1.6);
+          padding-bottom: calc(var(--gap) * 0);
         }
       }
     }

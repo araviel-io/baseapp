@@ -208,7 +208,7 @@ class OrderBookContainer extends React.Component<Props, State> {
                         {Decimal.format(lastPrice, currentMarket.price_precision, ',')}&nbsp;
                         {isMobileDevice ? null : currentMarket.quote_unit.toUpperCase()}
                     </span>
-                    <span>{this.props.intl.formatMessage({id: 'page.body.trade.orderbook.lastMarket'})}</span>
+                    {/*<span>{this.props.intl.formatMessage({id: 'page.body.trade.orderbook.lastMarket'})}</span>*/}
                 </React.Fragment>
             );
         } else {

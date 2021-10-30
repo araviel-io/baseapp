@@ -57,6 +57,17 @@
   .cr-order-book {
     td {
       color: var(--order-book-table-text-color);
+     // padding:0px;
+    }
+    @media screen and (min-width: 768px) {
+      td {
+        color: var(--order-book-table-text-color);
+        //padding:0px!important;
+        padding-top:4px!important;
+        padding-bottom:3px!important;
+        //padding-left:5px;
+        //padding-right:5px;
+      }
     }
   }
 
@@ -129,27 +140,12 @@
     }
   }
 }
-@keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
-}
-
-@-moz-keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
-}
-
-@-webkit-keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
-}
-
-@-o-keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
-}
-
-@-ms-keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
+.custom-last-price {
+  position: fixed;
+  z-index: 235;
+  width: 100%;
+  text-align: center;
+  top: 10px;
+  pointer-events: none;
+  font-weight: bolder;
 }
