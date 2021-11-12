@@ -36,6 +36,7 @@ export const customWidgetOptions = (colorTheme?: string) => {
     }
 
     const primaryColor = convertRgbToHex(getStylesValueByKey(colors.dark.chart.primary));
+    const secondary = convertRgbToHex(getStylesValueByKey(colors.dark.chart.secondary));
     const upColor = convertRgbToHex(getStylesValueByKey(colors.dark.chart.up));
     const downColor = convertRgbToHex(getStylesValueByKey(colors.dark.chart.down));
 
@@ -46,7 +47,7 @@ export const customWidgetOptions = (colorTheme?: string) => {
         },
         overrides: {
             ['symbolWatermarkProperties.color']: primaryColor,
-            ['volumePaneSize']: 'iny',
+            ['volumePaneSize']: 'large',
             ['mainSeriesProperties.candleStyle.upColor']: upColor,
             ['mainSeriesProperties.candleStyle.downColor']: downColor,
             ['mainSeriesProperties.candleStyle.borderUpColor']: upColor,
@@ -54,14 +55,16 @@ export const customWidgetOptions = (colorTheme?: string) => {
             ['mainSeriesProperties.candleStyle.wickUpColor']: upColor,
             ['mainSeriesProperties.candleStyle.wickDownColor']: downColor,
             ['paneProperties.background']: primaryColor,
-            ['paneProperties.vertGridProperties.color']: primaryColor,
-            ['paneProperties.vertGridProperties.style']: 1,
-            ['paneProperties.horzGridProperties.color']: primaryColor,
-            ['paneProperties.horzGridProperties.style']: 1,
+            ['paneProperties.vertGridProperties.color']: secondary,
+            ['paneProperties.vertGridProperties.style']: 0,
+            ['paneProperties.horzGridProperties.color']: secondary,
+            ['paneProperties.horzGridProperties.style']: 0,
             ['paneProperties.crossHairProperties.color']: primaryColor,
             ['paneProperties.crossHairProperties.width']: 1,
             ['paneProperties.crossHairProperties.style']: 1,
             ['scalesProperties.backgroundColor']: primaryColor,
+
+ 
         },
         studies_overrides: {
             ['volume.volume.color.0']: downColor,

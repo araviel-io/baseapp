@@ -74,6 +74,7 @@ export const colors = {
     light: {
         chart: {
             primary: '#fff',
+
             up: '#54B489',
             down: '#E85E59',
         },
@@ -99,6 +100,7 @@ export const colors = {
     dark: {
         chart: {
             primary: 'var(--rgb-body-background-color)',
+            secondary: 'var(--rgb-main-background-color)',
             up: 'var(--rgb-bids)',
             down: 'var(--rgb-asks)',
         },
