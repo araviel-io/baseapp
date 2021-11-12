@@ -1,4 +1,4 @@
-import { isDraggableGrid, isResizableGrid} from '../api/config';
+import { isDraggableGrid, isResizableGrid } from '../api/config';
 import { customLayouts } from '../custom/helpers/layout';
 
 
@@ -48,9 +48,11 @@ const getLayouts = () => {
     const rowHeight = 14;
     const margin = 4.8;
 
+    const currencySummary = 7;
     const orderHeight = 22;
     const minOrderBookHeight = 10;
-    const minRecentTradesHeight = 7;
+    const minRecentTradesHeight = 12;
+    const minSummary = 5;
     const minTradingChartHeight = 10;
     const minOpenOrdersHeight = 7;
     const minMarketsHeight = 1;
@@ -80,7 +82,9 @@ const getLayouts = () => {
     const marketsHeight = gridHeight >= minGridHeight ?
         pixelsToGridUnits(gridHeight - margin, rowHeight, margin) - orderHeight + margin - 3.3 :
         minMarketsHeight;
-
+    const smallRecent = gridHeight >= minGridHeight ?
+        pixelsToGridUnits(gridHeight - margin, rowHeight, margin) - currencySummary + margin - 3.3 :
+        minMarketsHeight;
     return {
         lg: [
             { x: 20, y: 0, w: 4, h: orderHeight, i: '1', minH: orderHeight, maxH: orderHeight, minW: 4, isDraggable: isDraggable, isResizable: isResizable },
@@ -88,9 +92,20 @@ const getLayouts = () => {
             { x: 4, y: 60, w: 16, h: openOrdersHeight, i: '4', minH: minOrderBookHeight, minW: 4, isDraggable: isDraggable, isResizable: isResizable },
             //{ x: 4, y: 60, w: 16, h: orderBookHeight, i: '3', minH: minOrderBookHeight, minW: 4, isDraggable: isDraggable, isResizable: isResizable },
             //{ x: 4, y: 60, w: 12, h: openOrdersHeight, i: '4', minH: minOpenOrdersHeight, minW: 5, isDraggable: isDraggable, isResizable: isResizable },
-            { x: 0, y: 0, w: 4, h: recentTradesHeight, i: '5', minH: minRecentTradesHeight, minW: 4, isDraggable: isDraggable, isResizable: isResizable },
+            { x: 0, y: 20, w: 4, h: smallRecent, i: '5', minH: minRecentTradesHeight, minW: 4, isDraggable: isDraggable, isResizable: isResizable },
+            { x: 0, y: 0, w: 4, h: currencySummary, i: '7', minH: minSummary, minW: 4, isDraggable: isDraggable, isResizable: isResizable },
             { x: 22, y: 40, w: 4, h: marketsHeight, i: '6', minH: minMarketsHeight, minW: 4, isDraggable: isDraggable, isResizable: isResizable },
         ],
+        /* lg: [
+            { x: 20, y: 0, w: 4, h: orderHeight, i: '1', minH: orderHeight, maxH: orderHeight, minW: 4, isDraggable: isDraggable, isResizable: isResizable },
+            { x: 4, y: 0, w: 16, h: tradingChartHeight, i: '2', minH: minTradingChartHeight, minW: 5, isDraggable: isDraggable, isResizable: isResizable },
+            { x: 4, y: 60, w: 16, h: openOrdersHeight, i: '4', minH: minOrderBookHeight, minW: 4, isDraggable: isDraggable, isResizable: isResizable },
+            //{ x: 4, y: 60, w: 16, h: orderBookHeight, i: '3', minH: minOrderBookHeight, minW: 4, isDraggable: isDraggable, isResizable: isResizable },
+            //{ x: 4, y: 60, w: 12, h: openOrdersHeight, i: '4', minH: minOpenOrdersHeight, minW: 5, isDraggable: isDraggable, isResizable: isResizable },
+            { x: 0, y: 0, w: 4, h: recentTradesHeight, i: '5', minH: minRecentTradesHeight, minW: 4, isDraggable: isDraggable, isResizable: isResizable },
+            { x: 0, y: 20, w: 4, h: currencySummary, i: '7', minH: minSummary, minW: 4, isDraggable: isDraggable, isResizable: isResizable },
+            { x: 22, y: 40, w: 4, h: marketsHeight, i: '6', minH: minMarketsHeight, minW: 4, isDraggable: isDraggable, isResizable: isResizable },
+        ], */
         md: [
             { x: 16, y: 18, w: 8, h: orderHeight, i: '1', minH: orderHeight, maxH: orderHeight, minW: 4, isDraggable: isDraggable, isResizable: isResizable },
             { x: 0, y: 0, w: 16, h: tradingChartHeight, i: '2', minH: minTradingChartHeight, minW: 5, isDraggable: isDraggable, isResizable: isResizable },
@@ -130,7 +145,7 @@ export const saveLayoutToLS = (key: string, value): void => {
     if (localStorage) {
         localStorage.setItem(
             'rgl',
-            JSON.stringify({[key]: value}),
+            JSON.stringify({ [key]: value }),
         );
     }
 };
@@ -139,7 +154,7 @@ export const resetLayout = (key: string): void => {
     if (localStorage) {
         localStorage.setItem(
             'rgl',
-            JSON.stringify({[key]: layouts}),
+            JSON.stringify({ [key]: layouts }),
         );
     }
 };

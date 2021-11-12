@@ -112,6 +112,10 @@ const TradingWrapper = props => {
                 i: 6,
                 render: () => <MarketsComponent />,
             },
+            {
+                i: 7,
+                render: () => <div>componentplaceholder</div>,
+            },
         ];
 
         return data.map((child: GridChildInterface) => (

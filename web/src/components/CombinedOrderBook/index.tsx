@@ -146,9 +146,9 @@ export class CombinedOrderBook extends React.PureComponent<CombinedOrderBookProp
                         />
                     }
                 </div>
-                {/*<div className="cr-combined-order-book__market cr-combined-order-book__large-market">
+                <div className="cr-combined-order-book__market cr-combined-order-book__large-market">
                     {lastPrice}
-                </div>*/}
+                </div>
             </React.Fragment>
         );
     };
