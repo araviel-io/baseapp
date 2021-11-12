@@ -3,6 +3,7 @@ import { injectIntl } from 'react-intl';
 import { connect, MapDispatchToPropsFunction, MapStateToProps } from 'react-redux';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { compose } from 'redux';
+import { SummaryPair } from 'src/containers/SummaryPair';
 import { IntlProps } from '../../';
 import { incrementalOrderBook } from '../../api';
 import { Decimal } from '../../components/Decimal';
@@ -114,7 +115,7 @@ const TradingWrapper = props => {
             },
             {
                 i: 7,
-                render: () => <div>componentplaceholder</div>,
+                render: () => <SummaryPair/>,
             },
         ];
 
