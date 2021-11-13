@@ -37,6 +37,7 @@ export const customWidgetOptions = (colorTheme?: string) => {
 
     const primaryColor = convertRgbToHex(getStylesValueByKey(colors.dark.chart.primary));
     const secondary = convertRgbToHex(getStylesValueByKey(colors.dark.chart.secondary));
+    const accent = convertRgbToHex(getStylesValueByKey(colors.dark.chart.accent));
     const upColor = convertRgbToHex(getStylesValueByKey(colors.dark.chart.up));
     const downColor = convertRgbToHex(getStylesValueByKey(colors.dark.chart.down));
 
@@ -59,7 +60,7 @@ export const customWidgetOptions = (colorTheme?: string) => {
             ['paneProperties.vertGridProperties.style']: 0,
             ['paneProperties.horzGridProperties.color']: secondary,
             ['paneProperties.horzGridProperties.style']: 0,
-            ['paneProperties.crossHairProperties.color']: primaryColor,
+            ['paneProperties.crossHairProperties.color']: accent,
             ['paneProperties.crossHairProperties.width']: 1,
             ['paneProperties.crossHairProperties.style']: 1,
             ['scalesProperties.backgroundColor']: primaryColor,

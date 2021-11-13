@@ -101,6 +101,7 @@ export const colors = {
         chart: {
             primary: 'var(--rgb-body-background-color)',
             secondary: 'var(--rgb-main-background-color)',
+            accent: 'var(--rgb-secondary-contrast-cta-color)',
             up: 'var(--rgb-bids)',
             down: 'var(--rgb-asks)',
         },
