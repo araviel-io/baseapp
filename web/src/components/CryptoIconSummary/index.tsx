@@ -22,7 +22,7 @@ export const CryptoIconSummary: React.FunctionComponent<CryptoIconSummaryProps> 
 
     return (
         <>
-            <img className="pg-summaryp__toolbar-cryptopic" src={icon} alt={code} /> {children}
+            <img className="pg-summaryp__content-cryptopic fade-in-signin" src={icon} alt={code} /> {children}
         </>
     );
 };

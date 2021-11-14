@@ -81,11 +81,11 @@ export const TickerHighlightLanding: React.FC<Props> = ({
     function displayTopGainer() {
         //console.log("GetCurrencyName issue:", GetCurrencyName(test.name))
         //var bordel = markets;
-        const test = "no top"
+        const loadingTop = "Loading top gainer..."
         if (topWinLose.finalGainer.length === 0 ) {
 
             return (
-                <tr><td>{test}</td></tr>
+                <tr><td>{loadingTop}</td></tr>
             )
         } else {
             //console.log("wesh")
