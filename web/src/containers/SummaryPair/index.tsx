@@ -33,19 +33,21 @@ class SummaryPairContainer extends React.Component<Props> {
 
         const isPositive = currentMarket && /\+/.test(this.getTickerValue('price_change_percent'));
         const cls = isPositive ? 'positive' : 'negative';
+        const bgcls = isPositive ? 'bg-positive' : 'bg-negative';
 
         const bidUnit = currentMarket && currentMarket.quote_unit.toUpperCase();
         return (
             <div className="pg-summaryp">
                 <div className="pg-summaryp__wrapper">
-                    <CryptoIconSummary code={currentMarket?.base_unit} >
+                    <div className={bgcls}></div>
+                    <CryptoIconSummary code={currentMarket?.base_unit} className="fade-in-signin" >
                         <div className="pg-summaryp__wrapper-space"></div>
                         <div className="pg-summaryp__itemswrapper">
                             <div className="pg-summaryp__itemswrapper-item">
                                 <div className="pg-summaryp__item-text">
                                     {this.translate('page.body.trade.toolBar.lastPrice')}
                                 </div>
-                                <div className="pg-summaryp__toolbar-item-value pg-header__toolbar-item-value-negative">
+                                <div className={`pg-header__toolbar-item-value pg-header__toolbar-item-value-${cls}`}>
                                     {currentMarket && Decimal.format(Number(this.getTickerValue('last')), currentMarket.price_precision, ',')} {bidUnit}
                                 </div>
                             </div>
@@ -53,7 +55,7 @@ class SummaryPairContainer extends React.Component<Props> {
                                 <div className="pg-summaryp__item-text">
                                     {this.translate('page.body.trade.toolBar.change')}
                                 </div>
-                                <div className={`pg-summaryp__toolbar-item-value pg-summaryp__toolbar-item-value-${cls}`}>
+                                <div className={`pg-header__toolbar-item-value pg-header__toolbar-item-value-${cls}`}>
                                     {currentMarket && this.formatPercentageValue((marketTickers[currentMarket.id] || defaultTicker).price_change_percent)}
                                 </div>
 
@@ -62,7 +64,7 @@ class SummaryPairContainer extends React.Component<Props> {
                                 <div className="pg-summaryp__item-text">
                                     {this.translate('page.body.trade.toolBar.lowest')}
                                 </div>
-                                <div className="pg-summaryp__toolbar-item-value">
+                                <div className="pg-header__toolbar-item-value">
                                     {currentMarket && Decimal.format(Number(this.getTickerValue('low')), currentMarket.price_precision, ',')} {bidUnit}
                                 </div>
 
@@ -81,7 +83,7 @@ class SummaryPairContainer extends React.Component<Props> {
                                 <div className="pg-summaryp__item-text">
                                     {this.translate('page.body.trade.toolBar.volume')}
                                 </div>
-                                <div className="pg-summaryp__toolbar-item-value">
+                                <div className="pg-header__toolbar-item-value">
                                     {currentMarket && Decimal.format(Number(this.getTickerValue('volume')), currentMarket.price_precision, ',')} {bidUnit}
                                 </div>
 
@@ -131,6 +133,7 @@ class SummaryPairContainer extends React.Component<Props> {
                     </div>*/}
 
                     </CryptoIconSummary>
+                
                 </div>
             </div>
         );

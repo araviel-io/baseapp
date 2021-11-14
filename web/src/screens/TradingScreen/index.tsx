@@ -85,6 +85,9 @@ interface StateProps {
 const ReactGridLayout = WidthProvider(Responsive);
 type Props = DispatchProps & ReduxProps & RouteComponentProps & IntlProps;
 
+// Ara: distribution for new customized components :
+// <OrderBookAndOpen /> based on the merging of <OpenOrdersComponent /> & <OrderBook />
+// <SummaryPair/> (new)
 const TradingWrapper = props => {
     const { orderComponentResized, orderBookComponentResized, layouts, handleResize, handeDrag } = props;
     const children = React.useMemo(() => {
