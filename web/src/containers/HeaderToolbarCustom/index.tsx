@@ -10,7 +10,7 @@ import {
     RootState,
     selectCurrentMarket,
     selectMarkets,
-    selectMarketTickers, Ticker,
+    selectMarketTickers, selectUserLoggedIn, Ticker,
 } from '../../modules';
 
 
@@ -20,6 +20,7 @@ interface ReduxProps {
     marketTickers: {
         [key: string]: Ticker,
     };
+    isLoggedIn: boolean;
 }
 
 type Props = IntlProps & ReduxProps;
@@ -34,51 +35,63 @@ class HeaderToolbarCustomContainer extends React.Component<Props> {
         const cls = isPositive ? 'positive' : 'negative';
 
         const bidUnit = currentMarket && currentMarket.quote_unit.toUpperCase();
+        console.log("islogged : ", this.props.isLoggedIn)
 
-        return (
-            <div className="pg-header__toolbar">
-                {/*<div className="pg-header__toolbar-item">
-                    <p className="pg-header__toolbar-item-value pg-header__toolbar-item-value-negative">
-                        {currentMarket && Decimal.format(Number(this.getTickerValue('last')), currentMarket.price_precision, ',')} {bidUnit}
-                    </p>
-                    <p className="pg-header__toolbar-item-text">
-                        {this.translate('page.body.trade.toolBar.lastPrice')}
-                    </p>
+        if (this.props.isLoggedIn) {
+            return (
+                <div className="pg-header__toolbar">
+                    <div>Logged in</div>
+                    {this.props.isLoggedIn}
+                    {/*<div className="pg-header__toolbar-item">
+                        <p className="pg-header__toolbar-item-value pg-header__toolbar-item-value-negative">
+                            {currentMarket && Decimal.format(Number(this.getTickerValue('last')), currentMarket.price_precision, ',')} {bidUnit}
+                        </p>
+                        <p className="pg-header__toolbar-item-text">
+                            {this.translate('page.body.trade.toolBar.lastPrice')}
+                        </p>
+                    </div>
+                    <div className="pg-header__toolbar-item">
+                        <p className={`pg-header__toolbar-item-value pg-header__toolbar-item-value-${cls}`}>
+                            {currentMarket && this.formatPercentageValue((marketTickers[currentMarket.id] || defaultTicker).price_change_percent)}
+                        </p>
+                        <p className="pg-header__toolbar-item-text">
+                            {this.translate('page.body.trade.toolBar.change')}
+                        </p>
+                    </div>
+                    <div className="pg-header__toolbar-item">
+                        <p className="pg-header__toolbar-item-value">
+                            {currentMarket && Decimal.format(Number(this.getTickerValue('low')), currentMarket.price_precision, ',')} {bidUnit}
+                        </p>
+                        <p className="pg-header__toolbar-item-text">
+                            {this.translate('page.body.trade.toolBar.lowest')}
+                        </p>
+                    </div>
+                    <div className="pg-header__toolbar-item">
+                        <p className="pg-header__toolbar-item-value">
+                            {currentMarket && Decimal.format(Number(this.getTickerValue('high')), currentMarket.price_precision, ',')} {bidUnit}
+                        </p>
+                        <p className="pg-header__toolbar-item-text">
+                            {this.translate('page.body.trade.toolBar.highest')}
+                        </p>
+                    </div>
+                    <div className="pg-header__toolbar-item">
+                        <p className="pg-header__toolbar-item-value">
+                            {currentMarket && Decimal.format(Number(this.getTickerValue('volume')), currentMarket.price_precision, ',')} {bidUnit}
+                        </p>
+                        <p className="pg-header__toolbar-item-text">
+                            {this.translate('page.body.trade.toolBar.volume')}
+                        </p>
+            </div>*/}
                 </div>
-                <div className="pg-header__toolbar-item">
-                    <p className={`pg-header__toolbar-item-value pg-header__toolbar-item-value-${cls}`}>
-                        {currentMarket && this.formatPercentageValue((marketTickers[currentMarket.id] || defaultTicker).price_change_percent)}
-                    </p>
-                    <p className="pg-header__toolbar-item-text">
-                        {this.translate('page.body.trade.toolBar.change')}
-                    </p>
+            );
+        } else {
+            return (
+                <div className="pg-header__toolbar">
+                    <div>Not logged in</div>
                 </div>
-                <div className="pg-header__toolbar-item">
-                    <p className="pg-header__toolbar-item-value">
-                        {currentMarket && Decimal.format(Number(this.getTickerValue('low')), currentMarket.price_precision, ',')} {bidUnit}
-                    </p>
-                    <p className="pg-header__toolbar-item-text">
-                        {this.translate('page.body.trade.toolBar.lowest')}
-                    </p>
-                </div>
-                <div className="pg-header__toolbar-item">
-                    <p className="pg-header__toolbar-item-value">
-                        {currentMarket && Decimal.format(Number(this.getTickerValue('high')), currentMarket.price_precision, ',')} {bidUnit}
-                    </p>
-                    <p className="pg-header__toolbar-item-text">
-                        {this.translate('page.body.trade.toolBar.highest')}
-                    </p>
-                </div>
-                <div className="pg-header__toolbar-item">
-                    <p className="pg-header__toolbar-item-value">
-                        {currentMarket && Decimal.format(Number(this.getTickerValue('volume')), currentMarket.price_precision, ',')} {bidUnit}
-                    </p>
-                    <p className="pg-header__toolbar-item-text">
-                        {this.translate('page.body.trade.toolBar.volume')}
-                    </p>
-        </div>*/}
-            </div>
-        );
+            );
+        }
+
     }
 
     private formatPercentageValue = (value: string) => (
@@ -105,6 +118,7 @@ const mapStateToProps = (state: RootState): ReduxProps => ({
     currentMarket: selectCurrentMarket(state),
     markets: selectMarkets(state),
     marketTickers: selectMarketTickers(state),
+    isLoggedIn: selectUserLoggedIn(state),
 });
 
 

@@ -24,7 +24,7 @@ export const OrderBookAndOpen: FC = (): ReactElement => {
     return (
         <div className="pg-orderbookand">
             <TabPanelCustom
-                optionalHead={intl.formatMessage({ id: 'page.body.order.tabs.orderbook' })}
+                //optionalHead={intl.formatMessage({ id: 'page.body.order.tabs.orderbook' })}
                 panels={renderTabs()}
                 currentTabIndex={currentTabIndex}
                 onCurrentTabChange={setCurrentTabIndex}
