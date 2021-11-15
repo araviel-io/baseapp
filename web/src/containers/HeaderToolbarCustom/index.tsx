@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { DEFAULT_PERCENTAGE_PRECISION } from 'src/constants';
 import { IntlProps } from '../../';
 import { Decimal } from '../../components/Decimal';
+import { Languageswitcher } from '..';
 import {
     Market,
     RootState,
@@ -37,12 +38,10 @@ class HeaderToolbarCustomContainer extends React.Component<Props> {
         const bidUnit = currentMarket && currentMarket.quote_unit.toUpperCase();
         console.log("islogged : ", this.props.isLoggedIn)
 
-        if (this.props.isLoggedIn) {
-            return (
-                <div className="pg-header__toolbar">
-                    <div>Logged in</div>
-                    {this.props.isLoggedIn}
-                    {/*<div className="pg-header__toolbar-item">
+        return (
+            <div className="pg-header__toolbar">
+                {this.props.isLoggedIn}
+                {/*<div className="pg-header__toolbar-item">
                         <p className="pg-header__toolbar-item-value pg-header__toolbar-item-value-negative">
                             {currentMarket && Decimal.format(Number(this.getTickerValue('last')), currentMarket.price_precision, ',')} {bidUnit}
                         </p>
@@ -82,15 +81,34 @@ class HeaderToolbarCustomContainer extends React.Component<Props> {
                             {this.translate('page.body.trade.toolBar.volume')}
                         </p>
             </div>*/}
+                <div className="pg-header__tradeviewcontrols">
+                    {this.props.isLoggedIn ? (
+                        <Link to="/profile" className="pg-header__tradeviewcontrols-btn">
+                            {this.translate('page.body.landing.header.button1')}
+                        </Link>
+                    ) : (
+                        <>
+                            <Link to="/signin" className="pg-header__tradeviewcontrols-btn">
+                                {this.translate('page.body.landing.header.button2')}
+                            </Link>
+                            <Link to="/signup" className="pg-header__tradeviewcontrols-btn">
+                                {this.translate('page.body.landing.header.button3')}
+                            </Link>
+                        </>
+                    )}
+                    {/*
+                            <Dropdown>
+                                <Dropdown.Toggle variant="primary" id={languageClassName}>
+                                    <img src={this.getLanguageIcon(lang)} alt={lang} />
+                                    <span className="dropdown-menu-language-selected">{languageName}</span>
+                                </Dropdown.Toggle>
+                                <Dropdown.Menu>{this.getLanguageDropdownItems()}</Dropdown.Menu>
+                            </Dropdown>
+                            */}
                 </div>
-            );
-        } else {
-            return (
-                <div className="pg-header__toolbar">
-                    <div>Not logged in</div>
-                </div>
-            );
-        }
+                <Languageswitcher />
+            </div>
+        );
 
     }
 
