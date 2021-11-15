@@ -1,18 +1,24 @@
 import * as React from 'react';
-import { injectIntl } from 'react-intl';
+import { History } from 'history';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
-import { DEFAULT_PERCENTAGE_PRECISION } from 'src/constants';
+import { DEFAULT_PERCENTAGE_PRECISION, pgRoutes } from 'src/constants';
 import { IntlProps } from '../../';
 import { Decimal } from '../../components/Decimal';
-import { Languageswitcher } from '..';
+import { CanCan, Languageswitcher } from '..';
 import {
+    AbilitiesInterface,
+    changeUserDataFetch,
     Market,
     RootState,
+    selectAbilities,
     selectCurrentMarket,
     selectMarkets,
     selectMarketTickers, selectUserLoggedIn, Ticker,
 } from '../../modules';
+import { SidebarIcons } from 'src/assets/images/sidebar/SidebarIcons';
+import classnames from 'classnames';
 
 
 interface ReduxProps {
@@ -22,16 +28,24 @@ interface ReduxProps {
         [key: string]: Ticker,
     };
     isLoggedIn: boolean;
+    abilities: AbilitiesInterface;
 }
-
-type Props = IntlProps & ReduxProps;
+interface OwnProps {
+    onLinkChange?: () => void;
+    history: History;
+    location: {
+        pathnname: string;
+    };
+    changeUserDataFetch: typeof changeUserDataFetch;
+}
+type Props = OwnProps & IntlProps & ReduxProps;
 
 // tslint:disable no-any jsx-no-multiline-js
 class HeaderToolbarCustomContainer extends React.Component<Props> {
     public render() {
         const { marketTickers, currentMarket } = this.props;
         const defaultTicker = { amount: 0, low: 0, last: 0, high: 0, volume: 0, price_change_percent: '+0.00%' };
-
+        const address = this.props.history.location ? this.props.history.location.pathname : '';
         const isPositive = currentMarket && /\+/.test(this.getTickerValue('price_change_percent'));
         const cls = isPositive ? 'positive' : 'negative';
 
@@ -82,6 +96,7 @@ class HeaderToolbarCustomContainer extends React.Component<Props> {
                         </p>
             </div>*/}
                 <div className="pg-header__tradeviewcontrols">
+                    {pgRoutes(this.props.isLoggedIn, CanCan.checkAbilityByAction('read', 'QuickExchange', this.props.abilities)).map(this.renderNavItems(address))}
                     {this.props.isLoggedIn ? (
                         <Link to="/profile" className="pg-header__tradeviewcontrols-btn">
                             {this.translate('page.body.landing.header.button1')}
@@ -112,6 +127,32 @@ class HeaderToolbarCustomContainer extends React.Component<Props> {
 
     }
 
+    public renderNavItems = (address: string) => (values: string[], index: number) => {
+        const { currentMarket } = this.props;
+
+        const [name, url, img] = values;
+        //const handleLinkChange = () => this.props.toggleSidebar(false);
+        const path = url.includes('/trading') && currentMarket ? `/trading/${currentMarket.id}` : url;
+        const isActive = (url === '/trading/' && address.includes('/trading')) || address === url;
+
+        const iconClassName = classnames('pg-sidebar-wrapper-nav-item-img', {
+            'pg-sidebar-wrapper-nav-item-img--active': isActive,
+        });
+
+        return (
+            <Link to={path} key={index} /*onClick={/*handleLinkChange}*/ className={`${isActive && 'route-selected'}`}>
+                <div className="pg-sidebar-wrapper-nav-item">
+                    <div className="pg-sidebar-wrapper-nav-item-img-wrapper">
+                        <SidebarIcons className={iconClassName} name={img} />
+                    </div>
+                    <p className="pg-sidebar-wrapper-nav-item-text">
+                        <FormattedMessage id={name} />
+                    </p>
+                </div>
+            </Link>
+        );
+    };
+
     private formatPercentageValue = (value: string) => (
         <React.Fragment>
             {value?.charAt(0)}
@@ -137,6 +178,7 @@ const mapStateToProps = (state: RootState): ReduxProps => ({
     markets: selectMarkets(state),
     marketTickers: selectMarketTickers(state),
     isLoggedIn: selectUserLoggedIn(state),
+    abilities: selectAbilities(state),
 });
 
 

@@ -100,7 +100,7 @@ class LanguageSwitcherContainer extends React.Component<Props, State> {
                         <Dropdown>
                             <Dropdown.Toggle variant="test" id={languageClassName}>
                                 <img src={this.getLanguageIcon(lang)} alt={lang} />
-                                <span className="dropdown-menu-language-selected">{languageName}</span>
+                               {/*< <span className="dropdown-menu-language-selected">{languageName}</span>*/}
                             </Dropdown.Toggle>
                             <Dropdown.Menu>{this.getLanguageDropdownItems()}</Dropdown.Menu>
                         </Dropdown>
