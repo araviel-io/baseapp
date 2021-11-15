@@ -19,7 +19,7 @@ import {
     toggleMarketSelector,
     toggleSidebar,
 } from '../../modules';
-import { HeaderToolbar } from '../HeaderToolbar';
+import { HeaderToolbarCustom } from '../HeaderToolbarCustom';
 import { NavBar } from '../NavBar';
 
 import arrowBottom from './arrows/arrowBottom.svg';
@@ -111,8 +111,8 @@ class Head extends React.Component<Props> {
         if (!this.props.location.pathname.includes('/trading/')) {
             return null;
         }
-
-        return <HeaderToolbar />;
+        //Ara: the original component is <HeaderToolbar />
+        return <HeaderToolbarCustom />;
     };
 
     private renderMarketToggler = () => {
