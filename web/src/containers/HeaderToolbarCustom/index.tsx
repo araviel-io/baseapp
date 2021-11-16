@@ -42,7 +42,9 @@ type Props = OwnProps & IntlProps & ReduxProps;
 
 // tslint:disable no-any jsx-no-multiline-js
 class HeaderToolbarCustomContainer extends React.Component<Props> {
+
     public render() {
+        console.log("HeadercustomLoaded");
         const { marketTickers, currentMarket } = this.props;
         const defaultTicker = { amount: 0, low: 0, last: 0, high: 0, volume: 0, price_change_percent: '+0.00%' };
         const address = this.props.history.location ? this.props.history.location.pathname : '';
@@ -138,18 +140,26 @@ class HeaderToolbarCustomContainer extends React.Component<Props> {
         const iconClassName = classnames('pg-sidebar-wrapper-nav-item-img', {
             'pg-sidebar-wrapper-nav-item-img--active': isActive,
         });
+        console.log("name test : ", name)
 
         return (
-            <Link to={path} key={index} /*onClick={/*handleLinkChange}*/ className={`${isActive && 'route-selected'}`}>
-                <div className="pg-sidebar-wrapper-nav-item">
-                    <div className="pg-sidebar-wrapper-nav-item-img-wrapper">
-                        <SidebarIcons className={iconClassName} name={img} />
-                    </div>
-                    <p className="pg-sidebar-wrapper-nav-item-text">
-                        <FormattedMessage id={name} />
-                    </p>
-                </div>
-            </Link>
+            <>
+                {this.props.isLoggedIn ? (
+                    <Link to={path} key={index} /*onClick={/*handleLinkChange}*/ className={`${isActive && 'route-selected'}`}>
+                        <div className="pg-sidebar-wrapper-nav-item">
+                            <div className="pg-sidebar-wrapper-nav-item-img-wrapper">
+                                <SidebarIcons className={iconClassName} name={img} />
+                            </div>
+                            <p className="pg-sidebar-wrapper-nav-item-text">
+                                <FormattedMessage id={name} />
+                            </p>
+                        </div>
+                    </Link>
+                ) : (
+                    <></>
+                )}
+
+            </>
         );
     };
 
