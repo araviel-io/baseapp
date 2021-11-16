@@ -178,7 +178,15 @@ export class TradingChartComponent extends React.PureComponent<Props> {
         const defaultWidgetOptions = {
             symbol: currentMarket.id,
             overrides: {
-                /*"symbolWatermarkProperties.color": "rgba(0, 0, 0, 0)"*/
+                /*"mainSeriesProperties.show ma": true,
+
+                "scalesProperties.lineColor" : "#ff0000",
+                "scalesProperties.scaleSeriesOnly" : true,
+                "mainSeriesProperties.style" : 5,*/
+            },
+            studies_overrides: {
+                "bollinger bands.median.color": "#33FF88",
+                "bollinger bands.upper.linewidth": 7
             },
             datafeed: this.datafeed,
             interval: widgetParams.interval,

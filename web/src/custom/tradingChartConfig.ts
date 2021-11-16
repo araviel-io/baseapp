@@ -44,11 +44,15 @@ export const customWidgetOptions = (colorTheme?: string) => {
     return ({
         toolbar_bg: primaryColor,
         loading_screen: {
-            backgroundColor: primaryColor,
+            backgroundColor: accent,
         },
         overrides: {
-            ['symbolWatermarkProperties.color']: primaryColor,
-            ['volumePaneSize']: 'large',
+            ['scalesProperties.lineColor']: secondary,
+            ['scalesProperties.scaleSeriesOnly']: false,
+            ['scalesProperties.showStudyLastValue']: true,
+            ['mainSeriesProperties.style']: 1   ,
+            ['symbolWatermarkProperties.color']: "#56c9f9",
+            ['volumePaneSize']: 'medium',
             ['mainSeriesProperties.candleStyle.upColor']: upColor,
             ['mainSeriesProperties.candleStyle.downColor']: downColor,
             ['mainSeriesProperties.candleStyle.borderUpColor']: upColor,
@@ -61,10 +65,10 @@ export const customWidgetOptions = (colorTheme?: string) => {
             ['paneProperties.horzGridProperties.color']: secondary,
             ['paneProperties.horzGridProperties.style']: 0,
             ['paneProperties.crossHairProperties.color']: accent,
-            ['paneProperties.crossHairProperties.width']: 1,
+            ['paneProperties.crossHairProperties.width']: 2,
             ['paneProperties.crossHairProperties.style']: 1,
             ['scalesProperties.backgroundColor']: primaryColor,
-
+          
  
         },
         studies_overrides: {
