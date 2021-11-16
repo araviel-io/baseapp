@@ -140,29 +140,34 @@ class HeaderToolbarCustomContainer extends React.Component<Props> {
         const iconClassName = classnames('pg-sidebar-wrapper-nav-item-img', {
             'pg-sidebar-wrapper-nav-item-img--active': isActive,
         });
-        console.log("name test : ", name)
+        //console.log("name test : ", name)
 
-        return (
-            <>
-                {this.props.isLoggedIn ? (
-                    <Link to={path} key={index} /*onClick={/*handleLinkChange}*/ className={`${isActive && 'route-selected'}`}>
-                        <div className="pg-sidebar-wrapper-nav-item">
-                            <div className="pg-sidebar-wrapper-nav-item-img-wrapper">
-                                <SidebarIcons className={iconClassName} name={img} />
+        const excludedControls = ['page.header.navbar.api', 'page.header.navbar.internal.transfer', 'page.header.navbar.quick.exchange'];
+
+        if (!excludedControls.includes(name)) {
+            return (
+                <>
+                    {this.props.isLoggedIn ? (
+
+                        <Link to={path} key={index} /*onClick={/*handleLinkChange}*/ className={`${isActive && 'route-selected'}`}>
+                            <div className="pg-sidebar-wrapper-nav-item">
+                                <div className="pg-sidebar-wrapper-nav-item-img-wrapper">
+                                    <SidebarIcons className={iconClassName} name={img} />
+                                </div>
+                                <p className="pg-sidebar-wrapper-nav-item-text">
+                                    <FormattedMessage id={name} />
+                                </p>
                             </div>
-                            <p className="pg-sidebar-wrapper-nav-item-text">
-                                <FormattedMessage id={name} />
-                            </p>
-                        </div>
-                    </Link>
-                ) : (
-                    <></>
-                )}
+                        </Link>
+                    ) : (
+                        <></>
+                    )}
 
-            </>
-        );
-    };
+                </>
+            );
 
+        };
+    }
     private formatPercentageValue = (value: string) => (
         <React.Fragment>
             {value?.charAt(0)}
