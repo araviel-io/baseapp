@@ -14,14 +14,14 @@ export const customWidgetOptions = (colorTheme?: string) => {
             },
             overrides: {
                 ['symbolWatermarkProperties.color']: colors.light.chart.primary,
-                ['volumePaneSize']: 'iny',
+                ['volumePaneSize']: 'medium',
                 ['mainSeriesProperties.candleStyle.upColor']: colors.light.chart.up,
                 ['mainSeriesProperties.candleStyle.downColor']: colors.light.chart.down,
                 ['mainSeriesProperties.candleStyle.borderUpColor']: colors.light.chart.up,
                 ['mainSeriesProperties.candleStyle.borderDownColor']: colors.light.chart.down,
                 ['mainSeriesProperties.candleStyle.wickUpColor']: colors.light.chart.up,
                 ['mainSeriesProperties.candleStyle.wickDownColor']: colors.light.chart.down,
-                ['paneProperties.background']:  colors.light.chart.primary,
+                ['paneProperties.background']: colors.light.chart.primary,
                 ['paneProperties.vertGridProperties.color']: colors.light.chart.primary,
                 ['paneProperties.vertGridProperties.style']: 1,
                 ['paneProperties.horzGridProperties.color']: colors.light.chart.primary,
@@ -44,13 +44,13 @@ export const customWidgetOptions = (colorTheme?: string) => {
     return ({
         toolbar_bg: primaryColor,
         loading_screen: {
-            backgroundColor: accent,
+            backgroundColor: secondary,
         },
         overrides: {
             ['scalesProperties.lineColor']: secondary,
             ['scalesProperties.scaleSeriesOnly']: false,
             ['scalesProperties.showStudyLastValue']: true,
-            ['mainSeriesProperties.style']: 1   ,
+            ['mainSeriesProperties.style']: 1,
             ['symbolWatermarkProperties.color']: "#56c9f9",
             ['volumePaneSize']: 'medium',
             ['mainSeriesProperties.candleStyle.upColor']: upColor,
@@ -64,14 +64,21 @@ export const customWidgetOptions = (colorTheme?: string) => {
             ['paneProperties.vertGridProperties.style']: 0,
             ['paneProperties.horzGridProperties.color']: secondary,
             ['paneProperties.horzGridProperties.style']: 0,
-            ['paneProperties.crossHairProperties.color']: accent,
+            ['paneProperties.crossHairProperties.color']: "#56c9f9",
             ['paneProperties.crossHairProperties.width']: 2,
-            ['paneProperties.crossHairProperties.style']: 1,
+            ['paneProperties.crossHairProperties.style']: 5,
             ['scalesProperties.backgroundColor']: primaryColor,
-          
- 
+
+
         },
         studies_overrides: {
+            ['volume.volume.transparency']: 95,
+            ['volume.volume ma.color']: "#FF0000",
+            ['volume.volume ma.transparency']: 30,
+            ['volume.volume ma.linewidth']: 5,
+            ['volume.show ma']: true,
+            ['bollinger bands.median.color']: "#33FF88",
+            ['bollinger bands.upper.linewidth']: 7,
             ['volume.volume.color.0']: downColor,
             ['volume.volume.color.1']: upColor,
         },
