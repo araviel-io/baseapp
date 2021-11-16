@@ -170,11 +170,16 @@ export class TradingChartComponent extends React.PureComponent<Props> {
                 'use_localstorage_for_settings',
                 'hide_left_toolbar_by_default',
                 'compare_symbol',
+                'volume_force_overlay',
+                'border_around_the_chart',
             ]
         };
 
         const defaultWidgetOptions = {
             symbol: currentMarket.id,
+            overrides: {
+                /*"symbolWatermarkProperties.color": "rgba(0, 0, 0, 0)"*/
+            },
             datafeed: this.datafeed,
             interval: widgetParams.interval,
             container_id: widgetParams.containerId,
