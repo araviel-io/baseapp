@@ -137,8 +137,8 @@ class HeaderToolbarCustomContainer extends React.Component<Props> {
         const path = url.includes('/trading') && currentMarket ? `/trading/${currentMarket.id}` : url;
         const isActive = (url === '/trading/' && address.includes('/trading')) || address === url;
 
-        const iconClassName = classnames('pg-sidebar-wrapper-nav-item-img', {
-            'pg-sidebar-wrapper-nav-item-img--active': isActive,
+        const iconClassName = classnames('pg-navbarre-wrapper-nav-item-img', {
+            'pg-navbarre-wrapper-nav-item-img--active': isActive,
         });
         //console.log("name test : ", name)
 
@@ -150,13 +150,13 @@ class HeaderToolbarCustomContainer extends React.Component<Props> {
                     {this.props.isLoggedIn ? (
 
                         <Link to={path} key={index} /*onClick={/*handleLinkChange}*/ className={`${isActive && 'route-selected'}`}>
-                            <div className="pg-sidebar-wrapper-nav-item">
-                                <div className="pg-sidebar-wrapper-nav-item-img-wrapper">
+                            <div className="pg-navbarre-wrapper-nav-item">
+                                
                                     <SidebarIcons className={iconClassName} name={img} />
-                                </div>
-                                <p className="pg-sidebar-wrapper-nav-item-text">
+                                
+                                {/* <p className="pg-sidebar-wrapper-nav-item-text">
                                     <FormattedMessage id={name} />
-                                </p>
+                                </p>*/}
                             </div>
                         </Link>
                     ) : (
