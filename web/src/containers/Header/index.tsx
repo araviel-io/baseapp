@@ -109,13 +109,18 @@ class Head extends React.Component<Props> {
     };
 
     private renderMarketToolbar = () => {
-        if (!this.props.location.pathname.includes('/trading/')) {
+        if (!this.props.location.pathname.includes('/trading/') && 
+            !this.props.location.pathname.includes('/orders') &&
+            !this.props.location.pathname.includes('/history') &&
+            !this.props.location.pathname.includes('/wallets')   
+        ) {
             return null;
         }
         //Ara: the original component is <HeaderToolbar />
         return <HeaderToolbarCustom />;
     };
 
+    
     private renderMarketToggler = () => {
         const { currentMarket, marketSelectorOpened, colorTheme } = this.props;
         const isLight = colorTheme === 'light';
