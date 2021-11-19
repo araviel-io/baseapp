@@ -73,7 +73,7 @@ export class OrderBookCustom extends React.PureComponent<OrderBookPropsCustom> {
         };
 
         return (
-            <div className="cr-order-book" >
+            <div className="cr-order-book fade-in-signin" >
                 {/* Ara : use <Table if anything goes wrong   */}
                 <TableCustom
                     rowBackground={getRowWidth}
