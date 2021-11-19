@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { OrderBookCustom } from '../';
+import { Spinner } from 'react-bootstrap';
+import { AraSpinner, OrderBookCustom } from '../';
 import { CellDataCustom } from '../TableCustom';
 
 export interface CombinedOrderBookProps {
@@ -123,7 +124,7 @@ export class CombinedOrderBook extends React.PureComponent<CombinedOrderBookProp
                     {lastPrice}
                 </div>
                 <div className="cr-combined-order-book__large">
-                    {noDataBids ? this.renderNoData(noDataMessage) :
+                    {noDataBids ? <div ></div>:
                         <OrderBookCustom
                             side={'right'}
                             headers={reverseHead}
@@ -134,7 +135,7 @@ export class CombinedOrderBook extends React.PureComponent<CombinedOrderBookProp
                             onSelect={onSelectBids}
                         />
                     }
-                    {noDataAsks ? this.renderNoData(noDataMessage) :
+                    {noDataAsks ? <div className="adjustedforCob"><AraSpinner/></div> :
                         <OrderBookCustom
                             side={'left'}
                             headers={headers}

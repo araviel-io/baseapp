@@ -1,5 +1,6 @@
 export * from './Beneficiaries';
 export * from './Blur';
+export * from './AraSpinner';
 export * from './Captcha';
 export * from './ChangePassword';
 export * from './CodeVerification';

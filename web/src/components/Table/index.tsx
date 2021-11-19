@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import { useIntl } from 'react-intl';
+import { AraSpinner } from '..';
 
 export type CellData = string | number | React.ReactNode | undefined;
 
@@ -105,7 +106,7 @@ export const Table: React.FC<TableProps> = (props: TableProps) => {
         return row && row.length ?
             row.map((c, index: number) =>
                 <td key={index} colSpan={row.length === 1 ? props.colSpan : undefined}>{c}</td>)
-            : <td className="cr-table--no-data" colSpan={header && header.length}>{formatMessage({ id: 'page.noDataToShow' })}</td>;
+            : <div className="adjustedforCob"><AraSpinner/></div>;
     }, [header, props.colSpan, formatMessage]);
 
     const handleFilter = React.useCallback((item: Filter) => {
