@@ -44,7 +44,7 @@ type Props = OwnProps & IntlProps & ReduxProps;
 class HeaderToolbarCustomContainer extends React.Component<Props> {
 
     public render() {
-        console.log("HeadercustomLoaded");
+        //console.log("HeadercustomLoaded");
         const { marketTickers, currentMarket } = this.props;
         const defaultTicker = { amount: 0, low: 0, last: 0, high: 0, volume: 0, price_change_percent: '+0.00%' };
         const address = this.props.history.location ? this.props.history.location.pathname : '';
@@ -52,7 +52,7 @@ class HeaderToolbarCustomContainer extends React.Component<Props> {
         const cls = isPositive ? 'positive' : 'negative';
 
         const bidUnit = currentMarket && currentMarket.quote_unit.toUpperCase();
-        console.log("islogged : ", this.props.isLoggedIn)
+        //console.log("islogged : ", this.props.isLoggedIn)
 
         return (
             <div className="pg-header__toolbar">

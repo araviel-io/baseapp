@@ -7,6 +7,8 @@ export interface OrderInputProps {
      * Additional class name for styling. By default element receives `cr-input-block` class
      * @default empty
      */
+    formtype?: string;
+    
     className?: string;
     /**
      * Code of cryptocurrency
@@ -53,14 +55,17 @@ export interface OrderInputProps {
  */
 
 export const OrderInput: React.FunctionComponent<OrderInputProps> = React.memo((props: OrderInputProps) => {
-    const { currency, className, isFocused, label, placeholder, value, handleChangeValue, onKeyPress, handleFocusInput } = props;
-
+    const { formtype,currency, className, isFocused, label, placeholder, value, handleChangeValue, onKeyPress, handleFocusInput } = props;
+    console.log("cr-order-input__fieldset : ", currency, className, isFocused, label, placeholder, value, handleChangeValue, onKeyPress, handleFocusInput)
     const fieldsetFocusedClass = React.useMemo(() => cr('cr-order-input__fieldset', {
-        'cr-order-input__fieldset cr-order-input__fieldset--focused': isFocused,
+        'cr-order-input__fieldset cr-order-input__fieldset--focused' : isFocused,
+        'arabuy' : isFocused && formtype ==='buy',
+        'arasell' : isFocused && formtype ==='sell',
     }), [isFocused]);
-
     const cryptoIconClass = React.useMemo(() => cr('cr-order-input__crypto-icon',{
         'cr-order-input__fieldset--focused': isFocused,
+        'arabuy' : isFocused && formtype ==='buy',
+        'arasell' : isFocused && formtype ==='sell',
     }), [isFocused]);
 
     return (

@@ -175,7 +175,7 @@ export class OrderForm extends React.PureComponent<OrderFormProps, OrderFormStat
 
     public renderPrice = () => {
         const { price, priceFocused, isPriceValid } = this.state;
-        const { from, isMobileDevice, currentMarketBidPrecision, translate } = this.props;
+        const { type,from, isMobileDevice, currentMarketBidPrecision, translate } = this.props;
 
         const priceText = translate('page.body.trade.header.newOrder.content.price');
         const priceErrorClass = classnames('error-message', {
@@ -196,6 +196,7 @@ export class OrderForm extends React.PureComponent<OrderFormProps, OrderFormStat
                     />
                 ) : (
                     <OrderInput
+                    formtype={type}
                         currency={from}
                         label={priceText}
                         placeholder={priceText}
@@ -240,6 +241,7 @@ export class OrderForm extends React.PureComponent<OrderFormProps, OrderFormStat
                     />
                 ) : (
                     <OrderInput
+                        formtype={type}
                         currency={from}
                         label={triggerText}
                         placeholder={triggerText}
@@ -385,6 +387,7 @@ export class OrderForm extends React.PureComponent<OrderFormProps, OrderFormStat
                         />
                     ) : (
                         <OrderInput
+                            formtype={type}
                             currency={to}
                             label={amountText}
                             placeholder={amountText}
@@ -465,7 +468,6 @@ export class OrderForm extends React.PureComponent<OrderFormProps, OrderFormStat
     private handleFieldFocus = (field?: string) => {
         const { orderType } = this.state;
         const { type, translate } = this.props;
-
         const priceText = translate('page.body.trade.header.newOrder.content.price');
         const amountText = translate('page.body.trade.header.newOrder.content.amount');
         const triggerText = translate(`page.body.trade.header.newOrder.content.triggerPrice`, { sign: getTriggerSign(String(orderType).toLowerCase(), type) });

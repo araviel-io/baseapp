@@ -238,7 +238,7 @@ class OrderInsert extends React.PureComponent<Props, StoreProps> {
             trigger,
             type,
         } = value;
-
+        
         this.props.setCurrentPrice(0);
 
         const withPrice = typeof price !== 'undefined';
