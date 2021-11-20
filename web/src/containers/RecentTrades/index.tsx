@@ -6,7 +6,7 @@ import {
 import { connect, MapDispatchToPropsFunction } from 'react-redux';
 import { compose } from 'redux';
 import { IntlProps } from '../../';
-import { TabPanel } from '../../components';
+import { TabPanelCustom } from '../../components';
 import {
     Market,
     PublicTrade,
@@ -96,7 +96,7 @@ class RecentTradesComponent extends React.Component<RecentTradesProps, State> {
 
         return this.props.userLoggedIn ?
         (
-            <TabPanel
+            <TabPanelCustom
                 panels={this.renderTabs()}
                 onTabChange={this.handleMakeRequest}
                 optionalHead={this.props.intl.formatMessage({ id: 'page.body.trade.header.recentTrades' })}

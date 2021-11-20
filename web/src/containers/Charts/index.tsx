@@ -2,7 +2,7 @@ import React, { FC, ReactElement, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useSelector } from 'react-redux';
 
-import { TabPanel } from '../../components/TabPanel';
+import { TabPanelCustom } from '../../components/TabPanelCustom';
 import { selectCurrentMarket } from '../../modules';
 import { MarketDepthsComponent, TradingChart } from '../index';
 
@@ -24,7 +24,7 @@ export const Charts: FC = (): ReactElement => {
 
     return (
         <div className="pg-charts">
-            <TabPanel
+            <TabPanelCustom
                 optionalHead={currentMarket?.name}
                 panels={renderTabs()}
                 currentTabIndex={currentTabIndex}

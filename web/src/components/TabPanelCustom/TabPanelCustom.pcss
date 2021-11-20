@@ -2,10 +2,11 @@
   display: flex;
   flex-direction: column;
 
-  .cr-tab {
-    color: var(--base-2);
+  .cr-tab-custom {
+    font-weight: bold;
+    color: var(--table-text-color);
     font-size: 1.14em;
-    padding: var(--gap) 32px;
+    padding: var(--gap) 22px;
     position: relative;
     text-align: center;
     text-transform: uppercase;
@@ -23,7 +24,19 @@
     }
 
     &__active {
-      color: var(--base);
+      //color: var(--custom-accent-dark);
+      &::after {
+        content: '';
+        position: absolute;
+        border-bottom: 3px solid var(--custom-accent-dark);
+        width: 30%;
+        /* top: 5px; */
+        bottom: 5px;
+        /* left: 22%; */
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
     }
 
     &__hidden {

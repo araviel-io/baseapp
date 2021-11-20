@@ -115,10 +115,10 @@ export const TabPanelCustom: React.FC<TabPanelPropsCustom> = ({
             const { disabled, hidden, label } = tab;
 
             const active = currentTabIndex === index;
-            const cn = classnames('cr-tab', {
-                'cr-tab__active': active,
-                'cr-tab__disabled': disabled,
-                'cr-tab__hidden': hidden,
+            const cn = classnames('cr-tab-custom', {
+                'cr-tab-custom__active': active,
+                'cr-tab-custom__disabled': disabled,
+                'cr-tab-custom__hidden': hidden,
             });
 
             return (
