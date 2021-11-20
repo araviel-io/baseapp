@@ -110,8 +110,8 @@ export const colors = {
             moon: 'var(--icons)',
         },
         orderBook: {
-            asks: 'var(--asks-level-4)',
-            bids: 'var(--bids-level-4)',
+            asks: 'var(--asks-level-1)',
+            bids: 'var(--bids-level-1)',
         },
         depth: {
             fillAreaAsk: 'var(--rgb-asks)',

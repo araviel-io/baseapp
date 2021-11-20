@@ -97,15 +97,15 @@ export const TableCustom: React.FC<TablePropsCustom> = (props: TablePropsCustom)
         rowBackgroundColor = 'rgba(184, 233, 245, 0.7)',
     } = props;
 
-    const cn = React.useMemo(() => classNames('cr-table-header__content-custom', {
-        'cr-table-header__content-empty-custom': !titleComponent && filters.length === 0,
+    const cn = React.useMemo(() => classNames('cr-table-header__content', {
+        'cr-table-header__content-empty': !titleComponent && filters.length === 0,
     }), [titleComponent, filters.length]);
 
     const renderRowCells = React.useCallback((row: CellDataCustom[]) => {
         return row && row.length ?
             row.map((c, index: number) =>
                 <td key={index} colSpan={row.length === 1 ? props.colSpan : undefined}>{c}</td>)
-            : <td className="cr-table-custom--no-data" colSpan={header && header.length}>{formatMessage({ id: 'page.noDataToShow' })}</td>;
+            : <td className="cr-table--no-data" colSpan={header && header.length}>{formatMessage({ id: 'page.noDataToShow' })}</td>;
     }, [header, props.colSpan, formatMessage]);
 
     const handleFilter = React.useCallback((item: FilterCustom) => {
@@ -129,8 +129,8 @@ export const TableCustom: React.FC<TablePropsCustom> = (props: TablePropsCustom)
     }, [onSelect]);
 
     const renderFilters = React.useCallback(() => {
-        const getClassName = (filterName: string) => classNames('cr-table__filter-custom', {
-            'cr-table__filter-custom--active': activeFilter === filterName,
+        const getClassName = (filterName: string) => classNames('cr-table__filter', {
+            'cr-table__filter--active': activeFilter === filterName,
         });
 
         return filters.map((item: FilterCustom) => (
@@ -147,8 +147,8 @@ export const TableCustom: React.FC<TablePropsCustom> = (props: TablePropsCustom)
     const renderHead = React.useCallback((row: CellDataCustom[]) => {
         const cells = row.map((c, index) => c ?  <th key={index}>{c}</th> : <th key={index}>&nbsp;</th>);
         return (
-            <thead className={'cr-table-custom__head'}>
-            <tr className={'cr-table-custom__head-row'}>{cells}</tr>
+            <thead className={'cr-table__head'}>
+            <tr className={'cr-table__head-row'}>{cells}</tr>
             </thead>
         );
     }, []);
@@ -159,9 +159,9 @@ export const TableCustom: React.FC<TablePropsCustom> = (props: TablePropsCustom)
             ...rowBackgroundResult,
             backgroundColor: rowBackgroundColor,
         };
-
+        const borderBtone = side === "left" ? "red" : "green";
         return (rowBackground
-            ? <span key={i} style={style} className="cr-table-background-custom__row" />
+            ? <span key={i} style={{...style,  ...{borderBottom: "1px", borderBottomColor: borderBtone, borderBottomStyle:"solid"}}} className="cr-table-background__row test" />
             : null);
     }, [rowBackground, rowBackgroundColor]);
 
@@ -169,9 +169,9 @@ export const TableCustom: React.FC<TablePropsCustom> = (props: TablePropsCustom)
         const dataToBeMapped = resultData || rows;
         const renderBackgroundRow = (r: CellDataCustom[], i: number) => renderRowBackground(i);
 
-        const className = classNames('cr-table-background-custom', {
-            'cr-table-background-custom--left': side === 'left',
-            'cr-table-background-custom--right': side === 'right',
+        const className = classNames('cr-table-background', {
+            'cr-table-background--left': side === 'left',
+            'cr-table-background--right': side === 'right',
         });
 
         return (
@@ -183,7 +183,7 @@ export const TableCustom: React.FC<TablePropsCustom> = (props: TablePropsCustom)
 
     const renderBody = React.useCallback((rows: CellDataCustom[][], rowKeyIndexValue: number | undefined) => {
         const rowClassName = (key: string) => classNames({
-            'cr-table-custom__row--selected': selectedRowKey === key,
+            'cr-table__row--selected': selectedRowKey === key,
         });
 
         const dataToBeMapped = resultData || rows;
@@ -202,7 +202,7 @@ export const TableCustom: React.FC<TablePropsCustom> = (props: TablePropsCustom)
         });
 
         return (
-            <tbody className={'cr-table-custom__body'}>
+            <tbody className={'cr-table__body'}>
             {rowElements}
             </tbody>
         );
@@ -226,15 +226,15 @@ export const TableCustom: React.FC<TablePropsCustom> = (props: TablePropsCustom)
 
 
     return (
-        <div className="cr-table-container-custom">
+        <div className="cr-table-container">
             <div className={cn}>
-                {titleComponent ? <div className={'cr-title-component-custom'}>{props.titleComponent}</div> : null}
+                {titleComponent ? <div className={'cr-title-component'}>{props.titleComponent}</div> : null}
                 {filters.length
                     ?
-                    <div className="cr-table__filters-custom">{renderFilters()}</div>
+                    <div className="cr-table__filters">{renderFilters()}</div>
                     : null}
             </div>
-            <table className={'cr-table-custom'}>
+            <table className={'cr-table'}>
                 {header && header.length && renderHead(header)}
                 {renderBody(data, rowKeyIndex)}
             </table>
