@@ -115,11 +115,11 @@ export const TickerHighlightLanding: React.FC<Props> = ({
     function displayTopLoser() {
         //console.log("GetCurrencyName issue:", GetCurrencyName(test.name))
         //var bordel = markets;
-        const test = "no top"
+        const loadLoser = "Loading top loser..."
         if (topWinLose.finalLoser.length === 0 ) {
 
             return (
-                <tr><td>{test}</td></tr>
+                <tr><td>{loadLoser}</td></tr>
             )
         } else {
             //console.log("wesh")

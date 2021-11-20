@@ -4,7 +4,7 @@ market box (tradeview box)
 find a proper condition for 'there is no data to show' on different views
 better profile page
 better wallet page
-
+flash / handle prev new value trigger
 Rob feedback :
     Market box : search input in header
     not incremental orderbook

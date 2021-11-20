@@ -451,7 +451,7 @@ export class OrderForm extends React.PureComponent<OrderFormProps, OrderFormStat
                         size="lg"
                         variant={type === 'buy' ? 'success' : 'danger'}
                     >
-                        {submitButtonText || type}
+                        {submitButtonText || type}{' ' + availableCurrency.toUpperCase()}
                     </Button>
                 </div>
             </div>
