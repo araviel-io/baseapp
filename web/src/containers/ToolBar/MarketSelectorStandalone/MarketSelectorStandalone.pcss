@@ -1,5 +1,5 @@
-@import "./MarketsTabs/MarketsTabs.pcss";
-@import "./MarketsList/MarketsList.pcss";
+@import "./MarketsTabsStandalone/MarketsTabsStandalone.pcss";
+@import "./MarketsListStandalone/MarketsListStandalone.pcss";
 
 :root {
   --market-selector-animation-duration: 0.2s;
@@ -17,6 +17,7 @@
     animation-duration: var(--market-selector-animation-duration);
     animation-name: pg-trading-header-selector-search;
     background: var(--market-selector-header-background-color);
+    border-bottom: 5px solid #0a0d13;
     bottom: 0;
     left: 0;
     padding: 6px;
@@ -38,7 +39,7 @@
     font-size: 30px;
     letter-spacing: 46px;
     padding-left: 20px;
-    background-image: linear-gradient(to left, #56c9f9 70%, rgba(255, 255, 255, 0) 0%);
+    background-image: linear-gradient(to left, var(--custom-accent-dark) 70%, rgba(255, 255, 255, 0) 0%);
     background-position: bottom;
     background-size: 62px 5px;
     background-repeat: repeat-x;
