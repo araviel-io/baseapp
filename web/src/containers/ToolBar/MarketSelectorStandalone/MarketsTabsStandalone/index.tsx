@@ -27,7 +27,7 @@ interface State {
 
 type Props = ReduxProps & OwnProps;
 
-export class MarketsTabsComponent extends React.Component<Props, State> {
+export class MarketsTabsStandaloneComponent extends React.Component<Props, State> {
 
     public readonly state = {
         selectedItem: 0,
@@ -109,4 +109,4 @@ const mapStateToProps = (state: RootState): ReduxProps => ({
 });
 
 //tslint:disable-next-line:no-any
-export const MarketsTabs = connect(mapStateToProps, {})(MarketsTabsComponent) as any;
+export const MarketsTabsStandalone = connect(mapStateToProps, {})(MarketsTabsStandaloneComponent) as any;

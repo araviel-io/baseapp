@@ -7,13 +7,12 @@ import {
     selectCurrentMarket,
 
 } from '../../../modules';
-import searchIcon from '../icons/search.svg';
 import {
-    MarketsList,
-} from './MarketsList';
+    MarketsListStandalone,
+} from './MarketsListStandalone';
 import {
-    MarketsTabs,
-} from './MarketsTabs';
+    MarketsTabsStandalone,
+} from './MarketsTabsStandalone';
 
 interface ReduxProps {
     currentMarket?: Market;
@@ -52,8 +51,8 @@ class MarketSelectorStandaloneComponent extends React.Component<ReduxProps, Stat
                             />
                         </div>
                     </div>
-                    <MarketsTabs onSelect={this.marketsTabsSelectHandler} />
-                    <MarketsList search={searchFieldValue} currencyQuote={marketsTabsSelectedValue} />
+                    <MarketsTabsStandalone onSelect={this.marketsTabsSelectHandler} />
+                    <MarketsListStandalone search={searchFieldValue} currencyQuote={marketsTabsSelectedValue} />
                 </div>
             </div>
         );

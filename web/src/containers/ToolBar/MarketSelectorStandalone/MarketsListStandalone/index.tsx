@@ -61,7 +61,7 @@ const handleChangeSortIcon = (sortBy: string, id: string, reverseOrder: boolean)
 
 type Props = ReduxProps & OwnProps & DispatchProps & IntlProps;
 
-class MarketsListComponent extends React.Component<Props, State> {
+class MarketsListStandaloneComponent extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
 
@@ -225,7 +225,7 @@ const mapDispatchToProps = {
     setCurrentPrice,
 };
 
-export const MarketsList = compose(
+export const MarketsListStandalone = compose(
     injectIntl,
     connect(mapStateToProps, mapDispatchToProps),
-)(MarketsListComponent) as any; // tslint:disable-line
+)(MarketsListStandaloneComponent) as any; // tslint:disable-line
