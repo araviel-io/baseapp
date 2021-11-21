@@ -32,26 +32,28 @@ class MarketSelectorStandaloneComponent extends React.Component<ReduxProps, Stat
     };
 
     public render() {
-        
+
         const { searchFieldValue, marketsTabsSelectedValue } = this.state;
 
         return (
             <div className="pg-trading-header-selector-container">
                 <div className={'pg-trading-header-selector-standalone-list-container-open'}>
-                    <MarketsTabs onSelect={this.marketsTabsSelectHandler}/>
-                    <MarketsList search={searchFieldValue} currencyQuote={marketsTabsSelectedValue}/>
-                    <div className={'pg-trading-header-selector-search-wrapper'}>
-                        <div className={'pg-trading-header-selector-search'}>
-                            <div className="pg-trading-header-selector-search-icon">
+                    <div className={'pg-trading-header-selector-standalone-search-wrapper'}>
+                        <div className={'pg-trading-header-selector-standalone-search'}>
+                            {/*<div className="pg-trading-header-selector-search-icon">
                                 <img alt="" src={searchIcon} />
-                            </div>
+                            </div>*/}
                             <input
-                                className="pg-trading-header-selector-search-field"
+                                spellCheck={false}
+                                maxLength={5}
+                                className="pg-trading-header-selector-standalone-search-input-mono"
                                 onChange={this.searchFieldChangeHandler}
                                 value={searchFieldValue}
                             />
                         </div>
                     </div>
+                    <MarketsTabs onSelect={this.marketsTabsSelectHandler} />
+                    <MarketsList search={searchFieldValue} currencyQuote={marketsTabsSelectedValue} />
                 </div>
             </div>
         );

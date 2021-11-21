@@ -20,16 +20,38 @@
     bottom: 0;
     left: 0;
     padding: 6px;
-    position: fixed;
-    width: 436px;
+    //position: fixed;
+    //width: 436px;
     z-index: 20;
   }
 
+  &-search-input-mono {
+    color: white;
+    /* margin: auto; */
+    /* display: block; */
+    background: transparent;
+    border: none!important; 
+    text-align: left;
+    text-transform:uppercase;
+    font-family: monospace;
+    font-weight: 500;
+    font-size: 30px;
+    letter-spacing: 46px;
+    padding-left: 20px;
+    background-image: linear-gradient(to left, #56c9f9 70%, rgba(255, 255, 255, 0) 0%);
+    background-position: bottom;
+    background-size: 62px 5px;
+    background-repeat: repeat-x;
+    background-position-x: 51px;
+    /* width: 220px; */
+    /* min-width: 220px; */
+  }
+
   &-search {
-    border: solid 1px var(--input-border-color);
-    border-radius: 4px;
+    //border: solid 1px var(--input-border-color);
+    //border-radius: 4px;
     display: flex;
-    height: calc(var(--big-gap) * 0.7);
+    //height: calc(var(--big-gap) * 0.7);
     margin: 0;
     overflow: hidden;
 
@@ -110,7 +132,7 @@
   }
 
   &-list-container-open {
-    animation-duration: var(--market-selector-animation-duration);
+  /*  animation-duration: var(--market-selector-animation-duration);
     animation-name: pg-trading-header-selector-list-container-open;
     background: var(--market-selector-background-color);
     bottom: 0;
@@ -123,7 +145,7 @@
     position: absolute;
     top: 64px;
     width: 450px;
-    z-index: 10;
+    z-index: 10;*/
   }
 
   &-list-container-close {
