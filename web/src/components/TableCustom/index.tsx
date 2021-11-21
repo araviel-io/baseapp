@@ -159,7 +159,7 @@ export const TableCustom: React.FC<TablePropsCustom> = (props: TablePropsCustom)
             ...rowBackgroundResult,
             backgroundColor: rowBackgroundColor,
         };
-        const borderBtone = side === "left" ? "red" : "green";
+        const borderBtone = side === "left" ? "#e91c4140" : "#40d09040";
         return (rowBackground
             ? <span key={i} style={{...style,  ...{borderBottom: "1px", borderBottomColor: borderBtone, borderBottomStyle:"solid"}}} className="cr-table-background__row test" />
             : null);

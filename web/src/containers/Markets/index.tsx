@@ -81,7 +81,7 @@ export const MarketsComponent = () => {
         return (
             <div>
                 <div className="cr-table-header__content">
-                    <div className="cr-title-component">{formatMessage({id: 'page.body.trade.header.markets'})}</div>
+                    {/*<div className="cr-title-component">{formatMessage({id: 'page.body.trade.header.markets'})}</div>*/}
                 </div>
                 <Markets
                     filters={false}

@@ -125,6 +125,7 @@ export const Markets = (props: MarketsProps) => {
 
     return (
         <div className="cr-markets">
+            <FilterInput data={props.data} filter={searchFilter} placeholder={filterPlaceholder} />
             <Table
                 data={getTableData}
                 rowKeyIndex={rowKeyIndex}
@@ -133,7 +134,6 @@ export const Markets = (props: MarketsProps) => {
                 header={headers || DEFAULT_MARKET_HEADERS}
                 onSelect={props.onSelect}
             />
-            <FilterInput data={props.data} filter={searchFilter} placeholder={filterPlaceholder} />
         </div>
     );
 };
