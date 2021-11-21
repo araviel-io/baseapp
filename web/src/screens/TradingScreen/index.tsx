@@ -4,6 +4,7 @@ import { connect, MapDispatchToPropsFunction, MapStateToProps } from 'react-redu
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import { SummaryPair } from 'src/containers/SummaryPair';
+import { MarketSelectorStandalone } from 'src/containers/ToolBar/MarketSelectorStandalone';
 import { IntlProps } from '../../';
 import { incrementalOrderBook } from '../../api';
 import { Decimal } from '../../components/Decimal';
@@ -18,6 +19,7 @@ import {
     OrderComponent,
     RecentTrades,
     ToolBar,
+    
 } from '../../containers';
 import { getUrlPart, setDocumentTitle } from '../../helpers';
 import {
@@ -112,9 +114,13 @@ const TradingWrapper = props => {
                 i: 5,
                 render: () => <RecentTrades />,
             },
-            {
+           /* {
                 i: 6,
                 render: () => <MarketsComponent />,
+            },*/
+            {
+                i: 6,
+                render: () => <MarketSelectorStandalone />,
             },
             {
                 i: 7,
