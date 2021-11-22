@@ -62,14 +62,16 @@ export class MarketsTabsComponent extends React.Component<Props, State> {
     };
 
     private renderFastSearchButton = (item: string, index: number) => {
-        const classname = classnames('pg-trading-header-fast-search-button', {
-            'pg-trading-header-fast-search-button-active': this.state.selectedItem === index,
+        const classname = classnames('pg-trading-header-fast-search-standalone-button', {
+            'pg-trading-header-fast-search-standalone-button-active': this.state.selectedItem === index,
         });
 
         return (
             //tslint:disable-next-line
             <div className={classname} key={index} onClick={() => this.handleSelectButton(index)}>
-                {item}
+                <div className="pg-trading-header-fast-search-standalone-arasymbol">
+                    {item}
+                </div>
             </div>
         );
     };
