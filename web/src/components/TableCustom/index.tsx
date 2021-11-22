@@ -96,7 +96,7 @@ export const TableCustom: React.FC<TablePropsCustom> = (props: TablePropsCustom)
         side,
         rowBackgroundColor = 'rgba(184, 233, 245, 0.7)',
     } = props;
-
+    
     const cn = React.useMemo(() => classNames('cr-table-header__content', {
         'cr-table-header__content-empty': !titleComponent && filters.length === 0,
     }), [titleComponent, filters.length]);
@@ -145,9 +145,11 @@ export const TableCustom: React.FC<TablePropsCustom> = (props: TablePropsCustom)
     }, [activeFilter, filters, handleFilter]);
 
     const renderHead = React.useCallback((row: CellDataCustom[]) => {
+        const jsxside = side === "left" ? "lefthead" : "righthead";
+        console.log("jsxside ", jsxside)
         const cells = row.map((c, index) => c ?  <th key={index}>{c}</th> : <th key={index}>&nbsp;</th>);
         return (
-            <thead className={'cr-table__head'}>
+            <thead className={`cr-table__head ${jsxside}`}>
             <tr className={'cr-table__head-row'}>{cells}</tr>
             </thead>
         );
