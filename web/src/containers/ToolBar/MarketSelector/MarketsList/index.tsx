@@ -7,7 +7,7 @@ import { DEFAULT_PERCENTAGE_PRECISION } from 'src/constants';
 import { IntlProps } from '../../../../';
 import { incrementalOrderBook } from '../../../../api';
 import { SortAsc, SortDefault, SortDesc } from '../../../../assets/images/SortIcons';
-import { Decimal, Table } from '../../../../components';
+import { Decimal, TableCMarket } from '../../../../components';
 import {
     depthFetch,
     Market,
@@ -76,7 +76,8 @@ class MarketsListComponent extends React.Component<Props, State> {
 
         return (
             <div className="pg-dropdown-markets-list-container">
-                <Table
+                {/* this table have to be isolated */}
+                <TableCMarket
                     data={data.length > 0 ? data : [[]]}
                     header={this.getHeaders()}
                     onSelect={this.currencyPairSelectHandler}

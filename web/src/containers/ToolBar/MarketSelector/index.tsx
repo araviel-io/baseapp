@@ -49,13 +49,14 @@ class MarketSelectorComponent extends React.Component<ReduxProps, State> {
                 <div className={listClassName}>
                     <div className="pg-trading-header-selector-searchc-container">
                         <div className="pg-trading-header-selector-searchc-container-title">Select market</div>
-                        <div>
+                        
                             <input
+                            placeholder="search"
                                 className="pg-trading-header-selector-searchc-field"
                                 onChange={this.searchFieldChangeHandler}
                                 value={searchFieldValue}
                             />
-                        </div>
+                        
                     </div>
                     <MarketsTabs onSelect={this.marketsTabsSelectHandler} />
                     <MarketsList search={searchFieldValue} currencyQuote={marketsTabsSelectedValue} />
@@ -71,6 +72,7 @@ class MarketSelectorComponent extends React.Component<ReduxProps, State> {
     };
 
     private marketsTabsSelectHandler = value => {
+        //this.isOpen === false;
         this.setState({
             marketsTabsSelectedValue: value,
         });

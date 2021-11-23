@@ -15,16 +15,33 @@
   font-weight:700;
 }
 .pg-trading-header-selector-searchc-field {
-  background: none;
-  position:absolute;
-  right:15px;
-  border: none;
-  color: var(--input-text-color);
-  font-size: calc(var(--big-gap) * 0.25);
-  line-height: calc(var(--big-gap) * 0.25);
-  outline: none;
-  padding: 0 calc(var(--big-gap) * 0.1);
- // width: calc(100% - calc(var(--big-gap) * 5));
+  color: white;
+  position: absolute;
+  right: 25px;
+  /* margin: auto; */
+  /* display: block; */
+  background: transparent;
+  border: none !important;
+  text-align: left;
+  text-transform: uppercase;
+  font-family: monospace;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 22px;
+  padding-left: 18px;
+  background-image: linear-gradient(to left, var(--market-selector-table-background-color) 70%, rgba(255, 255, 255, 0) 0%);
+  background-position: bottom;
+  background-size: 34px 42px;
+  background-repeat: repeat-x;
+  background-position-x: 68px;
+  overflow: hidden;
+  width: 177px;
+  /* min-width: 220px; */
+  &:focus,
+  &:active,
+  &:focus-visible {
+    outline:none;
+  }
 }
 .pg-trading-header-selector {
   align-items: center;

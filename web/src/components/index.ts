@@ -46,6 +46,7 @@ export * from './SignUp';
 export * from './SummaryField';
 export * from './Table';
 export * from './TableCustom';
+export * from './TableCMarket';
 export * from './TabPanel';
 export * from './TabPanelCustom';
 export * from './TickerTable';
