@@ -76,5 +76,33 @@ Access-Control-Allow-Credentials: true
     "amount_precision": 4,
     "price_precision": 4,
     "state": "enabled"
+  },
+    {
+    "id": "safeusd",
+    "name": "SAFE/USD",
+    "base_unit": "safe",
+    "quote_unit": "usd",
+    "ask_fee": "0.0015",
+    "bid_fee": "0.0015",
+    "min_price": "0.0",
+    "max_price": "0.0",
+    "min_amount": "0.0",
+    "amount_precision": 4,
+    "price_precision": 4,
+    "state": "enabled"
+  },
+      {
+    "id": "solusdc",
+    "name": "SOL/USDC",
+    "base_unit": "sol",
+    "quote_unit": "usd",
+    "ask_fee": "0.0015",
+    "bid_fee": "0.0015",
+    "min_price": "0.0",
+    "max_price": "0.0",
+    "min_amount": "0.0",
+    "amount_precision": 4,
+    "price_precision": 4,
+    "state": "enabled"
   }
 ]

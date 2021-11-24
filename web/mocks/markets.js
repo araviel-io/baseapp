@@ -4,4 +4,6 @@ module.exports = [
     'ETH/BTC',
     'DASH/BTC',
     'EUR/USD',
+    'SAFE/USD',
+    'SOL/USDC',
 ]

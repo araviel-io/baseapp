@@ -75,6 +75,8 @@ export interface TablePropsCMarket {
      * Sets colspan count for empty table
      */
     colSpan?: number;
+
+    darker?: boolean;
 }
 
 /**

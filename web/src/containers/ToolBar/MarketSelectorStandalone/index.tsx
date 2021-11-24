@@ -39,12 +39,13 @@ class MarketSelectorStandaloneComponent extends React.Component<ReduxProps, Stat
                 <div className={'pg-trading-header-selector-standalone-list-container-open'}>
                     <div className={'pg-trading-header-selector-standalone-search-wrapper'}>
                         <div className={'pg-trading-header-selector-standalone-search'}>
-                            {/*<div className="pg-trading-header-selector-search-icon">
-                                <img alt="" src={searchIcon} />
-                            </div>*/}
+                            <div className="pg-trading-header-selector-standalone-search-title">
+                                Search
+                            </div>
                             <input
+                                placeholder="search"
                                 spellCheck={false}
-                                maxLength={5}
+                                maxLength={4}
                                 className="pg-trading-header-selector-standalone-search-input-mono"
                                 onChange={this.searchFieldChangeHandler}
                                 value={searchFieldValue}
