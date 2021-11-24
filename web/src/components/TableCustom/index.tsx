@@ -146,7 +146,7 @@ export const TableCustom: React.FC<TablePropsCustom> = (props: TablePropsCustom)
 
     const renderHead = React.useCallback((row: CellDataCustom[]) => {
         const jsxside = side === "left" ? "lefthead" : "righthead";
-        console.log("jsxside ", jsxside)
+        //console.log("jsxside ", jsxside)
         const cells = row.map((c, index) => c ?  <th key={index}>{c}</th> : <th key={index}>&nbsp;</th>);
         return (
             <thead className={`cr-table__head ${jsxside}`}>

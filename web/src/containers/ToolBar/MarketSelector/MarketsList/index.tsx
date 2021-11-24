@@ -197,7 +197,7 @@ class MarketsListComponent extends React.Component<Props, State> {
             return [
                 market.name,
                 (<div style={{display:"flex", alignItems:"center"}}>
-                    <div><CryptoIcon floating={true} code={this.GetCurrencyName(market.name)}></CryptoIcon></div>
+                    <div><CryptoIcon floating={true} wallet={false} code={this.GetCurrencyName(market.name)}></CryptoIcon></div>
                     <b>{market.name}</b>
                 </div>),
                 (<span className={classname}>{Decimal.format(Number(market.last), market.price_precision, ',')}</span>),

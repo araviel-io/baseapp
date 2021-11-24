@@ -10,7 +10,7 @@ const WalletHeaderComponent = (props: Props) => {
     return (
         <div className="cr-wallet-mobile-header">
             <div>
-                <CryptoIcon className="cr-wallet-item__icon" code={props.currency.toUpperCase()} />
+                <CryptoIcon wallet={true} floating={false} className="cr-wallet-item__icon" code={props.currency.toUpperCase()} />
             </div>
             <div className="cr-wallet-mobile-header__text">
                 <span className="cr-wallet-mobile-header__text-currency">{props.currency}</span>
