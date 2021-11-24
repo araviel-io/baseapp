@@ -27,6 +27,9 @@
         //font-size: calc(var(--gap) * 4);
         font-weight: lighter;
         padding: 10px 12px;
+        &:first-child {
+          text-align:left;
+        }
       }
     }
   }
@@ -42,6 +45,10 @@
         padding: 10px 12px;
         position: relative;
         z-index: 10;
+        &:first-child {
+          text-align:left;
+          display:none;
+        }
       }
     }
 
@@ -51,6 +58,8 @@
   }
 
   &__row {
+
+
     &--selected {
       background: var(--table-row-selector-color);
     }

@@ -72,7 +72,6 @@ class MarketSelectorComponent extends React.Component<ReduxProps, State> {
     };
 
     private marketsTabsSelectHandler = value => {
-        //this.isOpen === false;
         this.setState({
             marketsTabsSelectedValue: value,
         });

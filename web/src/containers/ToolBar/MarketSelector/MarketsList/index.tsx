@@ -3,6 +3,7 @@ import * as React from 'react';
 import { injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { CryptoIcon } from 'src/components/CryptoIcon';
 import { DEFAULT_PERCENTAGE_PRECISION } from 'src/constants';
 import { IntlProps } from '../../../../';
 import { incrementalOrderBook } from '../../../../api';
@@ -131,7 +132,12 @@ class MarketsListComponent extends React.Component<Props, State> {
             </span>
         );
     });
-
+    GetCurrencyName(marketname: string) {
+        let marknameParsed = marketname.substr(0, marketname.indexOf('/'));
+        //console.log(marknameParsed);
+        return marknameParsed;
+    
+    }
     private mapMarkets() {
         const { markets, marketTickers, search, currencyQuote, user: {role} } = this.props;
         const defaultTicker = {
@@ -190,6 +196,10 @@ class MarketsListComponent extends React.Component<Props, State> {
 
             return [
                 market.name,
+                (<div style={{display:"flex", alignItems:"center"}}>
+                    <div><CryptoIcon floating={true} code={this.GetCurrencyName(market.name)}></CryptoIcon></div>
+                    <b>{market.name}</b>
+                </div>),
                 (<span className={classname}>{Decimal.format(Number(market.last), market.price_precision, ',')}</span>),
                 (<span>{Decimal.format(Number(market.volume), market.price_precision, ',')}</span>),
                 (<span className={classname}>

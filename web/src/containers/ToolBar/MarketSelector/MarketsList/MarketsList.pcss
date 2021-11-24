@@ -4,17 +4,17 @@
   overflow-y: scroll;
   padding-right: 5px;
 
-  .cr-table thead th {
+  .cr-table-fmarket thead th {
     top: 0;
   }
 
-  .cr-table tbody td {
+  .cr-table-fmarket tbody td {
     background-color: var(--market-selector-table-background-color);
     color: var(--market-selector-table-text-color);
     width: calc(100% / 4);
   }
 
-  .cr-table tbody .cr-table__row--selected td {
+  .cr-table-fmarket tbody .cr-table-fmarket__row--selected td {
     background-color: var(--market-selector-table-row-selector);
 
     &:first-child {
@@ -33,15 +33,17 @@
     text-align: right;
   }
 
-  .cr-table tr {
+  .cr-table-fmarket tr {
     cursor: pointer;
 
     &:hover {
-      background: transparent;
-
+      //background: transparent;
+      //background-color: red;
       td {
-        background-color: var(--market-selector-table-row-selector-hover);
         color: var(--market-selector-table-text-color-hover);
+        &:second-child {
+        color: var(--market-selector-table-text-color-hover);
+      }
       }
     }
   }
