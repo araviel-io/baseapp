@@ -7,4 +7,5 @@ module.exports = [
     'SAFE/USD',
     'SOL/USDC',
     'VRSC/SAFE',
+    'VDL/USDC',
 ]

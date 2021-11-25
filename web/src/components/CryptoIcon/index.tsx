@@ -24,7 +24,7 @@ export const CryptoIcon: React.FunctionComponent<CryptoIconProps> = (props) => {
     if (floating) {
         return (
             <span className={cx('cr-crypto-icon', className)}>
-                <img style={{ width: "18px", marginRight: "6px" }} src={icon} alt={code} /> {children}
+                <img style={{ width: "23px", marginRight: "6px" }} src={icon} alt={code} /> {children}
             </span>
         );
     }
@@ -38,7 +38,7 @@ export const CryptoIcon: React.FunctionComponent<CryptoIconProps> = (props) => {
     else {
         return (
             <span className={cx('cr-crypto-icon', className)}>
-                <img style={{ width: "18px", marginRight: "6px" }} src={icon} alt={code} /> {children}
+                <img style={{ width: "21px", marginRight: "6px" }} src={icon} alt={code} /> {children}
             </span>
         );
     }

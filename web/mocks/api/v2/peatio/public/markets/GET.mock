@@ -91,7 +91,7 @@ Access-Control-Allow-Credentials: true
     "price_precision": 4,
     "state": "enabled"
   },
-      {
+  {
     "id": "solusdc",
     "name": "SOL/USDC",
     "base_unit": "sol",
@@ -105,11 +105,39 @@ Access-Control-Allow-Credentials: true
     "price_precision": 4,
     "state": "enabled"
   },
-        {
+  {
     "id": "vrscsafe",
     "name": "VRSC/SAFE",
     "base_unit": "vrsc",
     "quote_unit": "safe",
+    "ask_fee": "0.0015",
+    "bid_fee": "0.0015",
+    "min_price": "0.0",
+    "max_price": "0.0",
+    "min_amount": "0.0",
+    "amount_precision": 4,
+    "price_precision": 4,
+    "state": "enabled"
+  },
+    {
+    "id": "safebusd",
+    "name": "SAFE/BUSD",
+    "base_unit": "safe",
+    "quote_unit": "busd",
+    "ask_fee": "0.0015",
+    "bid_fee": "0.0015",
+    "min_price": "0.0",
+    "max_price": "0.0",
+    "min_amount": "0.0",
+    "amount_precision": 4,
+    "price_precision": 4,
+    "state": "enabled"
+  },
+    {
+    "id": "vdlusdc",
+    "name": "VDL/USDC",
+    "base_unit": "vdl",
+    "quote_unit": "usdc",
     "ask_fee": "0.0015",
     "bid_fee": "0.0015",
     "min_price": "0.0",

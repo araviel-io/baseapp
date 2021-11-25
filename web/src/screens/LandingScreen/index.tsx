@@ -73,24 +73,41 @@ class Landing extends React.Component<Props> {
         navBackground: null,
         offSet: null,
         getElement: null,
-        isnavbarTop: true,
+        isatTop: true,
+        isStickyied: false,
     };
 
     public componentDidMount() {
 
         // change navbar background while scrolling
         document.addEventListener("scroll", () => {
-            const backgroundcolor = window.scrollY < 100 ? "none" : "white";
-            const isNavbarTop = window.scrollY < 100 ? true : false;
-            //console.log("scroll")
-            this.setState({ navBackground: backgroundcolor });
-            this.setState({ isnavbarTop: isNavbarTop });
+            // ref https://upmostly.com/tutorials/settimeout-in-react-components-using-hooks
+            const backgroundcolor = window.scrollY < 50 ? "none" : "white";
+            const isAtTop = window.scrollY < 50 ? true : false;
+            //console.log("state : ", isAtTop)
+            if (this.state.isStickyied === true && isAtTop === true) {
+                console.log("TRIGGER DESTICK")
+                const issticky = false;
+                this.setState({ isStickyied: issticky });
+                this.setState({ navBackground: backgroundcolor });
+                this.setState({ isatTop: isAtTop });
+            } else {
+                console.log("ITS STICKED")
+                //const issticky = true;
+                if (this.state.isStickyied === false && isAtTop === false) {
+                    //means scrolling
+                    const issticky = true;
+                    //this.isStickyied = true;
+                    this.setState({ isStickyied: issticky });
+                    this.setState({ navBackground: backgroundcolor });
+                    this.setState({ isatTop: isAtTop });
+                }
+            }
         });
         if (this.props.colorTheme === 'dark') {
-            toggleColorTheme('light');
+            //toggleColorTheme('light');
         }
     }
-
     public componentWillReceiveProps(next: Props) {
         if (next.colorTheme === 'dark') {
             toggleColorTheme('light');
@@ -108,7 +125,7 @@ class Landing extends React.Component<Props> {
         return (
             <div className="pg-landing-screen">
                 {/* NAVBAR */}
-                <div className={`pg-landing-screen__header ${this.state.isnavbarTop ? "" : "shadow-lg"}`} style={{ background: this.state.navBackground }}>
+                <div className={`pg-landing-screen__header ${this.state.isatTop ? "" : "shadow-lg"}`} style={{ background: this.state.navBackground }}>
                     <div className="pg-landing-screen__header__wrap">
                         <div className="pg-landing-screen__header__wrap__left" onClick={(e) => this.handleScrollTop()}>
                             <a href="/">
@@ -417,7 +434,7 @@ class Landing extends React.Component<Props> {
                                     <div>{this.translate('page.body.landing.starttrade.item.step3')}</div>
                                 </div>
                             </div>
-                        <a className="landing-button inverted" href="/signup">{this.translate('page.body.landing.starttrade.item.button')}</a>
+                            <a className="landing-button inverted" href="/signup">{this.translate('page.body.landing.starttrade.item.button')}</a>
                         </div>
                     </div>
                 </div>
