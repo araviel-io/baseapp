@@ -230,7 +230,7 @@ class Landing extends React.Component<Props> {
                                         <span>{this.translate('page.body.landing.features.features.item3.text')}</span>
                                     </div>
                                 </div>
-                                <div className="pg-landing-screen__features__content__row">
+                                {/*<div className="pg-landing-screen__features__content__row">
                                     <div className="pg-landing-screen__features__content__row__item">
                                         <img
                                             src={SafeSupportIcon}
@@ -239,7 +239,7 @@ class Landing extends React.Component<Props> {
                                         <h2>{this.translate('page.body.landing.features.features.item4.title')}</h2>
                                         <span>{this.translate('page.body.landing.features.features.item4.text')}</span>
                                     </div>
-                                </div>
+                                </div>*/}
                             </div>
                         </div>
                     </div>

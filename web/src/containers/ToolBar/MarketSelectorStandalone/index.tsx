@@ -41,7 +41,8 @@ class MarketSelectorStandaloneComponent extends React.Component<ReduxProps, Stat
                         <div className={'pg-trading-header-selector-standalone-search-wrapper'}>
                             <div className={'pg-trading-header-selector-standalone-search'}>
                                 <div className="pg-trading-header-selector-standalone-search-title">
-                                    Search
+                                {/*formatMessage({ id: 'page.body.marketsTable.header.pair' })*/}
+                                Markets
                                 </div>
                                 <input
                                     placeholder="search"
