@@ -37,22 +37,24 @@ class MarketSelectorStandaloneComponent extends React.Component<ReduxProps, Stat
         return (
             <div className="pg-trading-header-selector-container">
                 <div className={'pg-trading-header-selector-standalone-list-container-open'}>
-                    <div className={'pg-trading-header-selector-standalone-search-wrapper'}>
-                        <div className={'pg-trading-header-selector-standalone-search'}>
-                            <div className="pg-trading-header-selector-standalone-search-title">
-                                Search
+                    <div>
+                        <div className={'pg-trading-header-selector-standalone-search-wrapper'}>
+                            <div className={'pg-trading-header-selector-standalone-search'}>
+                                <div className="pg-trading-header-selector-standalone-search-title">
+                                    Search
+                                </div>
+                                <input
+                                    placeholder="search"
+                                    spellCheck={false}
+                                    maxLength={4}
+                                    className="pg-trading-header-selector-standalone-search-input-mono"
+                                    onChange={this.searchFieldChangeHandler}
+                                    value={searchFieldValue}
+                                />
                             </div>
-                            <input
-                                placeholder="search"
-                                spellCheck={false}
-                                maxLength={4}
-                                className="pg-trading-header-selector-standalone-search-input-mono"
-                                onChange={this.searchFieldChangeHandler}
-                                value={searchFieldValue}
-                            />
                         </div>
+                        <MarketsTabsStandalone onSelect={this.marketsTabsSelectHandler} />
                     </div>
-                    <MarketsTabsStandalone onSelect={this.marketsTabsSelectHandler} />
                     <MarketsListStandalone search={searchFieldValue} currencyQuote={marketsTabsSelectedValue} />
                 </div>
             </div>
