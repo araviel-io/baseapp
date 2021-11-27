@@ -21,7 +21,7 @@ const WalletItemComponent = (props: Props) => {
     return (
         <div className="cr-mobile-wallet-item" onClick={() => props.onClick(currency)}>
             <div>
-                <CryptoIcon className="cr-wallet-item__icon" code={currency.toUpperCase()} />
+                <CryptoIcon wallet={false} className="cr-wallet-item__icon" code={currency.toUpperCase()} />
                 <span className="cr-mobile-wallet-item__currency">{currency}</span>
                 <span className="cr-mobile-wallet-item__name">{name}</span>
             </div>

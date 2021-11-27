@@ -102,9 +102,9 @@ class MarketsListStandaloneComponent extends React.Component<Props, State> {
 
     private getHeaders = () => [
         {id: 'id', translationKey: 'market'},
-        {id: 'last', translationKey: 'last_price'},
-        {id: 'volume', translationKey: 'volume'},
         {id: 'price_change_percent_num', translationKey: 'change'},
+        {id: 'volume', translationKey: 'volume'},
+        /*{id: 'price_change_percent_num', translationKey: 'change'}*/,
     ].map(obj => {
         const {sortBy, reverseOrder} = this.state;
 
@@ -189,13 +189,19 @@ class MarketsListStandaloneComponent extends React.Component<Props, State> {
 
             return [
                 market.name,
-                (<span className={classname}>{Decimal.format(Number(market.last), market.price_precision, ',')}</span>),
+                (<>
+                    <div style={{display: "grid"}}>
+                        <span style={{color: "var(--table-text-color)"}}>{Decimal.format(Number(market.last), market.price_precision, ',')}</span>
+                        <span className={classname}>
+                            {market.price_change_percent?.charAt(0)}
+                            {Decimal.format(market.price_change_percent?.slice(1, -1), DEFAULT_PERCENTAGE_PRECISION, ',')}
+                            %
+                        </span>
+                    </div>
+                </>
+                ),
                 (<span className={classname}>{Decimal.format(Number(market.volume), market.price_precision, ',')}</span>),
-                (<span className={classname}>
-                    {market.price_change_percent?.charAt(0)}
-                    {Decimal.format(market.price_change_percent?.slice(1, -1), DEFAULT_PERCENTAGE_PRECISION, ',')}
-                    %
-                </span>),
+               
             ];
         });
     }
