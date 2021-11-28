@@ -4,6 +4,7 @@ import { injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { DEFAULT_PERCENTAGE_PRECISION } from 'src/constants';
+import { CurrentMarketInfo } from 'src/mobile/components';
 import { IntlProps } from '../../../../';
 import { incrementalOrderBook } from '../../../../api';
 import { SortAsc, SortDefault, SortDesc } from '../../../../assets/images/SortIcons';
@@ -193,14 +194,16 @@ class MarketsListStandaloneComponent extends React.Component<Props, State> {
                     <div style={{display: "grid"}}>
                         <span style={{color: "var(--table-text-color)"}}>{Decimal.format(Number(market.last), market.price_precision, ',')}</span>
                         <span className={classname}>
+                            <b>
                             {market.price_change_percent?.charAt(0)}
                             {Decimal.format(market.price_change_percent?.slice(1, -1), DEFAULT_PERCENTAGE_PRECISION, ',')}
                             %
+                            </b>
                         </span>
                     </div>
                 </>
                 ),
-                (<span className={classname}>{Decimal.format(Number(market.volume), market.price_precision, ',')}</span>),
+                (<span style={{color: "var(--table-text-color)"}}><b>{Decimal.format(Number(market.volume), market.price_precision, ',')}</b></span>),
                
             ];
         });

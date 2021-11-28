@@ -131,7 +131,7 @@ const TradingWrapper = props => {
         return data.map((child: GridChildInterface) => (
             <div key={child.i}>
                 
-                {child.i === 4 || child.i === 6
+                {child.i === 4
                     ? <GridItemCustom>{child.render ? child.render() : `Child Body ${child.i}`}</GridItemCustom>
                     : <GridItem>{child.render ? child.render() : `Child Body ${child.i}`}</GridItem>
                 }
