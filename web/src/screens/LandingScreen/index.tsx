@@ -36,7 +36,7 @@ import PartnerCMC from 'src/assets/images/landing/PartnerCMC.svg';
 import PartnerCoinGecko from 'src/assets/images/landing/PartnerCoinGecko.svg';
 import PartnerDelta from 'src/assets/images/landing/PartnerDelta.svg';
 import PartnerCoinPaprika from 'src/assets/images/landing/PartnerCoinPaprika.svg';
-import PartnerBlockfolio from 'src/assets/images/landing/PartnerBlockfolio.svg';
+import PartnerBlockfolio from 'src/assets/images/landing/PartnerBlockFolio.svg';
 import PartnerCryptoCompare from 'src/assets/images/landing/PartnerCryptoCompare.svg';
 
 import FeaturesCustomizeIcon from 'src/assets/images/landing/features/Customize.svg';
