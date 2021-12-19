@@ -105,7 +105,7 @@ class Landing extends React.Component<Props> {
             }
         });
         if (this.props.colorTheme === 'dark') {
-            //toggleColorTheme('light');
+            toggleColorTheme('light');
         }
     }
     public componentWillReceiveProps(next: Props) {
@@ -116,7 +116,7 @@ class Landing extends React.Component<Props> {
 
     public componentWillUnmount() {
         if (this.props.colorTheme === 'light') {
-            toggleColorTheme(this.props.colorTheme);
+            toggleColorTheme('dark');
         }
     }
 
