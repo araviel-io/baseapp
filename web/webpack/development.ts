@@ -70,6 +70,7 @@ const config = merge(commonConfig, {
             children: false,
         },
         hot: true,
+        disableHostCheck: true,
     },
 });
 
