@@ -94,7 +94,7 @@ export const TickerHighlightLanding: React.FC<Props> = ({
 
                 <tr onClick={() => redirectToTrading(topWinLose.finalGainer.id)}>
                     <td>
-                        <div><CryptoIcon code={GetCurrencyName(topWinLose.finalGainer.name)} /> {topWinLose.finalGainer && topWinLose.finalGainer.name}</div>
+                        <div style={{display:"flex"}}><CryptoIcon code={GetCurrencyName(topWinLose.finalGainer.name)} /> {topWinLose.finalGainer && topWinLose.finalGainer.name}</div>
                     </td>
                     <td>
                         <span>
@@ -128,7 +128,7 @@ export const TickerHighlightLanding: React.FC<Props> = ({
 
                 <tr onClick={() => redirectToTrading(topWinLose.finalLoser.id)}>
                     <td>
-                        <div><CryptoIcon code={GetCurrencyName(topWinLose.finalLoser.name)} /> {topWinLose.finalLoser && topWinLose.finalLoser.name}</div>
+                        <div style={{display:"flex"}}><CryptoIcon code={GetCurrencyName(topWinLose.finalLoser.name)} /> {topWinLose.finalLoser && topWinLose.finalLoser.name}</div>
                     </td>
                     <td>
                         <span>
@@ -160,7 +160,7 @@ export const TickerHighlightLanding: React.FC<Props> = ({
 
                 <tr onClick={() => redirectToTrading(topVolume.id)}>
                     <td>
-                        <div><CryptoIcon code={GetCurrencyName(topVolume.name)} /> {topVolume && topVolume.name}</div>
+                        <div style={{display:"flex"}}><CryptoIcon code={GetCurrencyName(topVolume.name)} /> {topVolume && topVolume.name}</div>
                     </td>
                     <td>
                         <span>
